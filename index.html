@@ -111,8 +111,8 @@
             max-width: 1400px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 60px;
             align-items: center;
         }
 
@@ -213,34 +213,62 @@
             box-shadow: 0 0 12px rgba(0,255,170,.8);
         }
 
-        /* mockup hero img */
-       .hero-mockup-wrapper {
-    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.08) 0%, rgba(0,0,0,0) 70%), 
-                linear-gradient(160deg, rgba(0,102,255,.9) 0%, rgba(0,217,184,.6) 80%);
-    border-radius: 24px;
-    padding: 40px 32px;
-    box-shadow:
-        0 40px 100px rgba(0,0,0,.8),
-        0 0 80px rgba(0,217,184,.4);
-    border: 1px solid rgba(255,255,255,.18);
-    max-width: 340px;
-    width: 100%;
-    min-height: 400px;
+        /* mockup hero img - AJUSTADO */
+        .hero-mockup-wrapper {
+            background: radial-gradient(circle at 50% 30%, rgba(255,255,255,.12) 0%, rgba(0,0,0,0) 60%), 
+                        linear-gradient(160deg, rgba(0,102,255,.85) 0%, rgba(0,217,184,.5) 100%);
+            border-radius: 32px;
+            padding: 60px 40px 0;
+            box-shadow:
+                0 50px 120px rgba(0,0,0,.6),
+                0 0 100px rgba(0,217,184,.3),
+                inset 0 1px 0 rgba(255,255,255,.2);
+            border: 1px solid rgba(255,255,255,.15);
+            max-width: 500px;
+            width: 100%;
+            min-height: 550px;
+            
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            animation: float 6s ease-in-out infinite;
+        }
 
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    position: relative;
-}
+        .hero-mockup-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
 
-.hero-mockup {
-    max-width: 260px;
-    width: 100%;
-    filter: drop-shadow(0 25px 40px rgba(0,0,0,.7));
-    border-radius: 0;      /* agora quem tem radius é o wrapper, a pessoa fica “flutuando” */
-    border: 0;
-    box-shadow: none;
-}
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .hero-mockup {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            filter: drop-shadow(0 30px 60px rgba(0,0,0,.5));
+            border-radius: 0;
+            border: 0;
+            box-shadow: none;
+            position: relative;
+            z-index: 1;
+            transform: translateY(20px);
+        }
 
         /* ====== TRUST / SELO ====== */
         .trust-section {
@@ -402,7 +430,7 @@
         .conv-img {
             width: 100%;
             display: block;
-            background-color: #0B5AF5; /* fallback */
+            background-color: #0B5AF5;
         }
         .conv-caption {
             padding: 20px 24px 24px;
@@ -801,9 +829,14 @@
                 gap: 50px;
             }
             .hero-text h1 { font-size: 2rem; }
-            .hero-benefits-inline { grid-template-columns: 1fr 1fr; }
+            .hero-benefits-inline { grid-template-columns: 1fr; }
             .nav-links { display: none; }
             .cta-buttons { flex-direction: column; }
+            .hero-mockup-wrapper {
+                max-width: 100%;
+                min-height: 450px;
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
@@ -863,7 +896,6 @@
             </div>
 
             <div class="hero-mockup-wrapper">
-                <!-- AQUI ENTRA O MOCKUP DO WHATSAPP PRINCIPAL (venda, carrinho etc.) -->
                 <img src="image/conversa.png" alt="Conversa de venda automatizada no WhatsApp" class="hero-mockup"/>
             </div>
         </div>
@@ -885,7 +917,7 @@
         <div class="business-value-inner">
             <div class="section-headline">
                 <h2>Por que empresas crescem mais rápido com o NineChat</h2>
-                <p>Automação que vende, reduz custo e mantém governança. Foco em resultado de negócio, não só em “inbox bonito”.</p>
+                <p>Automação que vende, reduz custo e mantém governança. Foco em resultado de negócio, não só em "inbox bonito".</p>
             </div>
 
             <div class="benefits-grid">
@@ -902,7 +934,7 @@
                 <div class="benefit-card">
                     <div class="benefit-icon">🔥</div>
                     <h3>Lead qualificado</h3>
-                    <p>Identifica intenção (“quero comprar agora”) e direciona o contato quente para o vendedor certo em segundos.</p>
+                    <p>Identifica intenção ("quero comprar agora") e direciona o contato quente para o vendedor certo em segundos.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">📊</div>
@@ -1025,7 +1057,7 @@
                 <div class="integration-card">
                     <div class="integration-title">ERP / Faturamento</div>
                     <div>Consulta pedido, nota fiscal, boleto e status de pagamento direto pelo chat.</div>
-                    <div><strong>Benefício:</strong> cai o volume de “meu pedido saiu?”.</div>
+                    <div><strong>Benefício:</strong> cai o volume de "meu pedido saiu?".</div>
                 </div>
 
                 <div class="integration-card">
@@ -1083,7 +1115,7 @@
                 <div class="feature-icon">💬</div>
                 <h3>Histórico unificado</h3>
                 <p>Todo o contexto do cliente em um só lugar, independente do canal onde ele começou. Busca avançada e exportação em PDF.</p>
-                <div class="feature-metric">Zero “desculpa, pode repetir?”</div>
+                <div class="feature-metric">Zero "desculpa, pode repetir?"</div>
             </div>
 
             <div class="feature-card">
@@ -1150,7 +1182,7 @@
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-a">
-                    Melhor ainda. Nosso modelo não cobra “por usuário logado”. Você escala atendimento sem multiplicar custo fixo por operador.
+                    Melhor ainda. Nosso modelo não cobra "por usuário logado". Você escala atendimento sem multiplicar custo fixo por operador.
                 </div>
             </div>
 
