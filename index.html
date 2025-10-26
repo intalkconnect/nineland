@@ -21,6 +21,9 @@
             --light-gray: #F3F4F6;
             --white: #FFFFFF;
             --bg-gradient: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 60%), radial-gradient(circle at 80% 60%, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 60%);
+            --whatsapp-bg: #e5ddd5;
+            --bubble-me: #d9fdd3;
+            --bubble-other: #ffffff;
         }
 
         body {
@@ -161,13 +164,6 @@
             letter-spacing: -0.04em;
         }
 
-        .hero-text h1 .gradient-text {
-            background: linear-gradient(135deg, #FFFFFF, rgba(255,255,255,0.7));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
         .hero-text p {
             font-size: 1.25rem;
             color: rgba(255,255,255,0.95);
@@ -255,31 +251,156 @@
             box-shadow: 0 0 12px rgba(0,255,170,.8);
         }
 
-        .hero-image {
+        /* Fake phone / Conversa simulada */
+        .hero-phone {
             position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .hero-image::after {
-            content:'';
-            position:absolute;
-            inset:0;
-            border-radius:16px;
-            background: radial-gradient(circle at 50% 0%, rgba(255,255,255,.6) 0%, rgba(255,255,255,0) 70%);
-            mix-blend-mode: screen;
-            pointer-events:none;
-        }
-
-        .dashboard-preview {
             width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.3), 0 0 80px rgba(0,217,184,.4);
-            border: 1px solid rgba(255,255,255,.4);
+            max-width: 360px;
+            margin: 0 auto;
+            border-radius: 32px;
+            background: #111827;
+            padding: 16px;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 80px rgba(0,217,184,.4);
+            border: 2px solid rgba(255,255,255,.1);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .phone-inner {
+            background: var(--whatsapp-bg);
+            border-radius: 24px;
+            overflow: hidden;
+            height: 520px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.4;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        .phone-header {
+            background: #075e54;
+            color: white;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: linear-gradient(135deg,var(--primary),var(--secondary));
+            font-size: 12px;
+            font-weight: 600;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .contact-status {
+            font-size: 0.7rem;
+            opacity: 0.8;
+        }
+
+        .phone-chat {
+            flex: 1;
+            padding: 16px;
+            overflow-y: auto;
+            background: var(--whatsapp-bg);
+        }
+
+        .msg-row {
+            display: flex;
+            margin-bottom: 12px;
+            max-width: 80%;
+        }
+
+        .msg-row.me {
+            margin-left: auto;
+            justify-content: flex-end;
+        }
+
+        .bubble {
+            background: var(--bubble-other);
+            border-radius: 8px;
+            padding: 10px 12px;
+            box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+            position: relative;
+            max-width: 100%;
+        }
+
+        .me .bubble {
+            background: var(--bubble-me);
+        }
+
+        .bubble small {
+            display: block;
+            font-size: 10px;
+            text-align: right;
+            opacity: 0.6;
+            margin-top: 4px;
+        }
+
+        .quick-actions {
+            margin-top: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .quick-btn {
+            background: #fff;
+            border-radius: 999px;
+            padding: 6px 10px;
+            font-size: 10px;
+            border: 1px solid rgba(0,0,0,.08);
+            box-shadow: 0 1px 2px rgba(0,0,0,.1);
+            font-weight: 500;
+        }
+
+        .phone-footer {
+            background: #f0f0f0;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .input-bar {
+            background: #fff;
+            border-radius: 20px;
+            padding: 8px 12px;
+            flex: 1;
+            border: 1px solid rgba(0,0,0,.1);
+            box-shadow: 0 2px 3px rgba(0,0,0,.05) inset;
+            color: #999;
+        }
+
+        .send-btn {
+            background: var(--primary);
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(0,102,255,.4);
         }
 
         /* Trust Section */
@@ -496,78 +617,131 @@
             font-weight: 700;
         }
 
-        /* Screenshots Section */
-        .screenshots-section {
+        /* Conversas simuladas (substitui prints reais) */
+        .conversations-section {
             padding: 120px 5%;
             background: linear-gradient(to bottom, var(--white), var(--light-gray));
         }
 
-        .section-title {
+        .conv-headline {
             text-align: center;
-            font-size: 2.4rem;
-            color: var(--dark);
-            margin-bottom: 20px;
-            font-weight: 700;
-            line-height: 1.2;
+            max-width: 800px;
+            margin: 0 auto 60px;
         }
 
-        .section-subtitle {
-            text-align: center;
+        .conv-headline h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .conv-headline p {
             font-size: 1.1rem;
             color: var(--gray);
-            margin-bottom: 80px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
             line-height: 1.6;
         }
 
-        .screenshots-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-            gap: 60px;
+        .conversations-grid {
             max-width: 1400px;
             margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+            gap: 32px;
         }
 
-        .screenshot-card {
+        .conv-card {
             background: white;
             border-radius: 24px;
-            padding: 48px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.3s;
             border: 1px solid #E5E7EB;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            overflow: hidden;
+            transition: all .3s;
+            display: flex;
+            flex-direction: column;
         }
 
-        .screenshot-card:hover {
-            transform: translateY(-8px);
+        .conv-card:hover {
+            transform: translateY(-6px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.12);
         }
 
-        .screenshot-card h3 {
-            font-size: 1.4rem;
-            color: var(--dark);
-            margin-bottom: 16px;
-            font-weight: 700;
+        .conv-top {
+            padding: 24px 24px 16px;
         }
 
-        .screenshot-card p {
-            color: var(--gray);
-            margin-bottom: 32px;
-            line-height: 1.6;
+        .conv-top h3 {
             font-size: 1rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        .screenshot-card img {
-            width: 100%;
-            border-radius: 12px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-            border: 1px solid #E5E7EB;
+        .conv-top h3 span.emoji {
+            font-size: 1.1rem;
         }
 
-        .screenshot-card img:hover {
-            transform: scale(1.02);
+        .conv-top p {
+            font-size: .9rem;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        .conv-preview {
+            background: var(--whatsapp-bg);
+            border-top: 1px solid rgba(0,0,0,.05);
+            border-bottom: 1px solid rgba(0,0,0,.05);
+            padding: 16px;
+            min-height: 200px;
+        }
+
+        .conv-msg-row {
+            display: flex;
+            margin-bottom: 12px;
+            max-width: 80%;
+            font-size: .8rem;
+            line-height: 1.4;
+        }
+
+        .conv-msg-row.bot .conv-bubble {
+            background: var(--bubble-other);
+            margin-right: auto;
+        }
+
+        .conv-msg-row.user {
+            justify-content: flex-end;
+            margin-left: auto;
+        }
+
+        .conv-msg-row.user .conv-bubble {
+            background: var(--bubble-me);
+        }
+
+        .conv-bubble {
+            border-radius: 8px;
+            padding: 10px 12px;
+            box-shadow: 0 2px 2px rgba(0,0,0,0.15);
+            max-width: 100%;
+        }
+
+        .conv-bubble small {
+            display: block;
+            font-size: .6rem;
+            text-align: right;
+            opacity: .6;
+            margin-top: 4px;
+        }
+
+        .conv-bottom {
+            padding: 16px 24px 24px;
+            font-size: .8rem;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.4;
         }
 
         /* Canais */
@@ -981,10 +1155,6 @@
                 flex-direction: column;
             }
 
-            .features-grid, .screenshots-grid, .benefits-grid {
-                grid-template-columns: 1fr;
-            }
-
             .chatbot-wrapper {
                 grid-template-columns: 1fr;
             }
@@ -995,6 +1165,11 @@
 
             .nichos-header h2 {
                 font-size: 2rem;
+            }
+
+            .hero-phone {
+                max-width: 320px;
+                margin-top: 20px;
             }
         }
     </style>
@@ -1047,9 +1222,67 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-image">
-                <img src="image/dashboard.png" alt="Dashboard NineChat" class="dashboard-preview">
+
+            <!-- Celular simulado com conversa -->
+            <div class="hero-phone">
+                <div class="phone-inner">
+                    <div class="phone-header">
+                        <div class="avatar">BOT</div>
+                        <div class="contact-info">
+                            <div class="contact-name">Atendimento NineChat</div>
+                            <div class="contact-status">online agora</div>
+                        </div>
+                    </div>
+
+                    <div class="phone-chat">
+                        <div class="msg-row bot">
+                            <div class="bubble">
+                                👋 Olá, tudo bem? Sou o assistente automático da Clínica Vida. Você quer:
+                                <div class="quick-actions">
+                                    <div class="quick-btn">Agendar consulta</div>
+                                    <div class="quick-btn">2ª via boleto</div>
+                                    <div class="quick-btn">Falar com atendente</div>
+                                </div>
+                                <small>09:12</small>
+                            </div>
+                        </div>
+
+                        <div class="msg-row me">
+                            <div class="bubble">
+                                Agendar retorno com o Dr. Ricardo, ainda hoje se possível
+                                <small>09:12</small>
+                            </div>
+                        </div>
+
+                        <div class="msg-row bot">
+                            <div class="bubble">
+                                Perfeito 👍 Encontrei vaga hoje às 15h15 ou 18h40. Qual prefere confirmar?
+                                <small>09:12</small>
+                            </div>
+                        </div>
+
+                        <div class="msg-row me">
+                            <div class="bubble">
+                                15h15
+                                <small>09:13</small>
+                            </div>
+                        </div>
+
+                        <div class="msg-row bot">
+                            <div class="bubble">
+                                Agendado ✅ Seu número de protocolo é #48211. Vou te lembrar 1h antes para evitar no-show. Precisa de mais alguma coisa?
+                                <small>09:13</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="phone-footer">
+                        <div class="input-bar">Digite uma mensagem...</div>
+                        <div class="send-btn">➤</div>
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -1142,30 +1375,142 @@
         </div>
     </section>
 
-    <!-- Screenshots -->
-    <section class="screenshots-section">
-        <h2 class="section-title">Plataforma Completa e Intuitiva</h2>
-        <p class="section-subtitle">Interface desenhada pra escalar atendimento sem perder controle da operação</p>
-        <div class="screenshots-grid">
-            <div class="screenshot-card">
-                <h3>📊 Dashboard de Performance</h3>
-                <p>Métricas em tempo real, SLA, gráficos e KPIs consolidados para você decidir com dados — não com achismo.</p>
-                <img src="image/dashboard.png" alt="Dashboard">
+    <!-- Conversas simuladas em cards (prova de casos de uso) -->
+    <section class="conversations-section">
+        <div class="conv-headline">
+            <h2>Casos reais de uso no WhatsApp</h2>
+            <p>Vendas, suporte, cobrança e agendamento rodando sozinhos — e só o que é crítico vai pro humano certo.</p>
+        </div>
+
+        <div class="conversations-grid">
+            <!-- Venda imediata -->
+            <div class="conv-card">
+                <div class="conv-top">
+                    <h3><span class="emoji">🛒</span> Conversa de Venda / E-commerce</h3>
+                    <p>O bot identifica intenção de compra e acelera o fechamento sem fila de atendimento.</p>
+                </div>
+                <div class="conv-preview">
+                    <div class="conv-msg-row bot">
+                        <div class="conv-bubble">
+                            Oi 👋 Vi que você adicionou o Tênis AirMax 42 no carrinho e não finalizou. Posso gerar um link com 5% off agora pra você?
+                            <small>10:21</small>
+                        </div>
+                    </div>
+                    <div class="conv-msg-row user">
+                        <div class="conv-bubble">
+                            Quero!
+                            <small>10:21</small>
+                        </div>
+                    </div>
+                    <div class="conv-msg-row bot">
+                        <div class="conv-bubble">
+                            Pronto ✅ Aqui está seu link de pagamento seguro. Entrega em até 2 dias úteis 🚚
+                            <small>10:21</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="conv-bottom">
+                    Recupera carrinho perdido sem precisar de vendedor humano.
+                </div>
             </div>
-            <div class="screenshot-card">
-                <h3>🗺️ Jornada do Cliente</h3>
-                <p>Entenda de onde veio o lead, por onde passou e onde travou. Otimize conversão com base no fluxo real.</p>
-                <img src="image/tracker.png" alt="Journey">
+
+            <!-- Suporte / pós-venda -->
+            <div class="conv-card">
+                <div class="conv-top">
+                    <h3><span class="emoji">📦</span> Suporte de Pedido</h3>
+                    <p>Status de entrega e segunda via sem ocupar o time inteiro.</p>
+                </div>
+                <div class="conv-preview">
+                    <div class="conv-msg-row user">
+                        <div class="conv-bubble">
+                            Bom dia! Meu pedido #49211 já saiu para entrega?
+                            <small>14:02</small>
+                        </div>
+                    </div>
+                    <div class="conv-msg-row bot">
+                        <div class="conv-bubble">
+                            Já sim 😄 Saiu hoje às 13:47 pela FastLog e deve chegar amanhã até 18h. Quer receber atualizações por aqui?
+                            <small>14:02</small>
+                        </div>
+                    </div>
+                    <div class="conv-msg-row user">
+                        <div class="conv-bubble">
+                            Quero sim
+                            <small>14:03</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="conv-bottom">
+                    Diminui drasticamente “meu pedido saiu?” no WhatsApp do suporte.
+                </div>
             </div>
-            <div class="screenshot-card">
-                <h3>📢 Campanhas em Massa</h3>
-                <p>Envie mensagens em escala para quem faz sentido — e acompanhe abertura, resposta e retorno.</p>
-                <img src="image/campanhas.png" alt="Campanhas">
+
+            <!-- Cobrança / financeiro -->
+            <div class="conv-card">
+                <div class="conv-top">
+                    <h3><span class="emoji">💸</span> Cobrança Automática</h3>
+                    <p>Financeiro sem constrangimento humano + lembrete inteligente reduz inadimplência.</p>
+                </div>
+                <div class="conv-preview">
+                    <div class="conv-msg-row bot">
+                        <div class="conv-bubble">
+                            Olá, João! 💚 Consta aqui que sua mensalidade de setembro (R$ 389,00) está em aberto. Deseja gerar um novo boleto ou pagar via PIX agora?
+                            <small>08:17</small>
+                        </div>
+                    </div>
+                    <div class="conv-msg-row user">
+                        <div class="conv-bubble">
+                            PIX
+                            <small>08:17</small>
+                        </div>
+                    </div>
+                    <div class="conv-msg-row bot">
+                        <div class="conv-bubble">
+                            Aqui está seu QR Code PIX válido por 30 min 🔒 Após pagamento, sua liberação é automática.
+                            <small>08:17</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="conv-bottom">
+                    Cobrança sem ligar pro cliente e sem depender de planilha.
+                </div>
             </div>
-            <div class="screenshot-card">
-                <h3>💬 Histórico Completo</h3>
-                <p>Conformidade e contexto. Todo o histórico centralizado, pesquisável e exportável.</p>
-                <img src="image/historico.png" alt="Histórico">
+
+            <!-- Agendamento / clínica -->
+            <div class="conv-card">
+                <div class="conv-top">
+                    <h3><span class="emoji">🏥</span> Agendamento de Clínica</h3>
+                    <p>Agenda consulta, confirma presença e reduz no-show — tudo pelo WhatsApp.</p>
+                </div>
+                <div class="conv-preview">
+                    <div class="conv-msg-row bot">
+                        <div class="conv-bubble">
+                            Olá! Sou o assistente da Clínica Vida 🏥 Você quer agendar, remarcar ou falar com um humano?
+                            <small>09:12</small>
+                        </div>
+                    </div>
+                    <div class="conv-msg-row user">
+                        <div class="conv-bubble">
+                            Remarcar
+                            <small>09:12</small>
+                        </div>
+                    </div>
+                    <div class="conv-msg-row bot">
+                        <div class="conv-bubble">
+                            Sem problema 🙌 Tenho vaga amanhã às 10h40 ou 14h15. Qual prefere confirmar?
+                            <small>09:12</small>
+                        </div>
+                    </div>
+                    <div class="conv-msg-row user">
+                        <div class="conv-bubble">
+                            14h15
+                            <small>09:13</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="conv-bottom">
+                    Operação roda sozinha fora do horário comercial.
+                </div>
             </div>
         </div>
     </section>
@@ -1482,7 +1827,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.feature-card, .channel-card, .stat-card, .screenshot-card, .benefit-card, .nicho-card, .integration-card').forEach(el => {
+        document.querySelectorAll('.feature-card, .channel-card, .stat-card, .benefit-card, .nicho-card, .integration-card, .conv-card').forEach(el => {
             observer.observe(el);
         });
 
