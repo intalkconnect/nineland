@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NineChat - Plataforma Omnichannel Oficial Meta</title>
+    <title>NineChat - Plataforma Oficial de Atendimento Omnichannel</title>
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        /* ====== suas variáveis e base ====== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --primary: #0066FF;
@@ -20,10 +18,9 @@
             --gray: #6B7280;
             --light-gray: #F3F4F6;
             --white: #FFFFFF;
-            --bg-gradient: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 60%), radial-gradient(circle at 80% 60%, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 60%);
-            --whatsapp-bg: #e5ddd5;
-            --bubble-me: #d9fdd3;
-            --bubble-other: #ffffff;
+
+            --bg-gradient: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 60%),
+                           radial-gradient(circle at 80% 60%, rgba(255,255,255,0.08) 0%, rgba(0,0,0,0) 60%);
         }
 
         body {
@@ -34,7 +31,7 @@
             background-color: var(--white);
         }
 
-        /* Navegação */
+        /* ====== NAV ====== */
         nav {
             position: fixed;
             top: 0;
@@ -55,24 +52,10 @@
             box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .logo-container { display: flex; align-items: center; gap: 12px; }
+        .logo { height: 36px; width: auto; object-fit: contain; }
 
-        .logo {
-            height: 36px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 32px;
-            list-style: none;
-        }
-
+        .nav-links { display: flex; gap: 32px; list-style: none; }
         .nav-links a {
             color: white;
             text-decoration: none;
@@ -81,10 +64,7 @@
             font-size: 15px;
             opacity: .9;
         }
-
-        .nav-links a:hover {
-            opacity: 1;
-        }
+        .nav-links a:hover { opacity: 1; }
 
         .cta-nav {
             background: var(--white);
@@ -98,13 +78,12 @@
             font-size: 15px;
             box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3), 0 10px 30px rgba(0,0,0,0.4);
         }
-
         .cta-nav:hover {
             transform: translateY(-2px) scale(1.03);
             box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4), 0 20px 40px rgba(0,0,0,0.5);
         }
 
-        /* Hero Section */
+        /* ====== HERO ====== */
         .hero {
             background: linear-gradient(135deg, #0066FF 0%, #00D9B8 100%);
             min-height: 100vh;
@@ -149,14 +128,13 @@
             box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
             animation: pulse-badge 2s ease-in-out infinite;
         }
-
         @keyframes pulse-badge {
             0%, 100% { transform: scale(1); }
             50% { transform: scale(1.05); }
         }
 
         .hero-text h1 {
-            font-size: 3.8rem;
+            font-size: 3.2rem;
             color: white;
             margin-bottom: 24px;
             line-height: 1.1;
@@ -165,7 +143,7 @@
         }
 
         .hero-text p {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             color: rgba(255,255,255,0.95);
             margin-bottom: 32px;
             line-height: 1.7;
@@ -193,16 +171,9 @@
             padding: 10px 16px;
             backdrop-filter: blur(8px);
         }
+        .hero-benefit-pill span.emoji { font-size: 1rem; }
 
-        .hero-benefit-pill span.emoji {
-            font-size: 1rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
+        .cta-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
 
         .btn-primary {
             padding: 18px 40px;
@@ -221,7 +192,6 @@
             color: var(--primary);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
-
         .btn-primary:hover {
             transform: translateY(-3px) scale(1.03);
             box-shadow: 0 12px 35px rgba(0,0,0,0.25);
@@ -236,174 +206,28 @@
             color: rgba(255,255,255,.8);
             font-size: .9rem;
         }
-
-        .trust-bullet {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
+        .trust-bullet { display: flex; align-items: center; gap: 8px; }
         .trust-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
+            width: 10px; height: 10px; border-radius: 50%;
             background: linear-gradient(135deg, #00ff85, #00D9B8);
             box-shadow: 0 0 12px rgba(0,255,170,.8);
         }
 
-        /* Fake phone / Conversa simulada */
-        .hero-phone {
-            position: relative;
-            width: 100%;
+        /* mockup hero img */
+        .hero-mockup-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-mockup {
             max-width: 360px;
-            margin: 0 auto;
+            width: 100%;
             border-radius: 32px;
-            background: #111827;
-            padding: 16px;
             box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 80px rgba(0,217,184,.4);
             border: 2px solid rgba(255,255,255,.1);
         }
 
-        .phone-inner {
-            background: var(--whatsapp-bg);
-            border-radius: 24px;
-            overflow: hidden;
-            height: 520px;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            font-size: 14px;
-            line-height: 1.4;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-
-        .phone-header {
-            background: #075e54;
-            color: white;
-            padding: 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: linear-gradient(135deg,var(--primary),var(--secondary));
-            font-size: 12px;
-            font-weight: 600;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .contact-name {
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-        .contact-status {
-            font-size: 0.7rem;
-            opacity: 0.8;
-        }
-
-        .phone-chat {
-            flex: 1;
-            padding: 16px;
-            overflow-y: auto;
-            background: var(--whatsapp-bg);
-        }
-
-        .msg-row {
-            display: flex;
-            margin-bottom: 12px;
-            max-width: 80%;
-        }
-
-        .msg-row.me {
-            margin-left: auto;
-            justify-content: flex-end;
-        }
-
-        .bubble {
-            background: var(--bubble-other);
-            border-radius: 8px;
-            padding: 10px 12px;
-            box-shadow: 0 2px 2px rgba(0,0,0,0.15);
-            position: relative;
-            max-width: 100%;
-        }
-
-        .me .bubble {
-            background: var(--bubble-me);
-        }
-
-        .bubble small {
-            display: block;
-            font-size: 10px;
-            text-align: right;
-            opacity: 0.6;
-            margin-top: 4px;
-        }
-
-        .quick-actions {
-            margin-top: 8px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .quick-btn {
-            background: #fff;
-            border-radius: 999px;
-            padding: 6px 10px;
-            font-size: 10px;
-            border: 1px solid rgba(0,0,0,.08);
-            box-shadow: 0 1px 2px rgba(0,0,0,.1);
-            font-weight: 500;
-        }
-
-        .phone-footer {
-            background: #f0f0f0;
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .input-bar {
-            background: #fff;
-            border-radius: 20px;
-            padding: 8px 12px;
-            flex: 1;
-            border: 1px solid rgba(0,0,0,.1);
-            box-shadow: 0 2px 3px rgba(0,0,0,.05) inset;
-            color: #999;
-        }
-
-        .send-btn {
-            background: var(--primary);
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            font-weight: 600;
-            box-shadow: 0 10px 20px rgba(0,102,255,.4);
-        }
-
-        /* Trust Section */
+        /* ====== TRUST / SELO ====== */
         .trust-section {
             background: var(--white);
             padding: 60px 5% 20px;
@@ -420,7 +244,7 @@
             padding: 20px 40px;
             border-radius: 60px;
             border: 2px solid var(--primary);
-            margin-bottom: 30px;
+            margin-bottom: 24px;
         }
 
         .meta-partner-badge img {
@@ -435,52 +259,41 @@
             font-size: 1.2rem;
         }
 
-        .trust-section p {
+        .trust-metrics {
             color: var(--gray);
-            font-size: 1.05rem;
+            font-size: 1rem;
             font-weight: 500;
             max-width: 800px;
             margin: 0 auto 20px;
             line-height: 1.6;
         }
 
-        /* Benefícios / Por que chatbot */
-        .chatbot-benefits {
+        /* ====== VALOR DE NEGÓCIO TOP ====== */
+        .business-value {
             background: var(--light-gray);
-            padding: 120px 5%;
+            padding: 100px 5%;
         }
-
-        .chatbot-wrapper {
+        .business-value-inner {
             max-width: 1200px;
             margin: 0 auto;
-            display: grid;
-            grid-template-columns: minmax(300px, 1fr) 2fr;
-            gap: 60px;
         }
 
-        .chatbot-intro h2 {
-            font-size: 2.4rem;
+        .section-headline {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 50px;
+        }
+        .section-headline h2 {
+            font-size: 2rem;
             font-weight: 700;
             color: var(--dark);
-            margin-bottom: 20px;
             line-height: 1.2;
+            margin-bottom: 16px;
         }
-
-        .chatbot-intro p {
+        .section-headline p {
             color: var(--gray);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.6;
-            margin-bottom: 24px;
-        }
-
-        .chatbot-intro .note {
-            background: white;
-            border-left: 4px solid var(--primary);
-            border-radius: 12px;
-            padding: 16px 20px;
-            font-size: .95rem;
-            color: var(--dark);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .benefits-grid {
@@ -488,7 +301,6 @@
             grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
             gap: 24px;
         }
-
         .benefit-card {
             background: white;
             border-radius: 20px;
@@ -497,13 +309,11 @@
             padding: 28px 28px 24px;
             transition: all .3s;
         }
-
         .benefit-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.08);
             border-color: var(--primary);
         }
-
         .benefit-icon {
             width: 50px;
             height: 50px;
@@ -513,111 +323,23 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 16px;
         }
-
         .benefit-card h3 {
-            font-size: 1.15rem;
-            color: var(--dark);
+            font-size: 1rem;
             font-weight: 700;
+            color: var(--dark);
             margin-bottom: 10px;
         }
-
         .benefit-card p {
             color: var(--gray);
             font-size: .95rem;
             line-height: 1.6;
         }
 
-        /* Nichos que mais ganham */
-        .nichos {
-            padding: 120px 5%;
-            background: var(--white);
-        }
-
-        .nichos-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px;
-        }
-
-        .nichos-header h2 {
-            font-size: 2.4rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 20px;
-        }
-
-        .nichos-header p {
-            color: var(--gray);
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        .nichos-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            gap: 24px;
-            grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-        }
-
-        .nicho-card {
-            border-radius: 16px;
-            border: 1px solid #E5E7EB;
-            padding: 24px 24px 20px;
-            background: linear-gradient(135deg, #fff 0%, #f9fafb 100%);
-            transition: all .3s;
-            position: relative;
-            box-shadow: 0 8px 30px rgba(0,0,0,.04);
-        }
-
-        .nicho-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 50px rgba(0,0,0,.08);
-            border-color: var(--primary);
-        }
-
-        .nicho-card .tag {
-            font-size: .75rem;
-            font-weight: 600;
-            color: var(--primary);
-            background: rgba(0,102,255,.07);
-            border: 1px solid rgba(0,102,255,.2);
-            padding: 4px 10px;
-            border-radius: 999px;
-            display: inline-block;
-            margin-bottom: 12px;
-        }
-
-        .nicho-card h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 10px;
-        }
-
-        .nicho-card ul {
-            color: var(--gray);
-            font-size: .9rem;
-            line-height: 1.5;
-            list-style: none;
-        }
-
-        .nicho-card ul li {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-
-        .nicho-card ul li span.bullet {
-            color: var(--secondary);
-            font-weight: 700;
-        }
-
-        /* Conversas simuladas (substitui prints reais) */
+        /* ====== CASOS DE USO (IMAGENS MOCKADAS WHATSAPP) ====== */
         .conversations-section {
             padding: 120px 5%;
             background: linear-gradient(to bottom, var(--white), var(--light-gray));
@@ -628,17 +350,15 @@
             max-width: 800px;
             margin: 0 auto 60px;
         }
-
         .conv-headline h2 {
-            font-size: 2.4rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--dark);
             line-height: 1.2;
             margin-bottom: 20px;
         }
-
         .conv-headline p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             color: var(--gray);
             line-height: 1.6;
         }
@@ -650,7 +370,6 @@
             grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
             gap: 32px;
         }
-
         .conv-card {
             background: white;
             border-radius: 24px;
@@ -661,17 +380,19 @@
             display: flex;
             flex-direction: column;
         }
-
         .conv-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 60px rgba(0,0,0,0.12);
         }
-
-        .conv-top {
-            padding: 24px 24px 16px;
+        .conv-img {
+            width: 100%;
+            display: block;
+            background-color: #0B5AF5; /* fallback */
         }
-
-        .conv-top h3 {
+        .conv-caption {
+            padding: 20px 24px 24px;
+        }
+        .conv-caption h3 {
             font-size: 1rem;
             font-weight: 700;
             color: var(--dark);
@@ -680,136 +401,93 @@
             align-items: center;
             gap: 8px;
         }
-
-        .conv-top h3 span.emoji {
-            font-size: 1.1rem;
-        }
-
-        .conv-top p {
+        .conv-caption p {
             font-size: .9rem;
             color: var(--gray);
             line-height: 1.5;
         }
 
-        .conv-preview {
-            background: var(--whatsapp-bg);
-            border-top: 1px solid rgba(0,0,0,.05);
-            border-bottom: 1px solid rgba(0,0,0,.05);
-            padding: 16px;
-            min-height: 200px;
-        }
-
-        .conv-msg-row {
-            display: flex;
-            margin-bottom: 12px;
-            max-width: 80%;
-            font-size: .8rem;
-            line-height: 1.4;
-        }
-
-        .conv-msg-row.bot .conv-bubble {
-            background: var(--bubble-other);
-            margin-right: auto;
-        }
-
-        .conv-msg-row.user {
-            justify-content: flex-end;
-            margin-left: auto;
-        }
-
-        .conv-msg-row.user .conv-bubble {
-            background: var(--bubble-me);
-        }
-
-        .conv-bubble {
-            border-radius: 8px;
-            padding: 10px 12px;
-            box-shadow: 0 2px 2px rgba(0,0,0,0.15);
-            max-width: 100%;
-        }
-
-        .conv-bubble small {
-            display: block;
-            font-size: .6rem;
-            text-align: right;
-            opacity: .6;
-            margin-top: 4px;
-        }
-
-        .conv-bottom {
-            padding: 16px 24px 24px;
-            font-size: .8rem;
-            color: var(--primary);
-            font-weight: 600;
-            line-height: 1.4;
-        }
-
-        /* Canais */
-        .channels {
-            background: var(--white);
+        /* ====== NICHOS / SETORES ====== */
+        .nichos {
             padding: 120px 5%;
+            background: var(--white);
+        }
+        .nichos-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+        .nichos-header h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        .nichos-header p {
+            color: var(--gray);
+            font-size: 1.05rem;
+            line-height: 1.6;
         }
 
-        .channels-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 32px;
+        .nichos-grid {
             max-width: 1200px;
             margin: 0 auto;
+            display: grid;
+            gap: 24px;
+            grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
         }
-
-        .channel-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 20px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 2px solid transparent;
+        .nicho-card {
+            border-radius: 16px;
+            border: 1px solid #E5E7EB;
+            padding: 24px 24px 20px;
+            background: linear-gradient(135deg, #fff 0%, #f9fafb 100%);
+            transition: all .3s;
+            position: relative;
+            box-shadow: 0 8px 30px rgba(0,0,0,.04);
         }
-
-        .channel-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+        .nicho-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0,0,0,.08);
             border-color: var(--primary);
         }
-
-        .channel-icon {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 24px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2.5rem;
-            color: white;
+        .nicho-card .tag {
+            font-size: .75rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(0,102,255,.07);
+            border: 1px solid rgba(0,102,255,.2);
+            padding: 4px 10px;
+            border-radius: 999px;
+            display: inline-block;
+            margin-bottom: 12px;
         }
-
-        .channel-card h3 {
-            font-size: 1.05rem;
+        .nicho-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
             color: var(--dark);
+            margin-bottom: 10px;
+        }
+        .nicho-card ul {
+            color: var(--gray);
+            font-size: .9rem;
+            line-height: 1.5;
+            list-style: none;
+        }
+        .nicho-card ul li {
+            display: flex;
+            gap: 8px;
             margin-bottom: 8px;
+        }
+        .nicho-card ul li span.bullet {
+            color: var(--secondary);
             font-weight: 700;
         }
 
-        .channel-card p {
-            color: var(--gray);
-            font-size: 0.9rem;
-        }
-
-        .whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
-        .telegram { background: linear-gradient(135deg, #0088cc, #005fa3); }
-        .instagram { background: linear-gradient(135deg, #833AB4, #E1306C, #FCAF45); }
-        .facebook { background: linear-gradient(135deg, #0084FF, #0063CC); }
-        .webchat { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); }
-
-        /* Integrações */
+        /* ====== INTEGRAÇÕES ====== */
         .integrations {
             background: var(--light-gray);
             padding: 120px 5%;
         }
-
         .integrations-inner {
             max-width: 1200px;
             margin: 0 auto;
@@ -819,7 +497,6 @@
             border: 1px solid #E5E7EB;
             box-shadow: 0 20px 60px rgba(0,0,0,.07);
         }
-
         .integrations-header {
             display: flex;
             flex-wrap: wrap;
@@ -827,27 +504,23 @@
             gap: 24px;
             margin-bottom: 32px;
         }
-
         .integrations-header h2 {
             font-size: 2rem;
             font-weight: 700;
             color: var(--dark);
             line-height: 1.2;
         }
-
         .integrations-header p {
             color: var(--gray);
             max-width: 700px;
             font-size: 1rem;
             line-height: 1.6;
         }
-
         .integrations-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
             gap: 24px;
         }
-
         .integration-card {
             border-radius: 16px;
             border: 1px solid #E5E7EB;
@@ -860,39 +533,34 @@
             flex-direction: column;
             gap: 12px;
         }
-
         .integration-title {
             font-size: .95rem;
             font-weight: 700;
             color: var(--dark);
         }
 
-        /* Features / Recursos que Geram Resultado Imediato */
+        /* ====== PLATAFORMA COMPLETA / FEATURES ====== */
         .features {
             padding: 120px 5%;
             background: var(--light-gray);
         }
-
         .features-headline {
             max-width: 800px;
             margin: 0 auto 60px;
             text-align: center;
         }
-
         .features-headline h2 {
-            font-size: 2.4rem;
+            font-size: 2rem;
             line-height: 1.2;
             font-weight: 700;
             color: var(--dark);
             margin-bottom: 20px;
         }
-
         .features-headline p {
             font-size: 1.05rem;
             color: var(--gray);
             line-height: 1.6;
         }
-
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -900,7 +568,6 @@
             max-width: 1200px;
             margin: 0 auto;
         }
-
         .feature-card {
             padding: 40px;
             border-radius: 20px;
@@ -909,13 +576,11 @@
             border: 1px solid #E5E7EB;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
-
         .feature-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 20px 50px rgba(0,0,0,0.08);
             border-color: var(--primary);
         }
-
         .feature-icon {
             width: 60px;
             height: 60px;
@@ -926,22 +591,19 @@
             justify-content: center;
             margin-bottom: 24px;
             color: white;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
         }
-
         .feature-card h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--dark);
             margin-bottom: 12px;
             font-weight: 700;
         }
-
         .feature-card p {
             color: var(--gray);
             line-height: 1.6;
             font-size: .95rem;
         }
-
         .feature-metric {
             margin-top: 16px;
             font-size: .8rem;
@@ -954,13 +616,12 @@
             display: inline-block;
         }
 
-        /* Stats */
+        /* ====== STATS ====== */
         .stats {
             background: linear-gradient(135deg, var(--dark), #2D3748);
             padding: 100px 5%;
             color: white;
         }
-
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -969,7 +630,14 @@
             margin: 0 auto;
             text-align: center;
         }
-
+        .section-title-stats {
+            text-align: center;
+            color: white;
+            font-size: 1.8rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 60px;
+        }
         .stat-card h2 {
             font-size: 3rem;
             margin-bottom: 12px;
@@ -980,25 +648,19 @@
             font-weight: 800;
             letter-spacing: -0.05em;
         }
-
         .stat-card p {
             font-size: 1rem;
             opacity: 0.9;
         }
 
-        /* FAQ */
+        /* ====== FAQ ====== */
         .faq {
             background: var(--white);
             padding: 120px 5%;
             border-top: 1px solid #E5E7EB;
             border-bottom: 1px solid #E5E7EB;
         }
-
-        .faq-inner {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
+        .faq-inner { max-width: 900px; margin: 0 auto; }
         .faq h2 {
             font-size: 2rem;
             color: var(--dark);
@@ -1006,14 +668,12 @@
             text-align: center;
             margin-bottom: 12px;
         }
-
         .faq p.sub {
             text-align: center;
             color: var(--gray);
             font-size: 1rem;
             margin-bottom: 40px;
         }
-
         .faq-item {
             background: var(--light-gray);
             border-radius: 16px;
@@ -1023,12 +683,10 @@
             cursor: pointer;
             transition: all .3s;
         }
-
         .faq-item.open {
             background: white;
             box-shadow: 0 20px 50px rgba(0,0,0,.07);
         }
-
         .faq-q {
             display: flex;
             justify-content: space-between;
@@ -1038,7 +696,6 @@
             font-size: 1rem;
             line-height: 1.4;
         }
-
         .faq-a {
             color: var(--gray);
             font-size: .9rem;
@@ -1047,12 +704,10 @@
             overflow: hidden;
             transition: max-height .3s ease;
         }
-
         .faq-item.open .faq-a {
             margin-top: 12px;
             max-height: 200px;
         }
-
         .faq-toggle {
             font-size: 1.2rem;
             font-weight: 600;
@@ -1060,28 +715,25 @@
             margin-left: 16px;
         }
 
-        /* CTA Final */
+        /* ====== CTA FINAL ====== */
         .cta-section {
             padding: 120px 5%;
             background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
             text-align: center;
             color: white;
         }
-
         .cta-section h2 {
-            font-size: 2.4rem;
+            font-size: 2rem;
             margin-bottom: 24px;
             font-weight: 700;
             line-height: 1.2;
         }
-
         .cta-section p {
             font-size: 1.15rem;
             margin-bottom: 48px;
             opacity: 0.95;
             line-height: 1.5;
         }
-
         .cta-section .btn-primary {
             background: white;
             color: var(--primary);
@@ -1089,13 +741,12 @@
             padding: 20px 50px;
         }
 
-        /* Footer */
+        /* ====== FOOTER ====== */
         footer {
             background: var(--dark);
             color: white;
             padding: 60px 5% 40px;
         }
-
         .footer-content {
             max-width: 1200px;
             margin: 0 auto;
@@ -1104,25 +755,20 @@
             gap: 60px;
             margin-bottom: 40px;
         }
-
         .footer-section h3 {
             font-size: 1.1rem;
             margin-bottom: 20px;
             font-weight: 700;
         }
-
-        .footer-section p, .footer-section a {
+        .footer-section p,
+        .footer-section a {
             color: rgba(255,255,255,0.7);
             font-size: 0.9rem;
             line-height: 2;
             text-decoration: none;
             display: block;
         }
-
-        .footer-section a:hover {
-            color: white;
-        }
-
+        .footer-section a:hover { color: white; }
         .footer-bottom {
             text-align: center;
             padding-top: 40px;
@@ -1132,70 +778,48 @@
             line-height: 1.4;
         }
 
+        /* ====== RESPONSIVO ====== */
         @media (max-width: 768px) {
             .hero-content {
                 grid-template-columns: 1fr;
                 padding: 140px 5% 80px;
                 gap: 50px;
             }
-
-            .hero-text h1 {
-                font-size: 2.4rem;
-            }
-
-            .hero-benefits-inline {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
-            .cta-buttons {
-                flex-direction: column;
-            }
-
-            .chatbot-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .nichos-header h2 {
-                font-size: 2rem;
-            }
-
-            .hero-phone {
-                max-width: 320px;
-                margin-top: 20px;
-            }
+            .hero-text h1 { font-size: 2rem; }
+            .hero-benefits-inline { grid-template-columns: 1fr 1fr; }
+            .nav-links { display: none; }
+            .cta-buttons { flex-direction: column; }
         }
     </style>
 </head>
 <body>
+
+    <!-- NAV -->
     <nav>
         <div class="logo-container">
             <img src="image/logo-front.png" alt="NineChat" class="logo">
         </div>
         <ul class="nav-links">
-            <li><a href="#recursos">Recursos</a></li>
-            <li><a href="#canais">Canais</a></li>
-            <li><a href="#nichos">Para Quem</a></li>
+            <li><a href="#casos">Casos de Uso</a></li>
+            <li><a href="#setores">Setores</a></li>
+            <li><a href="#integracoes">Integrações</a></li>
+            <li><a href="#recursos">Plataforma</a></li>
             <li><a href="#faq">FAQ</a></li>
         </ul>
         <button class="cta-nav">Agendar Demonstração →</button>
     </nav>
 
+    <!-- HERO -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
                 <div class="highlight-badge">
                     🚀 ZERO Taxa de Setup • ZERO Taxa por Usuário
                 </div>
+
                 <h1>Aumente vendas e reduza custo com atendimento inteligente</h1>
-                <p>A plataforma omnichannel oficial da Meta para sua operação de WhatsApp, Instagram, Telegram, Webchat e mais — com automação, métricas e governança. Você paga só pelas conversas geradas, não por assento.</p>
+
+                <p>Plataforma oficial de atendimento e vendas no WhatsApp, Instagram, Telegram e Webchat. Automação, métricas e governança — você paga só pelas conversas geradas, não por assento.</p>
 
                 <div class="hero-benefits-inline">
                     <div class="hero-benefit-pill"><span class="emoji">⚡</span><span>Atendimento 24h sem aumentar time</span></div>
@@ -1223,87 +847,32 @@
                 </div>
             </div>
 
-            <!-- Celular simulado com conversa -->
-            <div class="hero-phone">
-                <div class="phone-inner">
-                    <div class="phone-header">
-                        <div class="avatar">BOT</div>
-                        <div class="contact-info">
-                            <div class="contact-name">Atendimento NineChat</div>
-                            <div class="contact-status">online agora</div>
-                        </div>
-                    </div>
-
-                    <div class="phone-chat">
-                        <div class="msg-row bot">
-                            <div class="bubble">
-                                👋 Olá, tudo bem? Sou o assistente automático da Clínica Vida. Você quer:
-                                <div class="quick-actions">
-                                    <div class="quick-btn">Agendar consulta</div>
-                                    <div class="quick-btn">2ª via boleto</div>
-                                    <div class="quick-btn">Falar com atendente</div>
-                                </div>
-                                <small>09:12</small>
-                            </div>
-                        </div>
-
-                        <div class="msg-row me">
-                            <div class="bubble">
-                                Agendar retorno com o Dr. Ricardo, ainda hoje se possível
-                                <small>09:12</small>
-                            </div>
-                        </div>
-
-                        <div class="msg-row bot">
-                            <div class="bubble">
-                                Perfeito 👍 Encontrei vaga hoje às 15h15 ou 18h40. Qual prefere confirmar?
-                                <small>09:12</small>
-                            </div>
-                        </div>
-
-                        <div class="msg-row me">
-                            <div class="bubble">
-                                15h15
-                                <small>09:13</small>
-                            </div>
-                        </div>
-
-                        <div class="msg-row bot">
-                            <div class="bubble">
-                                Agendado ✅ Seu número de protocolo é #48211. Vou te lembrar 1h antes para evitar no-show. Precisa de mais alguma coisa?
-                                <small>09:13</small>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="phone-footer">
-                        <div class="input-bar">Digite uma mensagem...</div>
-                        <div class="send-btn">➤</div>
-                    </div>
-                </div>
+            <div class="hero-mockup-wrapper">
+                <!-- AQUI ENTRA O MOCKUP DO WHATSAPP PRINCIPAL (venda, carrinho etc.) -->
+                <img src="img/mockup-hero-vendas.png" alt="Conversa de venda automatizada no WhatsApp" class="hero-mockup"/>
             </div>
-
         </div>
     </section>
 
+    <!-- TRUST / PROVA -->
     <section class="trust-section">
         <div class="meta-partner-badge">
             <img src="image/meta_business_partner.webp" alt="Meta Business Partner">
             <span>Parceiro Oficial Meta Business Partner</span>
         </div>
-        <p>WhatsApp, Instagram, Telegram e Webchat unificados num painel único. Estabilidade, rastreabilidade e controle total da operação.</p>
+        <p class="trust-metrics">
+            +5.000 conversas automatizadas por mês • SLA empresarial • Total aderência LGPD
+        </p>
     </section>
 
-    <!-- Benefícios / Por que chatbot -->
-    <section class="chatbot-benefits">
-        <div class="chatbot-wrapper">
-            <div class="chatbot-intro">
-                <h2>Chatbot que vende, qualifica e resolve antes do humano entrar</h2>
-                <p>Automação bem feita não é robozinho chato. É funil acelerado: responde rápido, coleta dados, qualifica intenção e entrega o contato quente para a pessoa certa.</p>
-                <div class="note">
-                    <strong>Impacto direto:</strong> menos fila, menos custo operacional e mais leads prontos pra fechar.
-                </div>
+    <!-- VALOR DE NEGÓCIO -->
+    <section class="business-value">
+        <div class="business-value-inner">
+            <div class="section-headline">
+                <h2>Por que empresas crescem mais rápido com o NineChat</h2>
+                <p>Automação que vende, reduz custo e mantém governança. Foco em resultado de negócio, não só em “inbox bonito”.</p>
             </div>
+
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">24h</div>
@@ -1318,23 +887,66 @@
                 <div class="benefit-card">
                     <div class="benefit-icon">🔥</div>
                     <h3>Lead qualificado</h3>
-                    <p>Identifica intenção (“quero comprar agora”) e dispara para o vendedor certo em segundos.</p>
+                    <p>Identifica intenção (“quero comprar agora”) e direciona o contato quente para o vendedor certo em segundos.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">📊</div>
                     <h3>Visão executiva</h3>
-                    <p>Diretoria e coordenação com acesso à performance em tempo real — sem planilhas manuais.</p>
+                    <p>KPIs prontos para gestão: volume, origem do lead, taxa de conversão e gargalos de atendimento.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Nichos -->
-    <section class="nichos" id="nichos">
-        <div class="nichos-header">
-            <h2>Quem tem ROI mais rápido</h2>
-            <p>Empresas com alto volume de mensagens repetitivas e urgência na resposta sentem o resultado em poucas semanas.</p>
+    <!-- CASOS DE USO (IMAGENS) -->
+    <section class="conversations-section" id="casos">
+        <div class="conv-headline">
+            <h2>Automação que trabalha por você em cada etapa da jornada</h2>
+            <p>Vendas, suporte, cobrança e agenda rodando sozinhos. Seu time humano só entra no que realmente fecha negócio.</p>
         </div>
+
+        <div class="conversations-grid">
+            <div class="conv-card">
+                <img src="img/conv-vendas.png" alt="Conversa de venda automatizada" class="conv-img"/>
+                <div class="conv-caption">
+                    <h3>🛒 Venda imediata</h3>
+                    <p>O bot identifica intenção de compra e já envia oferta com link de pagamento.</p>
+                </div>
+            </div>
+
+            <div class="conv-card">
+                <img src="img/conv-pedido.png" alt="Rastreio de pedido automático" class="conv-img"/>
+                <div class="conv-caption">
+                    <h3>📦 Suporte de pedido</h3>
+                    <p>Status de entrega e atualização proativa sem ocupar o time humano.</p>
+                </div>
+            </div>
+
+            <div class="conv-card">
+                <img src="img/conv-cobranca.png" alt="Cobrança via PIX no WhatsApp" class="conv-img"/>
+                <div class="conv-caption">
+                    <h3>💸 Cobrança automática</h3>
+                    <p>Envio de link PIX/2ª via sem constrangimento e com confirmação automática.</p>
+                </div>
+            </div>
+
+            <div class="conv-card">
+                <img src="img/conv-agendamento.png" alt="Agendamento de consulta via WhatsApp" class="conv-img"/>
+                <div class="conv-caption">
+                    <h3>🏥 Agendamento de consulta</h3>
+                    <p>Agenda e remarca sozinho, manda lembrete e reduz no-show.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SETORES / NICHOS -->
+    <section class="nichos" id="setores">
+        <div class="nichos-header">
+            <h2>Soluções prontas para o seu setor</h2>
+            <p>Implementações já validadas em operações de alto volume e alta urgência de resposta.</p>
+        </div>
+
         <div class="nichos-grid">
             <div class="nicho-card">
                 <div class="tag">Varejo / E-commerce</div>
@@ -1345,15 +957,17 @@
                     <li><span class="bullet">•</span><span>Campanhas segmentadas</span></li>
                 </ul>
             </div>
+
             <div class="nicho-card">
                 <div class="tag">Educação / Cursos</div>
                 <h3>Captação e cobrança recorrente</h3>
                 <ul>
-                    <li><span class="bullet">•</span><span>Atende lead na hora</span></li>
-                    <li><span class="bullet">•</span><span>Envia boleto / link de pagamento</span></li>
-                    <li><span class="bullet">•</span><span>Nutre até matrícula</span></li>
+                    <li><span class="bullet">•</span><span>Lead atendido na hora</span></li>
+                    <li><span class="bullet">•</span><span>Envio de boleto / link de pagamento</span></li>
+                    <li><span class="bullet">•</span><span>Nutrição até matrícula</span></li>
                 </ul>
             </div>
+
             <div class="nicho-card">
                 <div class="tag">Saúde / Clínicas</div>
                 <h3>Agenda cheia sem telefonista</h3>
@@ -1363,221 +977,21 @@
                     <li><span class="bullet">•</span><span>Pré-triagem rápida</span></li>
                 </ul>
             </div>
+
             <div class="nicho-card">
-                <div class="tag">Imobiliárias / Financeiro</div>
+                <div class="tag">Financeiro / Imobiliário</div>
                 <h3>Qualificação imediata</h3>
                 <ul>
                     <li><span class="bullet">•</span><span>Coleta perfil e interesse</span></li>
-                    <li><span class="bullet">•</span><span>Entrega lead quente pro corretor</span></li>
+                    <li><span class="bullet">•</span><span>Entrega lead quente pro especialista certo</span></li>
                     <li><span class="bullet">•</span><span>Follow-up automático</span></li>
                 </ul>
             </div>
         </div>
     </section>
 
-    <!-- Conversas simuladas em cards (prova de casos de uso) -->
-    <section class="conversations-section">
-        <div class="conv-headline">
-            <h2>Casos reais de uso no WhatsApp</h2>
-            <p>Vendas, suporte, cobrança e agendamento rodando sozinhos — e só o que é crítico vai pro humano certo.</p>
-        </div>
-
-        <div class="conversations-grid">
-            <!-- Venda imediata -->
-            <div class="conv-card">
-                <div class="conv-top">
-                    <h3><span class="emoji">🛒</span> Conversa de Venda / E-commerce</h3>
-                    <p>O bot identifica intenção de compra e acelera o fechamento sem fila de atendimento.</p>
-                </div>
-                <div class="conv-preview">
-                    <div class="conv-msg-row bot">
-                        <div class="conv-bubble">
-                            Oi 👋 Vi que você adicionou o Tênis AirMax 42 no carrinho e não finalizou. Posso gerar um link com 5% off agora pra você?
-                            <small>10:21</small>
-                        </div>
-                    </div>
-                    <div class="conv-msg-row user">
-                        <div class="conv-bubble">
-                            Quero!
-                            <small>10:21</small>
-                        </div>
-                    </div>
-                    <div class="conv-msg-row bot">
-                        <div class="conv-bubble">
-                            Pronto ✅ Aqui está seu link de pagamento seguro. Entrega em até 2 dias úteis 🚚
-                            <small>10:21</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="conv-bottom">
-                    Recupera carrinho perdido sem precisar de vendedor humano.
-                </div>
-            </div>
-
-            <!-- Suporte / pós-venda -->
-            <div class="conv-card">
-                <div class="conv-top">
-                    <h3><span class="emoji">📦</span> Suporte de Pedido</h3>
-                    <p>Status de entrega e segunda via sem ocupar o time inteiro.</p>
-                </div>
-                <div class="conv-preview">
-                    <div class="conv-msg-row user">
-                        <div class="conv-bubble">
-                            Bom dia! Meu pedido #49211 já saiu para entrega?
-                            <small>14:02</small>
-                        </div>
-                    </div>
-                    <div class="conv-msg-row bot">
-                        <div class="conv-bubble">
-                            Já sim 😄 Saiu hoje às 13:47 pela FastLog e deve chegar amanhã até 18h. Quer receber atualizações por aqui?
-                            <small>14:02</small>
-                        </div>
-                    </div>
-                    <div class="conv-msg-row user">
-                        <div class="conv-bubble">
-                            Quero sim
-                            <small>14:03</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="conv-bottom">
-                    Diminui drasticamente “meu pedido saiu?” no WhatsApp do suporte.
-                </div>
-            </div>
-
-            <!-- Cobrança / financeiro -->
-            <div class="conv-card">
-                <div class="conv-top">
-                    <h3><span class="emoji">💸</span> Cobrança Automática</h3>
-                    <p>Financeiro sem constrangimento humano + lembrete inteligente reduz inadimplência.</p>
-                </div>
-                <div class="conv-preview">
-                    <div class="conv-msg-row bot">
-                        <div class="conv-bubble">
-                            Olá, João! 💚 Consta aqui que sua mensalidade de setembro (R$ 389,00) está em aberto. Deseja gerar um novo boleto ou pagar via PIX agora?
-                            <small>08:17</small>
-                        </div>
-                    </div>
-                    <div class="conv-msg-row user">
-                        <div class="conv-bubble">
-                            PIX
-                            <small>08:17</small>
-                        </div>
-                    </div>
-                    <div class="conv-msg-row bot">
-                        <div class="conv-bubble">
-                            Aqui está seu QR Code PIX válido por 30 min 🔒 Após pagamento, sua liberação é automática.
-                            <small>08:17</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="conv-bottom">
-                    Cobrança sem ligar pro cliente e sem depender de planilha.
-                </div>
-            </div>
-
-            <!-- Agendamento / clínica -->
-            <div class="conv-card">
-                <div class="conv-top">
-                    <h3><span class="emoji">🏥</span> Agendamento de Clínica</h3>
-                    <p>Agenda consulta, confirma presença e reduz no-show — tudo pelo WhatsApp.</p>
-                </div>
-                <div class="conv-preview">
-                    <div class="conv-msg-row bot">
-                        <div class="conv-bubble">
-                            Olá! Sou o assistente da Clínica Vida 🏥 Você quer agendar, remarcar ou falar com um humano?
-                            <small>09:12</small>
-                        </div>
-                    </div>
-                    <div class="conv-msg-row user">
-                        <div class="conv-bubble">
-                            Remarcar
-                            <small>09:12</small>
-                        </div>
-                    </div>
-                    <div class="conv-msg-row bot">
-                        <div class="conv-bubble">
-                            Sem problema 🙌 Tenho vaga amanhã às 10h40 ou 14h15. Qual prefere confirmar?
-                            <small>09:12</small>
-                        </div>
-                    </div>
-                    <div class="conv-msg-row user">
-                        <div class="conv-bubble">
-                            14h15
-                            <small>09:13</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="conv-bottom">
-                    Operação roda sozinha fora do horário comercial.
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Canais -->
-    <section class="channels" id="canais">
-        <h2 class="section-title">Todos os Canais em Um Só Lugar</h2>
-        <p class="section-subtitle">Centralize WhatsApp, Instagram, Telegram, Messenger e Webchat em um único time e um único painel</p>
-        <div class="channels-grid">
-            <div class="channel-card">
-                <div class="channel-icon whatsapp">
-                    <!-- WhatsApp SVG -->
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                    </svg>
-                </div>
-                <h3>WhatsApp Business</h3>
-                <p>Canal de vendas #1 do Brasil</p>
-            </div>
-            <div class="channel-card">
-                <div class="channel-icon telegram">
-                    <!-- Telegram SVG -->
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.692-1.653-1.123-2.678-1.799-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.139-5.062 3.345-.479.329-.913.489-1.302.481-.428-.008-1.252-.241-1.865-.44-.752-.244-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.831-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/>
-                    </svg>
-                </div>
-                <h3>Telegram</h3>
-                <p>Comunidades e suporte</p>
-            </div>
-            <div class="channel-card">
-                <div class="channel-icon instagram">
-                    <!-- Instagram SVG -->
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                    </svg>
-                </div>
-                <h3>Instagram</h3>
-                <p>Inbox do Direct centralizada</p>
-            </div>
-            <div class="channel-card">
-                <div class="channel-icon facebook">
-                    <!-- Facebook SVG -->
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <path d="M12 0C5.373 0 0 5.373 0 12c0 6.016 4.432 10.984 10.206 11.852V15.18H7.237v-3.154h2.969V9.927c0-3.475 1.693-5 4.581-5 1.383 0 2.115.103 2.461.149v2.753h-1.97c-1.226 0-1.654 1.163-1.654 2.473v1.724h3.593L16.73 15.18h-3.106v8.697C19.481 23.083 24 18.075 24 12c0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                </div>
-                <h3>Facebook</h3>
-                <p>Messenger organizado</p>
-            </div>
-            <div class="channel-card">
-                <div class="channel-icon webchat">
-                    <!-- Webchat SVG -->
-                    <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
-                        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
-                        <circle cx="8" cy="10" r="1.5"/>
-                        <circle cx="12" cy="10" r="1.5"/>
-                        <circle cx="16" cy="10" r="1.5"/>
-                    </svg>
-                </div>
-                <h3>Webchat</h3>
-                <p>Chat direto no site</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Integrações -->
-    <section class="integrations">
+    <!-- INTEGRAÇÕES -->
+    <section class="integrations" id="integracoes">
         <div class="integrations-inner">
             <div class="integrations-header">
                 <div style="flex:1; min-width:240px">
@@ -1585,22 +999,26 @@
                 </div>
                 <p>Nada de copiar e colar conversa no CRM. O NineChat envia lead qualificado, status de chamado e histórico direto para o seu stack.</p>
             </div>
+
             <div class="integrations-grid">
                 <div class="integration-card">
                     <div class="integration-title">CRM & Vendas</div>
                     <div>Pipedrive, HubSpot, RD Station e CRMs internos via Webhook / API.</div>
                     <div><strong>Benefício:</strong> lead não fica preso no WhatsApp pessoal de ninguém.</div>
                 </div>
+
                 <div class="integration-card">
                     <div class="integration-title">ERP / Faturamento</div>
                     <div>Consulta pedido, nota fiscal, boleto e status de pagamento direto pelo chat.</div>
                     <div><strong>Benefício:</strong> cai o volume de “meu pedido saiu?”.</div>
                 </div>
+
                 <div class="integration-card">
                     <div class="integration-title">Suporte & Ticket</div>
                     <div>Zendesk, Freshdesk e sistemas próprios.</div>
                     <div><strong>Benefício:</strong> cada conversa já vira ticket com contexto completo.</div>
                 </div>
+
                 <div class="integration-card">
                     <div class="integration-title">Automação / Webhook</div>
                     <div>Envie eventos em tempo real pra qualquer endpoint seguro.</div>
@@ -1610,11 +1028,11 @@
         </div>
     </section>
 
-    <!-- Features / Recursos -->
+    <!-- PLATAFORMA COMPLETA -->
     <section class="features" id="recursos">
         <div class="features-headline">
-            <h2>Recursos que Geram Resultado Imediato</h2>
-            <p>Menos ruído na operação, mais velocidade na resposta e mais previsibilidade de venda. O NineChat não é só inbox — é máquina de atendimento escalável.</p>
+            <h2>Plataforma completa de atendimento e vendas omnichannel</h2>
+            <p>Tudo que sua operação precisa para escalar com governança: fila inteligente, SLAs cumpridos e visibilidade para diretoria.</p>
         </div>
 
         <div class="features-grid">
@@ -1628,15 +1046,15 @@
             <div class="feature-card">
                 <div class="feature-icon">🤖</div>
                 <h3>Automação que faz triagem real</h3>
-                <p>O bot coleta intenção, dados de contato e urgência e direciona direto pro humano certo. Sem ficar jogando cliente de um lado pro outro.</p>
+                <p>O bot coleta intenção, dados de contato e urgência e direciona direto pro humano certo. Sem empurrar cliente de um lado pro outro.</p>
                 <div class="feature-metric">↑ mais conversas de venda, menos perguntas repetidas</div>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">📊</div>
                 <h3>Relatórios para diretoria</h3>
-                <p>KPIs prontos para reunião de resultado: volume por canal, origem de lead, taxa de conversão e gargalos de atendimento.</p>
-                <div class="feature-metric">Decisão com dado, não com feeling</div>
+                <p>KPIs prontos para reunião: volume por canal, origem de lead, taxa de conversão e gargalos de atendimento.</p>
+                <div class="feature-metric">Decisão com dado, não feeling</div>
             </div>
 
             <div class="feature-card">
@@ -1649,22 +1067,22 @@
             <div class="feature-card">
                 <div class="feature-icon">💬</div>
                 <h3>Histórico unificado</h3>
-                <p>Todo o contexto do cliente em um só lugar, independente do canal por onde ele entrou. Busca avançada e exportação em PDF.</p>
+                <p>Todo o contexto do cliente em um só lugar, independente do canal onde ele começou. Busca avançada e exportação em PDF.</p>
                 <div class="feature-metric">Zero “desculpa, pode repetir?”</div>
             </div>
 
             <div class="feature-card">
                 <div class="feature-icon">📢</div>
                 <h3>Campanhas segmentadas</h3>
-                <p>Envie mensagens em massa segmentadas e acompanhe taxa de resposta dentro da própria plataforma.</p>
-                <div class="feature-metric">Follow-up ativo sem depender de planilha</div>
+                <p>Envie mensagens em massa segmentadas e acompanhe resposta dentro da própria plataforma.</p>
+                <div class="feature-metric">Follow-up ativo sem planilha</div>
             </div>
         </div>
     </section>
 
-    <!-- Stats -->
+    <!-- STATS -->
     <section class="stats">
-        <h2 class="section-title" style="color: white; margin-bottom: 60px;">Números que importam pro seu CFO e pro seu Head de Vendas</h2>
+        <h2 class="section-title-stats">Números que importam pro seu CFO e pro seu Head de Vendas</h2>
         <div class="stats-grid">
             <div class="stat-card">
                 <h2>99.5%</h2>
@@ -1689,7 +1107,7 @@
     <section class="faq" id="faq">
         <div class="faq-inner">
             <h2>Dúvidas rápidas</h2>
-            <p class="sub">Algumas perguntas que todo diretor faz antes de aprovar 😉</p>
+            <p class="sub">Perguntas que todo diretor faz antes de aprovar 😉</p>
 
             <div class="faq-item">
                 <div class="faq-q">
@@ -1697,7 +1115,7 @@
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-a">
-                    Na maioria dos casos não. A gente cuida da migração, mantém histórico e evita queda do canal comercial.
+                    Na maioria dos casos não. Nós cuidamos da migração, mantemos histórico e evitamos queda do canal comercial.
                 </div>
             </div>
 
@@ -1707,7 +1125,7 @@
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-a">
-                    Não. A ideia é tirar o repetitivo (rastreio, boleto, reagendamento, dúvidas básicas) e deixar seu time só em conversa de valor e fechamento.
+                    Não. A ideia é tirar o repetitivo (rastreio, boleto, reagendamento, dúvidas básicas) e deixar seu time só no que gera valor e fechamento.
                 </div>
             </div>
 
@@ -1727,20 +1145,20 @@
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-a">
-                    Sim. Temos integrações nativas e também Webhooks / API para mandar info em tempo real pro que você já usa hoje.
+                    Sim. Integrações nativas e via Webhook / API para mandar informação em tempo real pro que você já usa hoje.
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Final -->
+    <!-- CTA FINAL -->
     <section class="cta-section">
         <h2>Pronto para rodar atendimento de outro nível?</h2>
         <p>Vamos te mostrar, na prática, como isso reduz custo operacional e acelera conversão em menos de 30 dias.</p>
         <button class="btn-primary">Agendar Demonstração Gratuita →</button>
     </section>
 
-    <!-- Footer -->
+    <!-- FOOTER -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -1749,10 +1167,10 @@
             </div>
             <div class="footer-section">
                 <h3>Produto</h3>
-                <a href="#recursos">Recursos</a>
-                <a href="#canais">Canais</a>
-                <a href="#nichos">Para Quem</a>
-                <a href="#faq">FAQ</a>
+                <a href="#casos">Casos de Uso</a>
+                <a href="#setores">Setores</a>
+                <a href="#integracoes">Integrações</a>
+                <a href="#recursos">Plataforma</a>
             </div>
             <div class="footer-section">
                 <h3>Empresa</h3>
@@ -1787,11 +1205,10 @@
             });
         });
 
-        // CTA click handler
+        // CTA
         function handleCTA() {
             alert('🚀 Vamos começar?\n\nWhatsApp: (XX) XXXXX-XXXX\nEmail: contato@ninechat.com.br');
         }
-
         document.querySelectorAll('.cta-nav, .btn-primary').forEach(button => {
             button.addEventListener('click', handleCTA);
         });
@@ -1806,12 +1223,8 @@
             }
         });
 
-        // Intersection Observer para animações de entrada
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
+        // Aparecer com animação
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -1827,11 +1240,11 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.feature-card, .channel-card, .stat-card, .benefit-card, .nicho-card, .integration-card, .conv-card').forEach(el => {
+        document.querySelectorAll('.benefit-card, .conv-card, .nicho-card, .integration-card, .feature-card, .stat-card').forEach(el => {
             observer.observe(el);
         });
 
-        // FAQ Toggle
+        // FAQ toggle
         document.querySelectorAll('.faq-item').forEach(item => {
             item.addEventListener('click', () => {
                 item.classList.toggle('open');
