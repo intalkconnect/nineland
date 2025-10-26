@@ -253,31 +253,42 @@
             border-bottom: 1px solid #E5E7EB;
         }
 
-        .trust-section p {
-            color: var(--dark);
-            font-size: 1.1rem;
-            margin-bottom: 30px;
+        .meta-partner-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: rgba(0, 102, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            border-radius: 60px;
+            border: 2px solid var(--primary);
+            margin-bottom: 50px;
+        }
+
+        .meta-partner-badge img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .meta-partner-badge span {
+            color: var(--primary);
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+            font-size: 1.2rem;
+        }
+
+        .trust-section p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            font-weight: 500;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
         }
 
         .trust-logos {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .trust-logos span {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--primary);
-            background: linear-gradient(135deg, #E0F2FF, #F0F9FF);
-            padding: 12px 28px;
-            border-radius: 50px;
-            border: 2px solid var(--primary);
+            display: none;
         }
 
         /* Alert Section */
@@ -717,9 +728,6 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
-                <div class="meta-badge">
-                    <img src="image/meta-biz-partner-300x125.webp" alt="Meta Business Partner">
-                </div>
                 <div class="highlight-badge">
                     🚀 ZERO Taxa de Setup • ZERO Taxa por Usuário
                 </div>
@@ -731,18 +739,14 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="https://via.placeholder.com/600x400/0066FF/ffffff?text=Dashboard+NineChat" alt="Dashboard" class="dashboard-preview">
+                <img src="image/dashboard.png" alt="Dashboard" class="dashboard-preview">
             </div>
         </div>
     </section>
 
     <section class="trust-section">
-        <p>💰 Modelo de Precificação Transparente e Justo</p>
-        <div class="trust-logos">
-            <span>✅ Zero Taxa de Setup</span>
-            <span>✅ Zero Taxa por Usuário</span>
-            <span>✅ Pague Apenas por Conversas</span>
-            <span>✅ Sem Custos Ocultos</span>
+        <div class="meta-partner-badge">
+            <img src="image/meta partner.png" alt="Meta Business Partner">
         </div>
     </section>
 
