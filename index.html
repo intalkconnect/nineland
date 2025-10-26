@@ -208,7 +208,7 @@
             flex-wrap: wrap;
         }
 
-        .btn-primary, .btn-secondary {
+        .btn-primary {
             padding: 18px 40px;
             border-radius: 50px;
             font-size: 1.05rem;
@@ -221,9 +221,6 @@
             justify-content: center;
             gap: 10px;
             position: relative;
-        }
-
-        .btn-primary {
             background: white;
             color: var(--primary);
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
@@ -232,18 +229,6 @@
         .btn-primary:hover {
             transform: translateY(-3px) scale(1.03);
             box-shadow: 0 12px 35px rgba(0,0,0,0.25);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.15);
-            color: white;
-            border: 2px solid rgba(255,255,255,0.6);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.25);
-            border-color: white;
         }
 
         .hero-trust-row {
@@ -338,66 +323,7 @@
             line-height: 1.6;
         }
 
-        /* Alert Section - risco API não-oficial */
-        .alert-section {
-            background: linear-gradient(135deg, #DC2626 0%, #991B1B 100%);
-            color: white;
-            padding: 100px 5%;
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-        }
-
-        .alert-section::before {
-            content: '⚠️';
-            position: absolute;
-            font-size: 400px;
-            opacity: 0.05;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .alert-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .alert-section h2 {
-            font-size: 2.4rem;
-            margin-bottom: 24px;
-            line-height: 1.2;
-            font-weight: 700;
-        }
-
-        .alert-bullets {
-            text-align: left;
-            max-width: 800px;
-            margin: 0 auto 32px;
-            font-size: 1.05rem;
-            line-height: 1.6;
-        }
-
-        .alert-bullets li {
-            margin-bottom: 12px;
-            display: flex;
-            gap: 10px;
-            align-items: flex-start;
-        }
-
-        .alert-bullets li span.icon {
-            min-width: 22px;
-        }
-
-        .alert-section .btn-primary {
-            background: white;
-            color: #DC2626;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-        }
-
-        /* Benefícios do chatbot (por que automatizar) */
+        /* Benefícios / Por que chatbot */
         .chatbot-benefits {
             background: var(--light-gray);
             padding: 120px 5%;
@@ -570,7 +496,7 @@
             font-weight: 700;
         }
 
-        /* Screenshots Section (mantida) */
+        /* Screenshots Section */
         .screenshots-section {
             padding: 120px 5%;
             background: linear-gradient(to bottom, var(--white), var(--light-gray));
@@ -767,10 +693,30 @@
             color: var(--dark);
         }
 
-        /* Features (mantido como prova de recurso) */
+        /* Features / Recursos que Geram Resultado Imediato */
         .features {
             padding: 120px 5%;
             background: var(--light-gray);
+        }
+
+        .features-headline {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .features-headline h2 {
+            font-size: 2.4rem;
+            line-height: 1.2;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+
+        .features-headline p {
+            font-size: 1.05rem;
+            color: var(--gray);
+            line-height: 1.6;
         }
 
         .features-grid {
@@ -787,11 +733,12 @@
             background: white;
             transition: all 0.3s;
             border: 1px solid #E5E7EB;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         .feature-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
             border-color: var(--primary);
         }
 
@@ -811,7 +758,7 @@
         .feature-card h3 {
             font-size: 1.2rem;
             color: var(--dark);
-            margin-bottom: 16px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
@@ -819,6 +766,18 @@
             color: var(--gray);
             line-height: 1.6;
             font-size: .95rem;
+        }
+
+        .feature-metric {
+            margin-top: 16px;
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--primary);
+            background: rgba(0,102,255,.07);
+            border: 1px solid rgba(0,102,255,.2);
+            padding: 6px 10px;
+            border-radius: 999px;
+            display: inline-block;
         }
 
         /* Stats */
@@ -851,66 +810,6 @@
         .stat-card p {
             font-size: 1rem;
             opacity: 0.9;
-        }
-
-        /* Social Proof */
-        .social-proof {
-            padding: 120px 5%;
-            background: white;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 32px;
-            max-width: 1200px;
-            margin: 60px auto 0;
-        }
-
-        .testimonial-card {
-            background: var(--light-gray);
-            padding: 40px;
-            border-radius: 20px;
-            border-left: 4px solid var(--primary);
-        }
-
-        .testimonial-text {
-            font-size: 1rem;
-            color: var(--dark);
-            margin-bottom: 24px;
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .author-info h4 {
-            color: var(--dark);
-            font-size: 1rem;
-            font-weight: 700;
-        }
-
-        .author-info p {
-            color: var(--gray);
-            font-size: 0.8rem;
-            line-height: 1.4;
         }
 
         /* FAQ */
@@ -1121,17 +1020,16 @@
                     🚀 ZERO Taxa de Setup • ZERO Taxa por Usuário
                 </div>
                 <h1>Aumente vendas e reduza custo com atendimento inteligente</h1>
-                <p>A plataforma omnichannel oficial da Meta para sua operação de WhatsApp, Instagram, Telegram, Webchat e muito mais — com automação, métricas e governança. Você paga só pelas conversas geradas, não por assento.</p>
+                <p>A plataforma omnichannel oficial da Meta para sua operação de WhatsApp, Instagram, Telegram, Webchat e mais — com automação, métricas e governança. Você paga só pelas conversas geradas, não por assento.</p>
 
                 <div class="hero-benefits-inline">
                     <div class="hero-benefit-pill"><span class="emoji">⚡</span><span>Atendimento 24h sem aumentar time</span></div>
                     <div class="hero-benefit-pill"><span class="emoji">📈</span><span>Conversão mais rápida</span></div>
-                    <div class="hero-benefit-pill"><span class="emoji">🔒</span><span>API 100% oficial e segura</span></div>
+                    <div class="hero-benefit-pill"><span class="emoji">🔒</span><span>Estabilidade e segurança empresarial</span></div>
                 </div>
 
                 <div class="cta-buttons">
                     <button class="btn-primary">Agendar Demonstração →</button>
-                    <button class="btn-secondary">Ver modelo de preços</button>
                 </div>
 
                 <div class="hero-trust-row">
@@ -1160,24 +1058,7 @@
             <img src="image/meta_business_partner.webp" alt="Meta Business Partner">
             <span>Parceiro Oficial Meta Business Partner</span>
         </div>
-        <p>Chega de gambiarra em WhatsApp. O NineChat usa a API oficial da Meta para garantir estabilidade, entrega de mensagem e segurança de dados do seu negócio.</p>
-    </section>
-
-    <!-- Risco API não-oficial -->
-    <section class="alert-section">
-        <div class="alert-content">
-            <h2>Usando API não-oficial de WhatsApp?</h2>
-            <ul class="alert-bullets">
-                <li><span class="icon">⛔</span><span>Bloqueio repentino do número (até números de vendas principais somem da noite pro dia).</span></li>
-                <li><span class="icon">📉</span><span>Queda na entregabilidade e atraso nas respostas = lead esfriando e indo pro concorrente.</span></li>
-                <li><span class="icon">⚠️</span><span>Zero garantia jurídica / LGPD: vazou dado do cliente? A conta é sua.</span></li>
-                <li><span class="icon">🤐</span><span>Sem suporte oficial e sem histórico confiável das conversas.</span></li>
-            </ul>
-            <p style="font-size:1.05rem; line-height:1.6; max-width:800px; margin:0 auto 32px; opacity:.95">
-                Com o NineChat você opera em ambiente homologado pela Meta, mantém todos os históricos e não corre o risco de acordar banido.
-            </p>
-            <button class="btn-primary">Quero migrar com segurança →</button>
-        </div>
+        <p>WhatsApp, Instagram, Telegram e Webchat unificados num painel único. Estabilidade, rastreabilidade e controle total da operação.</p>
     </section>
 
     <!-- Benefícios / Por que chatbot -->
@@ -1185,31 +1066,31 @@
         <div class="chatbot-wrapper">
             <div class="chatbot-intro">
                 <h2>Chatbot que vende, qualifica e resolve antes do humano entrar</h2>
-                <p>Automação bem feita não é robozinho que irrita cliente. É funil acelerado: responde rápido, coleta dados, qualifica oportunidade e entrega o contato quente pro humano certo.</p>
+                <p>Automação bem feita não é robozinho chato. É funil acelerado: responde rápido, coleta dados, qualifica intenção e entrega o contato quente para a pessoa certa.</p>
                 <div class="note">
-                    <strong>Resultado direto:</strong> menos fila, menos custo operacional e mais leads prontos pra fechar.
+                    <strong>Impacto direto:</strong> menos fila, menos custo operacional e mais leads prontos pra fechar.
                 </div>
             </div>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon">24h</div>
                     <h3>Atendimento 24/7</h3>
-                    <p>Seu comercial dorme. Seu chatbot não. Perguntas frequentes, status de pedido, boletos, reagendamentos: tudo automático.</p>
+                    <p>Status de pedido, boleto, reagendamento, dúvidas básicas — tudo automático, em qualquer canal.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">💸</div>
                     <h3>Redução de custo</h3>
-                    <p>Volume alto de mensagens sem precisar contratar mais operadores. A operação escala sem inflar folha.</p>
+                    <p>Escala alto volume de conversa sem contratar mais operadores. A operação cresce sem inflar folha.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">🔥</div>
-                    <h3>Lead mais quente</h3>
-                    <p>O bot identifica intenção (“quero comprar agora”) e manda pro vendedor certo em segundos, direto no canal interno.</p>
+                    <h3>Lead qualificado</h3>
+                    <p>Identifica intenção (“quero comprar agora”) e dispara para o vendedor certo em segundos.</p>
                 </div>
                 <div class="benefit-card">
                     <div class="benefit-icon">📊</div>
-                    <h3>Diretoria com visibilidade</h3>
-                    <p>Acompanhamento em tempo real do que está funcionando, gargalos e oportunidades perdidas — sem excel manual.</p>
+                    <h3>Visão executiva</h3>
+                    <p>Diretoria e coordenação com acesso à performance em tempo real — sem planilhas manuais.</p>
                 </div>
             </div>
         </div>
@@ -1218,8 +1099,8 @@
     <!-- Nichos -->
     <section class="nichos" id="nichos">
         <div class="nichos-header">
-            <h2>Quem mais sente impacto rápido</h2>
-            <p>Áreas que lidam com alto volume de mensagens, follow-up repetitivo e senso de urgência imediata já veem ROI em semanas.</p>
+            <h2>Quem tem ROI mais rápido</h2>
+            <p>Empresas com alto volume de mensagens repetitivas e urgência na resposta sentem o resultado em poucas semanas.</p>
         </div>
         <div class="nichos-grid">
             <div class="nicho-card">
@@ -1227,7 +1108,7 @@
                 <h3>Atendimento e pós-venda no WhatsApp</h3>
                 <ul>
                     <li><span class="bullet">•</span><span>Rastreio de pedido automático</span></li>
-                    <li><span class="bullet">•</span><span>Recuperação de carrinho abandonado</span></li>
+                    <li><span class="bullet">•</span><span>Recuperação de carrinho</span></li>
                     <li><span class="bullet">•</span><span>Campanhas segmentadas</span></li>
                 </ul>
             </div>
@@ -1235,26 +1116,26 @@
                 <div class="tag">Educação / Cursos</div>
                 <h3>Captação e cobrança recorrente</h3>
                 <ul>
-                    <li><span class="bullet">•</span><span>Responde dúvidas do curso em segundos</span></li>
+                    <li><span class="bullet">•</span><span>Atende lead na hora</span></li>
                     <li><span class="bullet">•</span><span>Envia boleto / link de pagamento</span></li>
-                    <li><span class="bullet">•</span><span>Nutre lead até matrícula</span></li>
+                    <li><span class="bullet">•</span><span>Nutre até matrícula</span></li>
                 </ul>
             </div>
             <div class="nicho-card">
                 <div class="tag">Saúde / Clínicas</div>
-                <h3>Agenda lotada sem ligar pra ninguém</h3>
+                <h3>Agenda cheia sem telefonista</h3>
                 <ul>
-                    <li><span class="bullet">•</span><span>Agendamento e reagendamento automático</span></li>
+                    <li><span class="bullet">•</span><span>Agendamento automático</span></li>
                     <li><span class="bullet">•</span><span>Lembrete de consulta (reduz no-show)</span></li>
                     <li><span class="bullet">•</span><span>Pré-triagem rápida</span></li>
                 </ul>
             </div>
             <div class="nicho-card">
                 <div class="tag">Imobiliárias / Financeiro</div>
-                <h3>Qualificação imediata de interessados</h3>
+                <h3>Qualificação imediata</h3>
                 <ul>
-                    <li><span class="bullet">•</span><span>Coleta renda / score / perfil do imóvel</span></li>
-                    <li><span class="bullet">•</span><span>Entrega lead pronto para corretor/analista</span></li>
+                    <li><span class="bullet">•</span><span>Coleta perfil e interesse</span></li>
+                    <li><span class="bullet">•</span><span>Entrega lead quente pro corretor</span></li>
                     <li><span class="bullet">•</span><span>Follow-up automático</span></li>
                 </ul>
             </div>
@@ -1264,11 +1145,11 @@
     <!-- Screenshots -->
     <section class="screenshots-section">
         <h2 class="section-title">Plataforma Completa e Intuitiva</h2>
-        <p class="section-subtitle">Interface desenhada para escalar atendimento sem perder controle da operação</p>
+        <p class="section-subtitle">Interface desenhada pra escalar atendimento sem perder controle da operação</p>
         <div class="screenshots-grid">
             <div class="screenshot-card">
                 <h3>📊 Dashboard de Performance</h3>
-                <p>Métricas em tempo real, SLA, gráficos e KPIs consolidados para você decidir com dados — e não no achismo.</p>
+                <p>Métricas em tempo real, SLA, gráficos e KPIs consolidados para você decidir com dados — não com achismo.</p>
                 <img src="image/dashboard.png" alt="Dashboard">
             </div>
             <div class="screenshot-card">
@@ -1278,12 +1159,12 @@
             </div>
             <div class="screenshot-card">
                 <h3>📢 Campanhas em Massa</h3>
-                <p>Envie mensagens aprovadas pela Meta em escala, para quem faz sentido — e acompanhe abertura, resposta e retorno.</p>
+                <p>Envie mensagens em escala para quem faz sentido — e acompanhe abertura, resposta e retorno.</p>
                 <img src="image/campanhas.png" alt="Campanhas">
             </div>
             <div class="screenshot-card">
                 <h3>💬 Histórico Completo</h3>
-                <p>Conformidade e contexto. Tenha todo o histórico centralizado, pesquisável e exportável.</p>
+                <p>Conformidade e contexto. Todo o histórico centralizado, pesquisável e exportável.</p>
                 <img src="image/historico.png" alt="Histórico">
             </div>
         </div>
@@ -1292,7 +1173,7 @@
     <!-- Canais -->
     <section class="channels" id="canais">
         <h2 class="section-title">Todos os Canais em Um Só Lugar</h2>
-        <p class="section-subtitle">Centralize WhatsApp, Instagram, Telegram, Messenger, Webchat e gerencie tudo num painel único</p>
+        <p class="section-subtitle">Centralize WhatsApp, Instagram, Telegram, Messenger e Webchat em um único time e um único painel</p>
         <div class="channels-grid">
             <div class="channel-card">
                 <div class="channel-icon whatsapp">
@@ -1302,7 +1183,7 @@
                     </svg>
                 </div>
                 <h3>WhatsApp Business</h3>
-                <p>API Oficial Meta</p>
+                <p>Canal de vendas #1 do Brasil</p>
             </div>
             <div class="channel-card">
                 <div class="channel-icon telegram">
@@ -1312,7 +1193,7 @@
                     </svg>
                 </div>
                 <h3>Telegram</h3>
-                <p>Integração Total</p>
+                <p>Comunidades e suporte</p>
             </div>
             <div class="channel-card">
                 <div class="channel-icon instagram">
@@ -1322,7 +1203,7 @@
                     </svg>
                 </div>
                 <h3>Instagram</h3>
-                <p>Direct Messages</p>
+                <p>Inbox do Direct centralizada</p>
             </div>
             <div class="channel-card">
                 <div class="channel-icon facebook">
@@ -1332,7 +1213,7 @@
                     </svg>
                 </div>
                 <h3>Facebook</h3>
-                <p>Messenger</p>
+                <p>Messenger organizado</p>
             </div>
             <div class="channel-card">
                 <div class="channel-icon webchat">
@@ -1345,7 +1226,7 @@
                     </svg>
                 </div>
                 <h3>Webchat</h3>
-                <p>Chat no Site</p>
+                <p>Chat direto no site</p>
             </div>
         </div>
     </section>
@@ -1357,89 +1238,88 @@
                 <div style="flex:1; min-width:240px">
                     <h2>Integra com o que você já usa</h2>
                 </div>
-                <p>Chega de copiar e colar conversa no CRM ou mandar print no grupo. O NineChat envia lead qualificado, status de chamado, ticket e histórico direto pro seu stack.</p>
+                <p>Nada de copiar e colar conversa no CRM. O NineChat envia lead qualificado, status de chamado e histórico direto para o seu stack.</p>
             </div>
             <div class="integrations-grid">
                 <div class="integration-card">
                     <div class="integration-title">CRM & Vendas</div>
                     <div>Pipedrive, HubSpot, RD Station e CRMs internos via Webhook / API.</div>
-                    <div><strong>Impacto:</strong> lead não se perde no WhatsApp pessoal do vendedor.</div>
+                    <div><strong>Benefício:</strong> lead não fica preso no WhatsApp pessoal de ninguém.</div>
                 </div>
                 <div class="integration-card">
                     <div class="integration-title">ERP / Faturamento</div>
                     <div>Consulta pedido, nota fiscal, boleto e status de pagamento direto pelo chat.</div>
-                    <div><strong>Impacto:</strong> menos ligação perguntando “meu pedido saiu?”</div>
+                    <div><strong>Benefício:</strong> cai o volume de “meu pedido saiu?”.</div>
                 </div>
                 <div class="integration-card">
                     <div class="integration-title">Suporte & Ticket</div>
                     <div>Zendesk, Freshdesk e sistemas próprios.</div>
-                    <div><strong>Impacto:</strong> cada conversa já vira ticket com contexto completo.</div>
+                    <div><strong>Benefício:</strong> cada conversa já vira ticket com contexto completo.</div>
                 </div>
                 <div class="integration-card">
                     <div class="integration-title">Automação / Webhook</div>
                     <div>Envie eventos em tempo real pra qualquer endpoint seguro.</div>
-                    <div><strong>Impacto:</strong> fluxo realmente sob medida pro seu negócio.</div>
+                    <div><strong>Benefício:</strong> fluxo realmente sob medida pro seu negócio.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features -->
+    <!-- Features / Recursos -->
     <section class="features" id="recursos">
-        <h2 class="section-title">Recursos que Geram Resultado Imediato</h2>
-        <p class="section-subtitle">Automação inteligente, operação controlada e vendas aceleradas — sem fricção pro cliente</p>
+        <div class="features-headline">
+            <h2>Recursos que Geram Resultado Imediato</h2>
+            <p>Menos ruído na operação, mais velocidade na resposta e mais previsibilidade de venda. O NineChat não é só inbox — é máquina de atendimento escalável.</p>
+        </div>
+
         <div class="features-grid">
             <div class="feature-card">
                 <div class="feature-icon">👁️</div>
-                <h3>Observabilidade Total</h3>
-                <p>Monitore todos os atendimentos em tempo real. Veja tempos de resposta, filas e nível de serviço de cada operador.</p>
+                <h3>Controle total da operação</h3>
+                <p>Veja tudo ao vivo: filas, tempo médio de resposta, quem está sobrecarregado e quem está ocioso — antes do problema virar reclamação.</p>
+                <div class="feature-metric">↓ até 32% no tempo médio de resposta</div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📊</div>
-                <h3>Relatórios Inteligentes</h3>
-                <p>KPIs, comparativos, evolução por canal e por campanha. Zero planilha manual.</p>
-            </div>
+
             <div class="feature-card">
                 <div class="feature-icon">🤖</div>
-                <h3>Automação Inteligente</h3>
-                <p>Chatbots, respostas automáticas, fluxos condicionais e transferência para humano por skill.</p>
+                <h3>Automação que faz triagem real</h3>
+                <p>O bot coleta intenção, dados de contato e urgência e direciona direto pro humano certo. Sem ficar jogando cliente de um lado pro outro.</p>
+                <div class="feature-metric">↑ mais conversas de venda, menos perguntas repetidas</div>
             </div>
+
             <div class="feature-card">
-                <div class="feature-icon">📝</div>
-                <h3>Histórico Completo</h3>
-                <p>Conversa centralizada, busca avançada, contexto de cada cliente sempre à mão.</p>
+                <div class="feature-icon">📊</div>
+                <h3>Relatórios para diretoria</h3>
+                <p>KPIs prontos para reunião de resultado: volume por canal, origem de lead, taxa de conversão e gargalos de atendimento.</p>
+                <div class="feature-metric">Decisão com dado, não com feeling</div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📄</div>
-                <h3>Exportação em PDF</h3>
-                <p>Ideal para auditoria, compliance, jurídico e registros internos.</p>
-            </div>
+
             <div class="feature-card">
                 <div class="feature-icon">👥</div>
-                <h3>Gestão de Equipe</h3>
-                <p>Distribuição inteligente de demanda, monitoramento de performance individual e gestão de SLA.</p>
+                <h3>Gestão de equipe e SLA</h3>
+                <p>Distribua conversas de forma inteligente, acompanhe performance individual e cumpra SLA sem precisar monitorar manualmente.</p>
+                <div class="feature-metric">Operação previsível, menos incêndio</div>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">📢</div>
-                <h3>Campanhas em Massa</h3>
-                <p>Mensagens aprovadas pela Meta, disparo segmentado e acompanhamento de engajamento.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">🔗</div>
-                <h3>Integrações Poderosas</h3>
-                <p>API robusta, webhooks em tempo real e integrações nativas com CRM, ERP e suporte.</p>
-            </div>
+
             <div class="feature-card">
                 <div class="feature-icon">💬</div>
-                <h3>Suporte Humanizado</h3>
-                <p>Você fala com gente de operação, não com chatbot — ironicamente 😉.</p>
+                <h3>Histórico unificado</h3>
+                <p>Todo o contexto do cliente em um só lugar, independente do canal por onde ele entrou. Busca avançada e exportação em PDF.</p>
+                <div class="feature-metric">Zero “desculpa, pode repetir?”</div>
+            </div>
+
+            <div class="feature-card">
+                <div class="feature-icon">📢</div>
+                <h3>Campanhas segmentadas</h3>
+                <p>Envie mensagens em massa segmentadas e acompanhe taxa de resposta dentro da própria plataforma.</p>
+                <div class="feature-metric">Follow-up ativo sem depender de planilha</div>
             </div>
         </div>
     </section>
 
     <!-- Stats -->
     <section class="stats">
-        <h2 class="section-title" style="color: white; margin-bottom: 60px;">Números que Importam para o CFO e para o Head de Vendas</h2>
+        <h2 class="section-title" style="color: white; margin-bottom: 60px;">Números que importam pro seu CFO e pro seu Head de Vendas</h2>
         <div class="stats-grid">
             <div class="stat-card">
                 <h2>99.5%</h2>
@@ -1460,44 +1340,6 @@
         </div>
     </section>
 
-    <!-- Depoimentos -->
-    <section class="social-proof" id="depoimentos">
-        <h2 class="section-title">O Que Nossos Clientes Dizem</h2>
-        <p class="section-subtitle">Mais conversão, menos atrito e operação finalmente sob controle</p>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Migramos para o NineChat e nossa taxa de conversão aumentou 45% em 3 meses. A visibilidade em tempo real mudou completamente nossa operação."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">MC</div>
-                    <div class="author-info">
-                        <h4>Maria Costa</h4>
-                        <p>Diretora de Atendimento • Empresa XYZ</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"A API oficial da Meta eliminou 90% dos nossos problemas técnicos. Nunca mais perdemos número de WhatsApp comercial."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">RS</div>
-                    <div class="author-info">
-                        <h4>Roberto Silva</h4>
-                        <p>CEO • TechSolutions</p>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-card">
-                <p class="testimonial-text">"Automação inteligente + suporte humano = escala de verdade. Reduzimos custo por atendimento e aumentamos NPS ao mesmo tempo."</p>
-                <div class="testimonial-author">
-                    <div class="author-avatar">AP</div>
-                    <div class="author-info">
-                        <h4>Ana Paula</h4>
-                        <p>Gerente de Operações • RetailCorp</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- FAQ -->
     <section class="faq" id="faq">
         <div class="faq-inner">
@@ -1510,27 +1352,27 @@
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-a">
-                    Na maior parte dos casos não. A gente cuida da migração pro ambiente oficial sem perder histórico e sem derrubar seu canal comercial.
+                    Na maioria dos casos não. A gente cuida da migração, mantém histórico e evita queda do canal comercial.
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-q">
-                    <span>Vocês substituem minha equipe humana?</span>
+                    <span>Isso substitui minha equipe humana?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-a">
-                    Não. A ideia é tirar repetitivo do time (status de pedido, agendamento, dúvidas básicas) e deixar seus atendentes só com conversa de valor, negociação e fechamento.
+                    Não. A ideia é tirar o repetitivo (rastreio, boleto, reagendamento, dúvidas básicas) e deixar seu time só em conversa de valor e fechamento.
                 </div>
             </div>
 
             <div class="faq-item">
                 <div class="faq-q">
-                    <span>E se meu volume de mensagens crescer muito?</span>
+                    <span>E se meu volume de mensagens explodir?</span>
                     <span class="faq-toggle">+</span>
                 </div>
                 <div class="faq-a">
-                    Ótimo. Nosso modelo não cobra “por usuário logado”. Você escala atendimento sem multiplicar custo fixo por operador.
+                    Melhor ainda. Nosso modelo não cobra “por usuário logado”. Você escala atendimento sem multiplicar custo fixo por operador.
                 </div>
             </div>
 
@@ -1605,7 +1447,7 @@
             alert('🚀 Vamos começar?\n\nWhatsApp: (XX) XXXXX-XXXX\nEmail: contato@ninechat.com.br');
         }
 
-        document.querySelectorAll('.cta-nav, .btn-primary, .btn-secondary').forEach(button => {
+        document.querySelectorAll('.cta-nav, .btn-primary').forEach(button => {
             button.addEventListener('click', handleCTA);
         });
 
@@ -1640,7 +1482,7 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('.feature-card, .channel-card, .stat-card, .screenshot-card, .testimonial-card, .benefit-card, .nicho-card, .integration-card').forEach(el => {
+        document.querySelectorAll('.feature-card, .channel-card, .stat-card, .screenshot-card, .benefit-card, .nicho-card, .integration-card').forEach(el => {
             observer.observe(el);
         });
 
