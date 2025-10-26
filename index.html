@@ -214,18 +214,33 @@
         }
 
         /* mockup hero img */
-        .hero-mockup-wrapper {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .hero-mockup {
-            max-width: 360px;
-            width: 100%;
-            border-radius: 32px;
-            box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 80px rgba(0,217,184,.4);
-            border: 2px solid rgba(255,255,255,.1);
-        }
+       .hero-mockup-wrapper {
+    background: radial-gradient(circle at 20% 20%, rgba(255,255,255,.08) 0%, rgba(0,0,0,0) 70%), 
+                linear-gradient(160deg, rgba(0,102,255,.9) 0%, rgba(0,217,184,.6) 80%);
+    border-radius: 24px;
+    padding: 40px 32px;
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.8),
+        0 0 80px rgba(0,217,184,.4);
+    border: 1px solid rgba(255,255,255,.18);
+    max-width: 340px;
+    width: 100%;
+    min-height: 400px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+}
+
+.hero-mockup {
+    max-width: 260px;
+    width: 100%;
+    filter: drop-shadow(0 25px 40px rgba(0,0,0,.7));
+    border-radius: 0;      /* agora quem tem radius é o wrapper, a pessoa fica “flutuando” */
+    border: 0;
+    box-shadow: none;
+}
 
         /* ====== TRUST / SELO ====== */
         .trust-section {
