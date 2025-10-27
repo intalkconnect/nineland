@@ -4,7 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="facebook-domain-verification" content="atga4be72k1s1u3vbrwyude95ytl7i" />
-  <title>NineChat - Plataa Oficial de Atendimento Omnichannel</title>
+  <title>NineChat - Plataforma Oficial de Atendimento Omnichannel</title>
+
+  <!-- FAVICON (SVG embutido) -->
+  <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="%230066FF"/><stop offset="100%" stop-color="%2300D9B8"/></linearGradient></defs><rect width="64" height="64" rx="12" fill="url(%23g)"/><path d="M18 40c7 7 21 7 28-8-6 4-12 4-18 0-4-3-6-7-6-12-5 8-5 18-4 20z" fill="white"/></svg>'>
 
   <style>
     /* ====== base / tokens ====== */
@@ -78,7 +81,7 @@
     .benefit-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.08);border-color:var(--primary)}
     .benefit-icon{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:600;margin-bottom:16px}
 
-    /* ====== CONVERSAS (sem imagens) ====== */
+    /* ====== CONVERSAS ====== */
     .conversations-section{padding:120px 5%;background:linear-gradient(to bottom,#fff,var(--light-gray))}
     .conversations-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
     .conv-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.06);transition:.3s}
@@ -140,6 +143,49 @@
     .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:60px;margin-bottom:40px}
     .footer-section a{color:rgba(255,255,255,.7);text-decoration:none;display:block;line-height:2}
     .footer-section a:hover{color:#fff}
+
+    /* ====== SUCCESS MODAL ====== */
+    .success-overlay{
+      position:fixed; inset:0; display:none; align-items:center; justify-content:center;
+      background:rgba(10,16,30,.55); backdrop-filter:blur(6px); z-index:2000;
+    }
+    .success-overlay.open{ display:flex; animation:fadeIn .25s ease both; }
+    @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
+
+    .success-card{
+      width:min(520px,90vw); background:#0B1220; color:#E6F3FF;
+      border:1px solid rgba(255,255,255,.12); border-radius:24px; padding:28px 28px 24px;
+      box-shadow:0 30px 80px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.06);
+      transform:scale(.96); opacity:0; animation:pop .28s ease .08s both;
+    }
+    @keyframes pop{ to{ transform:scale(1); opacity:1 } }
+
+    .checkwrap{ display:flex; align-items:center; justify-content:center; margin-bottom:14px; }
+    .checkwrap svg{ width:84px; height:84px; }
+    svg .circ{
+      stroke:#00D9B8; stroke-width:6; fill:none; stroke-linecap:round;
+      stroke-dasharray:265; stroke-dashoffset:265; animation:draw 700ms ease forwards;
+    }
+    svg .tick{
+      stroke:#FFFFFF; stroke-width:6; fill:none; stroke-linecap:round; stroke-linejoin:round;
+      stroke-dasharray:50; stroke-dashoffset:50; animation:draw 600ms ease 300ms forwards;
+    }
+    @keyframes draw{ to{ stroke-dashoffset:0 } }
+
+    .success-title{ font-size:1.4rem; font-weight:800; letter-spacing:-.02em; text-align:center; margin:6px 0 4px; }
+    .success-sub{ color:#B7C6FF; text-align:center; margin-bottom:16px; }
+    .success-details{
+      background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08);
+      border-radius:14px; padding:12px 14px; font-size:.92rem; color:#CFE6FF;
+    }
+    .success-actions{ display:flex; gap:10px; justify-content:center; margin-top:18px; }
+    .btn-ghost, .btn-solid{
+      padding:12px 18px; border-radius:999px; font-weight:700; cursor:pointer; border:1px solid transparent;
+    }
+    .btn-solid{ background:linear-gradient(135deg,var(--primary),var(--secondary)); color:#fff; border-color:rgba(255,255,255,.18); }
+    .btn-ghost{ background:transparent; color:#CFE6FF; border-color:rgba(255,255,255,.18); }
+    .btn-solid:hover{ filter:brightness(1.05) }
+    .btn-ghost:hover{ background:rgba(255,255,255,.06) }
 
     /* ====== RESPONSIVO ====== */
     @media (max-width: 768px){
@@ -241,7 +287,7 @@
     </div>
   </section>
 
-  <!-- CONVERSAS (sem imagens) -->
+  <!-- CONVERSAS -->
   <section class="conversations-section" id="casos">
     <div class="section-headline">
       <h2>Chatbot que trabalha por você em cada etapa da jornada</h2>
@@ -355,7 +401,7 @@
     </div>
 
     <div class="form-wrap">
-      <form class="form-card" action="https://sendform-production.up.railway.app/api/agendar-demo" method="POST">
+      <form class="form-card" action="https://sendform-production.up.railway.app/api/agendar-demo" method="POST" novalidate>
         <h3>Solicitar contato</h3>
         <p class="lead">Preencha seus dados para criarmos um ticket comercial e, se desejar, já abrir oportunidade no CRM.</p>
 
@@ -498,13 +544,13 @@
     <div class="footer-content">
       <div class="footer-section">
         <h3>NineChat</h3>
-        <p>Plataa omnichannel para empresas que querem crescer com chatbot, controle e escala.</p>
+        <p>Plataforma omnichannel para empresas que querem crescer com chatbot, controle e escala.</p>
       </div>
       <div class="footer-section">
         <h3>Produto</h3>
         <a href="#casos">Casos de Uso</a>
         <a href="#integracoes">Integrações</a>
-        <a href="#recursos">Plataa</a>
+        <a href="#recursos">Plataforma</a>
         <a href="#agendar">Agendar Demo</a>
       </div>
       <div class="footer-section">
@@ -522,10 +568,38 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 NineChat - Plataa Omnichannel. Todos os direitos reservados.</p>
+      <p>&copy; 2025 NineChat - Plataforma Omnichannel. Todos os direitos reservados.</p>
       <p style="margin-top:10px;">Parceiro Oficial Meta Business Partner 🤝</p>
     </div>
   </footer>
+
+  <!-- SUCCESS MODAL -->
+  <div class="success-overlay" id="success-modal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="success-card" role="document">
+      <div class="checkwrap" aria-hidden="true">
+        <svg viewBox="0 0 100 100">
+          <circle class="circ" cx="50" cy="50" r="42"></circle>
+          <path class="tick" d="M30 52 L45 66 L72 38"></path>
+        </svg>
+      </div>
+      <div class="success-title">Solicitação enviada com sucesso!</div>
+      <div class="success-sub">Em breve um especialista entrará em contato.</div>
+
+      <div class="success-details" id="success-resume">
+        <!-- preenchido via JS com um resumo (empresa, email, telefone) -->
+      </div>
+
+      <div class="success-actions">
+        <button class="btn-solid" id="success-close">Fechar</button>
+        <!-- Exemplo extra:
+        <a class="btn-ghost" href="https://wa.me/55DDDNUMERO" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        -->
+      </div>
+    </div>
+  </div>
+
+  <!-- (Opcional) Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
 
   <script>
     // Smooth scroll (links e botões com data-scroll)
@@ -546,11 +620,11 @@
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.style.opacity='0';
-          entry.target.style.trans='translateY(20px)';
+          entry.target.style.transform='translateY(20px)';
           setTimeout(()=>{
             entry.target.style.transition='all .6s ease';
             entry.target.style.opacity='1';
-            entry.target.style.trans='translateY(0)';
+            entry.target.style.transform='translateY(0)';
           },100);
           observer.unobserve(entry.target);
         }
@@ -563,74 +637,134 @@
       item.addEventListener('click', ()=>item.classList.toggle('open'));
     });
 
+    // ====== MODAL DE SUCESSO ======
     (function () {
-    const form = document.querySelector('form.form-card');
-    const statusBox = document.getElementById('form-status');
-    const submitBtn = form.querySelector('.btn-submit');
+      const modal = document.getElementById('success-modal');
+      const btnClose = document.getElementById('success-close');
+      const resume = document.getElementById('success-resume');
+      let lastFocus = null;
 
-    function setStatus(type, msg) {
-      statusBox.innerHTML = '';
-      const el = document.createElement('div');
-      el.role = 'status';
-      el.style.padding = '12px 16px';
-      el.style.borderRadius = '12px';
-      el.style.marginTop = '8px';
-      el.style.fontSize = '.95rem';
-      el.style.border = '1px solid';
-      if (type === 'ok') {
-        el.style.background = '#ECFDF5';
-        el.style.color = '#065F46';
-        el.style.borderColor = '#A7F3D0';
-      } else {
-        el.style.background = '#FEF2F2';
-        el.style.color = '#991B1B';
-        el.style.borderColor = '#FECACA';
+      function trap(e){
+        // foco dentro do modal
+        const focusables = modal.querySelectorAll('button, [href], input, textarea, select, [tabindex]:not([tabindex="-1"])');
+        if(!focusables.length) return;
+        const first = focusables[0], last = focusables[focusables.length - 1];
+        if(e.key === 'Tab'){
+          if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+          else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+        } else if(e.key === 'Escape'){ closeSuccess(); }
       }
-      el.textContent = msg;
-      statusBox.appendChild(el);
-    }
 
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      // bloqueia duplo clique
-      submitBtn.disabled = true;
-      const originalText = submitBtn.textContent;
-      submitBtn.textContent = 'Enviando…';
-
-      try {
-        // monta body x-www-form-urlencoded (igual ao submit nativo)
-        const fd = new FormData(form);
-        const body = new URLSearchParams();
-        for (const [k, v] of fd.entries()) body.append(k, v);
-
-        const resp = await fetch(form.action, {
-          method: 'POST',
-          headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
-          body
-        });
-
-        if (resp.status === 204 || (resp.ok && resp.headers.get('content-length') === '0')) {
-          // sucesso (sua API retorna 204)
-          setStatus('ok', 'Solicitação enviada com sucesso! Em breve um especialista entrará em contato.');
-          form.reset();
-        } else if (resp.ok) {
-          // caso sua API devolva JSON/201 em algum momento
-          setStatus('ok', 'Solicitação enviada com sucesso! Em breve um especialista entrará em contato.');
-          form.reset();
-        } else {
-          let details = '';
-          try { details = (await resp.json()).details || ''; } catch (_) {}
-          setStatus('err', 'Não foi possível enviar agora. Tente novamente em instantes.' + (details ? ` (${JSON.stringify(details)})` : ''));
+      function openSuccess({ empresa, email, telefone }){
+        lastFocus = document.activeElement;
+        document.body.style.overflow = 'hidden';
+        resume.innerHTML = `
+          <strong>Resumo do envio</strong><br>
+          Empresa: ${empresa || '—'}<br>
+          E-mail: ${email || '—'}<br>
+          Telefone: ${telefone || '—'}
+        `;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden','false');
+        btnClose.focus();
+        document.addEventListener('keydown', trap);
+        // confete (se lib carregou)
+        if (window.confetti) {
+          confetti({ particleCount: 90, spread: 70, origin: { y: .5 } });
+          setTimeout(()=>confetti({ particleCount: 50, spread: 60, origin: { y: .6 } }), 250);
         }
-      } catch (err) {
-        setStatus('err', 'Falha de rede. Verifique sua conexão e tente novamente.');
-      } finally {
-        submitBtn.disabled = false;
-        submitBtn.textContent = originalText;
       }
-    });
-  })();
+
+      function closeSuccess(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden','true');
+        document.body.style.overflow = '';
+        document.removeEventListener('keydown', trap);
+        if (lastFocus) lastFocus.focus();
+      }
+
+      btnClose.addEventListener('click', closeSuccess);
+      modal.addEventListener('click', (e)=>{ if(e.target === modal) closeSuccess(); });
+
+      // Expor para o submit handler
+      window.__openSuccessModal = openSuccess;
+    })();
+
+    // ====== SUBMIT DO FORM (via fetch + 204) ======
+    (function () {
+      const form = document.querySelector('form.form-card');
+      const statusBox = document.getElementById('form-status');
+      const submitBtn = form.querySelector('.btn-submit');
+
+      function setStatus(type, msg) {
+        statusBox.innerHTML = '';
+        const el = document.createElement('div');
+        el.role = 'status';
+        el.style.padding = '12px 16px';
+        el.style.borderRadius = '12px';
+        el.style.marginTop = '8px';
+        el.style.fontSize = '.95rem';
+        el.style.border = '1px solid';
+        if (type === 'ok') {
+          el.style.background = '#ECFDF5';
+          el.style.color = '#065F46';
+          el.style.borderColor = '#A7F3D0';
+        } else {
+          el.style.background = '#FEF2F2';
+          el.style.color = '#991B1B';
+          el.style.borderColor = '#FECACA';
+        }
+        el.textContent = msg;
+        statusBox.appendChild(el);
+      }
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // validação básica do HTML5
+        if (!form.checkValidity()) {
+          setStatus('err', 'Preencha os campos obrigatórios.');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Enviando…';
+
+        try {
+          // x-www-form-urlencoded
+          const fd = new FormData(form);
+          const body = new URLSearchParams();
+          for (const [k, v] of fd.entries()) body.append(k, v);
+
+          const resp = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+            body
+          });
+
+          if (resp.status === 204 || (resp.ok && (resp.headers.get('content-length') === '0' || resp.status === 201))) {
+            // sucesso
+            window.__openSuccessModal({
+              empresa: fd.get('empresa'),
+              email: fd.get('email'),
+              telefone: fd.get('telefone')
+            });
+            form.reset();
+            statusBox.innerHTML = '';
+          } else {
+            let details = '';
+            try { const j = await resp.json(); details = j.details || j.error || ''; } catch (_) {}
+            setStatus('err', 'Não foi possível enviar agora. Tente novamente em instantes.' + (details ? ` (${typeof details === 'string' ? details : JSON.stringify(details)})` : ''));
+          }
+        } catch (err) {
+          setStatus('err', 'Falha de rede. Verifique sua conexão e tente novamente.');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
