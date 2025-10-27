@@ -1,191 +1,122 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Exclusão de Dados – NineChat</title>
 <style>
-  /* ====== VARS + BASE (tema igual ao site) ====== */
-  :root{
-    --primary:#0066FF; --primary-dark:#0052CC; --secondary:#00D9B8; --accent:#FF6B35;
-    --dark:#1A1F36; --gray:#6B7280; --light-gray:#F3F4F6; --white:#FFFFFF; --border:#E5E7EB;
-  }
-  *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,sans-serif;color:var(--dark);background:var(--white);line-height:1.6}
-
-  /* ====== NAV (copiado do site) ====== */
-  nav{position:fixed;top:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;
-      background:linear-gradient(135deg,var(--primary),var(--primary-dark));backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.1);transition:all .3s}
-  nav.scrolled{background:rgba(10,17,40,.9);box-shadow:0 20px 40px rgba(0,0,0,.4)}
-  .logo{height:36px;object-fit:contain}
-  .nav-links{display:flex;gap:32px;list-style:none}
-  .nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:opacity .3s;font-size:15px;opacity:.9}
-  .nav-links a:hover{opacity:1}
-  .cta-nav{background:#fff;color:var(--primary);padding:12px 32px;border-radius:50px;font-weight:600;border:none;cursor:pointer;font-size:15px;
-           transition:all .3s;box-shadow:0 4px 15px rgba(255,255,255,.3),0 10px 30px rgba(0,0,0,.4)}
-  .cta-nav:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 6px 25px rgba(255,255,255,.4),0 20px 40px rgba(0,0,0,.5)}
-  @media(max-width:768px){.nav-links{display:none}}
-
-  /* ====== LAYOUT LEGAL ====== */
-  .wrap{max-width:1100px;margin:0 auto;padding:120px 24px 24px} /* +120px por causa do nav fixo */
-  .header{display:flex;gap:12px;align-items:center;margin:12px 0 8px}
-  .hIcon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;
-         background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;font-weight:800}
-  .hTitle{margin:0;font-weight:900;letter-spacing:-.02em}
-  .hSub{color:var(--gray);display:flex;gap:10px;align-items:center;font-size:14px}
-  .hDot{opacity:.6}
-  .grid{display:grid;grid-template-columns:260px 1fr;gap:24px}
-  .toc{position:sticky;top:96px;height:fit-content}
-  .tocInner{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06)}
-  .tocTitle{font-weight:800;margin-bottom:8px}
-  .tocList{display:flex;flex-direction:column;gap:8px}
-  .tocLink{color:var(--dark);text-decoration:none;font-size:.95rem}
-  .tocLink:hover{color:var(--primary)}
-  .panel{border:1px solid var(--border);border-radius:14px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06)}
-  .contentScroll{max-height:calc(100dvh - 220px);overflow:auto;padding:20px}
-  .article h2{margin:24px 0 6px;font-size:1.15rem}
-  .article p,.article li{color:#374151}
-  .alert{border:1px solid var(--border);background:#f9fafb;padding:12px;border-radius:12px;margin-bottom:16px;font-size:14px}
-  .fab{position:fixed;right:18px;bottom:18px;border:none;background:var(--primary);color:#fff;border-radius:999px;width:44px;height:44px;
-       display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.15)}
-  @media(max-width:900px){.grid{grid-template-columns:1fr}.contentScroll{max-height:unset}}
-
-  /* ====== FOOTER (copiado do site) ====== */
-  footer{background:var(--dark);color:#fff;padding:60px 5% 40px;margin-top:40px}
-  .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:60px;margin-bottom:40px}
-  .footer-section h3{font-size:1.1rem;margin-bottom:20px;font-weight:700}
-  .footer-section p,.footer-section a{color:rgba(255,255,255,.7);font-size:.9rem;line-height:2;text-decoration:none;display:block}
-  .footer-section a:hover{color:#fff}
-  .footer-bottom{text-align:center;padding-top:40px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:.8rem;line-height:1.4}
+:root{ --nav-h:76px; --primary:#0066FF; --dark:#1A1F36; --gray:#6B7280; --border:#E5E7EB; --bg:#fff; }
+body.legal-page{ padding-top:var(--nav-h); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu',sans-serif; color:var(--dark); background:#fff; margin:0 }
+[id]{ scroll-margin-top: calc(var(--nav-h) + 16px); }
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5%;
+background:linear-gradient(135deg,#0066FF,#0052CC); color:#fff; z-index:1000; box-shadow:0 2px 12px rgba(0,0,0,.12);}
+.nav-links{display:flex;gap:32px;list-style:none;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500;opacity:.9}
+.nav-links a:hover{opacity:1}
+.logo{height:36px}
+.cta-nav{background:#fff;color:#0066FF;border:none;border-radius:999px;padding:10px 20px;font-weight:700;cursor:pointer}
+.wrap{max-width:1100px;margin:24px auto;padding:0 5%}
+.header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.hIcon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#EFF6FF;color:#1D4ED8;font-weight:800}
+.hTitle{margin:0;font-size:1.6rem}
+.hSub{color:var(--gray);font-size:.9rem}
+.grid{display:grid;grid-template-columns:260px 1fr;gap:24px;margin-top:16px}
+.toc{position:sticky;top:calc(var(--nav-h) + 16px)}
+.tocTitle{font-weight:800;margin-bottom:10px}
+.tocList{display:flex;flex-direction:column;gap:8px}
+.tocList a{color:#111827;text-decoration:none;font-size:.95rem}
+.tocList a:hover{color:var(--primary)}
+.panel{border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.05);background:#fff}
+.content{padding:24px 22px}
+.notice{border:1px solid var(--border);background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:16px;font-size:14px}
+.content h2{font-size:1.1rem;margin:18px 0 8px}
+.content p, .content li{color:var(--gray)}
+.fab{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;border:none;background:var(--primary);color:#fff;font-weight:800;cursor:pointer}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.toc{position:static}}
 </style>
-</head>
-<body>
-
-  <!-- NAV -->
-  <nav>
-    <div class="logo-container"><img src="/image/logo-front.png" alt="NineChat" class="logo"></div>
-    <ul class="nav-links">
-      <li><a href="/#casos">Casos de Uso</a></li>
-      <li><a href="/#setores">Setores</a></li>
-      <li><a href="/#integracoes">Integrações</a></li>
-      <li><a href="/#recursos">Plataforma</a></li>
-      <li><a href="/#faq">FAQ</a></li>
-    </ul>
-    <button class="cta-nav" onclick="location.href='/#'">Agendar Demonstração →</button>
-  </nav>
-
-  <!-- CONTENT -->
-  <div class="wrap">
-    <header class="header">
-      <div class="hIcon">🛡️</div>
-      <div>
-        <h1 class="hTitle">Exclusão de Dados</h1>
-        <div class="hSub"><span>NineChat</span><span class="hDot">·</span><span>Atualizado em 17/09/2024</span></div>
-      </div>
-    </header>
-
-    <div class="grid">
-      <aside class="toc">
-        <div class="tocInner">
-          <div class="tocTitle">Neste documento</div>
-          <nav class="tocList" aria-label="Índice">
-            <a class="tocLink" href="#como-funciona">Como funciona a exclusão</a>
-            <a class="tocLink" href="#canais-meta">Facebook/Instagram (Meta)</a>
-            <a class="tocLink" href="#prazo">Prazos e backups</a>
-            <a class="tocLink" href="#escopo">Escopo do que é excluído</a>
-            <a class="tocLink" href="#contato">Contato do DPO</a>
-          </nav>
-        </div>
-      </aside>
-
-      <section class="panel">
-        <div class="contentScroll">
-          <article class="article">
-            <div id="codeBox" class="alert" style="display:none"></div>
-
-            <h2 id="como-funciona">Como funciona a exclusão</h2>
-            <p>Você pode solicitar a exclusão dos seus dados pessoais relacionados ao uso da plataforma <strong>NineChat</strong>. Após recebermos a solicitação, iniciamos um processo interno que remove dados identificáveis de nossos sistemas ativos, respeitando obrigações legais e técnicas.</p>
-
-            <h2 id="canais-meta">Facebook/Instagram (Meta)</h2>
-            <p>Se você acionou a exclusão pelo Facebook/Instagram, a Meta chama automaticamente nosso endpoint de exclusão e exibe um <em>código de confirmação</em> (mostrado acima quando disponível). Caso precise de suporte, entre em contato informando esse código.</p>
-
-            <h2 id="prazo">Prazos e backups</h2>
-            <ul>
-              <li>Processamos solicitações em até <strong>30 dias</strong>.</li>
-              <li>Backups podem reter dados por período limitado até expiração segura.</li>
-              <li>Logs necessários ao cumprimento legal podem ter retenção maior.</li>
-            </ul>
-
-            <h2 id="escopo">Escopo do que é excluído</h2>
-            <ul>
-              <li>Dados cadastrais e identificadores controlados pela NineChat.</li>
-              <li>Conteúdos e metadados processados pela plataforma, quando aplicável.</li>
-              <li>Chaves e credenciais de acesso vinculadas à sua conta.</li>
-            </ul>
-            <p>Alguns dados poderão ser <em>anônimos</em> para fins estatísticos e de segurança.</p>
-
-            <h2 id="contato">Contato do DPO</h2>
-            <p>Dúvidas ou acompanhamento de solicitações: <a href="mailto:suporte@ninechat.com.br">suporte@ninechat.com.br</a>. Consulte também: <a href="/legal/privacy.html">Política de Privacidade</a> e <a href="/legal/terms.html">Termos</a>.</p>
-          </article>
-        </div>
-      </section>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>NineChat</h3>
-        <p>Plataforma omnichannel para empresas que querem crescer com chatbot, controle e escala.</p>
-      </div>
-      <div class="footer-section">
-        <h3>Produto</h3>
-        <a href="/#casos">Casos de Uso</a>
-        <a href="/#setores">Setores</a>
-        <a href="/#integracoes">Integrações</a>
-        <a href="/#recursos">Plataforma</a>
-      </div>
-      <div class="footer-section">
-        <h3>Empresa</h3>
-        <a href="/#">Sobre Nós</a><a href="/#">Carreiras</a><a href="/#">Blog</a><a href="/#">Contato</a>
-      </div>
-      <div class="footer-section">
-        <h3>Suporte</h3>
-        <a href="/#">Central de Ajuda</a><a href="/#">Documentação</a><a href="/#">Status</a><a href="/#">API</a>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 NineChat - Plataforma Omnichannel. Todos os direitos reservados.</p>
-      <p style="margin-top:10px;">Parceiro Oficial Meta Business Partner 🤝</p>
-    </div>
-  </footer>
-
 <script>
-  // Smooth scroll de âncoras internas do legal
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click',e=>{
-      e.preventDefault();
-      const t=document.querySelector(a.getAttribute('href'));
-      if(t){ t.scrollIntoView({behavior:'smooth',block:'start'}) }
-    });
-  });
-  // Navbar scroll effect
-  const navEl=document.querySelector('nav');
-  window.addEventListener('scroll',()=>{ window.scrollY>100?navEl.classList.add('scrolled'):navEl.classList.remove('scrolled'); });
-  // Lê ?code=... e mostra comprovante
-  (function(){
-    const sp=new URLSearchParams(window.location.search);
-    const code=sp.get('code');
+  // Lê ?code=XYZ e exibe no aviso
+  function getCode(){ const sp=new URLSearchParams(location.search); return sp.get("code"); }
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const code = getCode();
     if(code){
-      const box=document.getElementById('codeBox');
+      const box = document.getElementById('code-box');
       box.style.display='block';
-      box.innerHTML='<strong>Código de confirmação:</strong> '+code+'<div style="color:#6B7280;margin-top:6px">Guarde este código. Ele comprova que sua solicitação foi registrada.</div>';
+      document.getElementById('code-value').textContent = code;
     }
-  })();
-  // FAB voltar ao topo
-  const fab=document.createElement('button'); fab.className='fab'; fab.title='Voltar ao topo'; fab.ariaLabel='Voltar ao topo'; fab.textContent='↑';
-  fab.onclick=()=>{ const sc=document.querySelector('.contentScroll'); (sc?sc:window).scrollTo({top:0,behavior:'smooth'}); };
-  document.body.appendChild(fab);
+  });
 </script>
+</head>
+<body class="legal-page">
+
+<nav>
+  <img src="/image/logo-front.png" alt="NineChat" class="logo">
+  <ul class="nav-links">
+    <li><a href="/">Início</a></li>
+    <li><a href="/#casos">Casos de Uso</a></li>
+    <li><a href="/#integracoes">Integrações</a></li>
+    <li><a href="/#recursos">Plataforma</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul>
+  <button class="cta-nav" onclick="location.href='/#agendar'">Agendar →</button>
+</nav>
+
+<div class="wrap">
+  <header class="header">
+    <div class="hIcon">🛡️</div>
+    <div>
+      <h1 class="hTitle">Exclusão de Dados</h1>
+      <div class="hSub">NineChat · Atualizado em 17/09/2024</div>
+    </div>
+  </header>
+
+  <div class="grid">
+    <aside class="toc">
+      <div class="tocTitle">Neste documento</div>
+      <nav class="tocList">
+        <a href="#como-funciona">Como funciona a exclusão</a>
+        <a href="#canais-meta">Facebook/Instagram (Meta)</a>
+        <a href="#prazo">Prazos e backups</a>
+        <a href="#escopo">Escopo do que é excluído</a>
+        <a href="#contato">Contato do DPO</a>
+      </nav>
+    </aside>
+
+    <section class="panel">
+      <div class="content">
+        <div id="code-box" class="notice" style="display:none">
+          <strong>Código de confirmação:</strong> <span id="code-value"></span>
+          <div style="color:#6B7280;margin-top:6px">Guarde este código. Ele comprova que sua solicitação foi registrada.</div>
+        </div>
+
+        <h2 id="como-funciona">Como funciona a exclusão</h2>
+        <p>Você pode solicitar a exclusão dos seus dados pessoais relacionados ao uso da plataforma <strong>NineChat</strong>. Após a solicitação, removemos dados identificáveis de sistemas ativos, respeitando obrigações legais e técnicas.</p>
+
+        <h2 id="canais-meta">Facebook/Instagram (Meta)</h2>
+        <p>Ao acionar a exclusão pela Meta, nosso endpoint é chamado automaticamente e um <em>código de confirmação</em> é exibido (aparece acima quando presente).</p>
+
+        <h2 id="prazo">Prazos e backups</h2>
+        <ul>
+          <li>Solicitações são processadas em até <strong>30 dias</strong>.</li>
+          <li>Backups podem reter dados por período limitado até expiração segura.</li>
+          <li>Logs necessários a cumprimento legal podem ter retenção maior.</li>
+        </ul>
+
+        <h2 id="escopo">Escopo do que é excluído</h2>
+        <ul>
+          <li>Dados cadastrais e identificadores controlados pela NineChat.</li>
+          <li>Conteúdos e metadados processados quando aplicável.</li>
+          <li>Chaves e credenciais de acesso vinculadas à conta.</li>
+        </ul>
+        <p>Alguns dados podem ser <em>anonimizados</em> para fins estatísticos e de segurança.</p>
+
+        <h2 id="contato">Contato do DPO</h2>
+        <p>Dúvidas: <a href="mailto:suporte@ninechat.com.br">suporte@ninechat.com.br</a>. Consulte também <a href="/legal-privacy.html">Política de Privacidade</a> e <a href="/legal-terms.html">Termos</a>.</p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<button class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 </body>
 </html>
