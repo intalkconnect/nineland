@@ -1,41 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>Política de Privacidade – NineChat</title>
+<!-- Mesmo CSS de nav/footer e layout do arquivo anterior (para manter DRY você pode extrair para um .css global) -->
 <style>
-  :root{--nc-primary:#0066FF;--nc-secondary:#00D9B8;--nc-dark:#1A1F36;--nc-muted:#6B7280;--nc-border:#E5E7EB;--nc-shadow:0 10px 30px rgba(0,0,0,.06)}
-  *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,sans-serif;color:var(--nc-dark);background:#fff;line-height:1.6}
-  .wrap{max-width:1100px;margin:0 auto;padding:24px}
-  .header{display:flex;gap:12px;align-items:center;margin:24px 0 16px}
-  .hIcon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--nc-primary),var(--nc-secondary));color:#fff;font-weight:800}
+  :root{--primary:#0066FF;--primary-dark:#0052CC;--secondary:#00D9B8;--accent:#FF6B35;--dark:#1A1F36;--gray:#6B7280;--light-gray:#F3F4F6;--white:#FFFFFF;--border:#E5E7EB}
+  *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,sans-serif;color:var(--dark);background:var(--white);line-height:1.6}
+  nav{position:fixed;top:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:linear-gradient(135deg,var(--primary),var(--primary-dark));backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.1);transition:all .3s}
+  nav.scrolled{background:rgba(10,17,40,.9);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+  .logo{height:36px;object-fit:contain}.nav-links{display:flex;gap:32px;list-style:none}
+  .nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:opacity .3s;font-size:15px;opacity:.9}.nav-links a:hover{opacity:1}
+  .cta-nav{background:#fff;color:var(--primary);padding:12px 32px;border-radius:50px;font-weight:600;border:none;cursor:pointer;font-size:15px;transition:all .3s;box-shadow:0 4px 15px rgba(255,255,255,.3),0 10px 30px rgba(0,0,0,.4)}
+  .cta-nav:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 6px 25px rgba(255,255,255,.4),0 20px 40px rgba(0,0,0,.5)}
+  @media(max-width:768px){.nav-links{display:none}}
+  .wrap{max-width:1100px;margin:0 auto;padding:120px 24px 24px}
+  .header{display:flex;gap:12px;align-items:center;margin:12px 0 8px}
+  .hIcon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;font-weight:800}
   .hTitle{margin:0;font-weight:900;letter-spacing:-.02em}
-  .hSub{color:var(--nc-muted);display:flex;gap:10px;align-items:center;font-size:14px}
+  .hSub{color:var(--gray);display:flex;gap:10px;align-items:center;font-size:14px}
   .hDot{opacity:.6}
   .grid{display:grid;grid-template-columns:260px 1fr;gap:24px}
-  .toc{position:sticky;top:16px;height:fit-content}
-  .tocInner{border:1px solid var(--nc-border);border-radius:14px;padding:16px;background:#fff;box-shadow:var(--nc-shadow)}
-  .tocTitle{font-weight:800;margin-bottom:8px}
-  .tocList{display:flex;flex-direction:column;gap:8px}
-  .tocLink{color:var(--nc-dark);text-decoration:none;font-size:.95rem}
-  .tocLink:hover{color:var(--nc-primary)}
-  .panel{border:1px solid var(--nc-border);border-radius:14px;background:#fff;box-shadow:var(--nc-shadow)}
-  .contentScroll{max-height:calc(100dvh - 180px);overflow:auto;padding:20px}
-  .article h2{margin:24px 0 6px;font-size:1.15rem}
-  .article p, .article li{color:#374151}
-  .fab{position:fixed;right:18px;bottom:18px;border:none;background:var(--nc-primary);color:#fff;border-radius:999px;width:44px;height:44px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.15)}
-  @media (max-width: 900px){ .grid{grid-template-columns:1fr} .contentScroll{max-height:unset} }
+  .toc{position:sticky;top:96px;height:fit-content}
+  .tocInner{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+  .tocTitle{font-weight:800;margin-bottom:8px}.tocList{display:flex;flex-direction:column;gap:8px}
+  .tocLink{color:var(--dark);text-decoration:none;font-size:.95rem}.tocLink:hover{color:var(--primary)}
+  .panel{border:1px solid var(--border);border-radius:14px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+  .contentScroll{max-height:calc(100dvh - 220px);overflow:auto;padding:20px}
+  .article h2{margin:24px 0 6px;font-size:1.15rem}.article p,.article li{color:#374151}
+  footer{background:var(--dark);color:#fff;padding:60px 5% 40px;margin-top:40px}
+  .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:60px;margin-bottom:40px}
+  .footer-section h3{font-size:1.1rem;margin-bottom:20px;font-weight:700}
+  .footer-section p,.footer-section a{color:rgba(255,255,255,.7);font-size:.9rem;line-height:2;text-decoration:none;display:block}
+  .footer-section a:hover{color:#fff}
+  .footer-bottom{text-align:center;padding-top:40px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:.8rem;line-height:1.4}
+  @media(max-width:900px){.grid{grid-template-columns:1fr}.contentScroll{max-height:unset}}
 </style>
 </head>
 <body>
+  <nav>
+    <div class="logo-container"><img src="/image/logo-front.png" alt="NineChat" class="logo"></div>
+    <ul class="nav-links">
+      <li><a href="/#casos">Casos de Uso</a></li><li><a href="/#setores">Setores</a></li><li><a href="/#integracoes">Integrações</a></li>
+      <li><a href="/#recursos">Plataforma</a></li><li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <button class="cta-nav" onclick="location.href='/#'">Agendar Demonstração →</button>
+  </nav>
+
   <div class="wrap">
     <header class="header">
       <div class="hIcon">🛡️</div>
-      <div>
-        <h1 class="hTitle">Política de Privacidade</h1>
-        <div class="hSub"><span>NineChat</span><span class="hDot">·</span><span>Atualizado em 17/09/2024</span></div>
-      </div>
+      <div><h1 class="hTitle">Política de Privacidade</h1><div class="hSub"><span>NineChat</span><span class="hDot">·</span><span>Atualizado em 17/09/2024</span></div></div>
     </header>
 
     <div class="grid">
@@ -65,11 +80,7 @@
         <div class="contentScroll">
           <article class="article">
             <h2 id="escopo">Escopo e Papéis (LGPD)</h2>
-            <p>
-              Esta Política descreve o tratamento de dados pessoais no uso da plataforma NineChat. Em geral,
-              <strong>o Cliente atua como Controlador</strong> e <strong>a NineChat atua como Operadora</strong>,
-              tratando dados conforme instruções do Controlador.
-            </p>
+            <p>Esta Política descreve o tratamento de dados pessoais no uso da plataforma NineChat. Em geral, <strong>o Cliente atua como Controlador</strong> e <strong>a NineChat atua como Operadora</strong>, tratando dados conforme instruções do Controlador.</p>
 
             <h2 id="categorias">Categorias de Dados e Natureza</h2>
             <p>Natureza: envio/recebimento de mensagens, roteamento, logs, armazenamento temporário, relatórios e suporte.</p>
@@ -97,16 +108,10 @@
             </ul>
 
             <h2 id="bases">Bases Legais</h2>
-            <p>
-              Execução de contrato, legítimo interesse (ex.: segurança e melhoria), obrigação legal/regulatória e, quando exigido, consentimento.
-              Quando Operadora, a base legal é definida pelo Controlador.
-            </p>
+            <p>Execução de contrato, legítimo interesse (ex.: segurança e melhoria), obrigação legal/regulatória e, quando exigido, consentimento. Quando Operadora, a base legal é definida pelo Controlador.</p>
 
             <h2 id="compart">Compartilhamento e Suboperadores</h2>
-            <p>
-              Podemos envolver provedores de infraestrutura, e-mail, monitoramento e Canais, exigindo salvaguardas compatíveis.
-              Como Operadora, o Controlador autoriza suboperadores necessários.
-            </p>
+            <p>Podemos envolver provedores de infraestrutura, e-mail, monitoramento e Canais, exigindo salvaguardas compatíveis. Como Operadora, o Controlador autoriza suboperadores necessários.</p>
 
             <h2 id="transfer">Transferências Internacionais</h2>
             <p>Dados podem ser processados fora do Brasil com salvaguardas adequadas segundo a LGPD e ANPD.</p>
@@ -119,15 +124,10 @@
             </ul>
 
             <h2 id="direitos">Direitos dos Titulares</h2>
-            <p>
-              A NineChat auxiliará o Controlador no atendimento de requisições (acesso, correção, eliminação, portabilidade, oposição),
-              na medida técnica possível e dentro de prazos razoáveis.
-            </p>
+            <p>A NineChat auxiliará o Controlador no atendimento de requisições (acesso, correção, eliminação, portabilidade, oposição), na medida técnica possível e dentro de prazos razoáveis.</p>
 
             <h2 id="auditoria">Auditoria e Conformidade</h2>
-            <p>
-              O Controlador pode realizar auditorias com aviso prévio, em horário comercial, sem acesso a segredos de negócio e sem causar interrupção indevida.
-            </p>
+            <p>O Controlador pode realizar auditorias com aviso prévio, em horário comercial, sem acesso a segredos de negócio e sem causar interrupção indevida.</p>
 
             <h2 id="retencao">Retenção e Eliminação</h2>
             <ul>
@@ -149,13 +149,23 @@
     </div>
   </div>
 
-  <button class="fab" id="toTop" aria-label="Voltar ao topo" title="Voltar ao topo">↑</button>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section"><h3>NineChat</h3><p>Plataforma omnichannel para empresas que querem crescer com chatbot, controle e escala.</p></div>
+      <div class="footer-section"><h3>Produto</h3><a href="/#casos">Casos de Uso</a><a href="/#setores">Setores</a><a href="/#integracoes">Integrações</a><a href="/#recursos">Plataforma</a></div>
+      <div class="footer-section"><h3>Empresa</h3><a href="/#">Sobre Nós</a><a href="/#">Carreiras</a><a href="/#">Blog</a><a href="/#">Contato</a></div>
+      <div class="footer-section"><h3>Suporte</h3><a href="/#">Central de Ajuda</a><a href="/#">Documentação</a><a href="/#">Status</a><a href="/#">API</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 NineChat - Plataforma Omnichannel. Todos os direitos reservados.</p><p style="margin-top:10px;">Parceiro Oficial Meta Business Partner 🤝</p></div>
+  </footer>
 
 <script>
-  document.getElementById('toTop').addEventListener('click', function(){
-    const sc = document.querySelector('.contentScroll');
-    if(sc) sc.scrollTo({top:0,behavior:'smooth'}); else window.scrollTo({top:0,behavior:'smooth'});
-  });
+  const navEl=document.querySelector('nav'); window.addEventListener('scroll',()=>{window.scrollY>100?navEl.classList.add('scrolled'):navEl.classList.remove('scrolled');});
+  // FAB topo
+  const fab=document.createElement('button'); fab.className='hFab fab'; fab.textContent='↑'; fab.title='Voltar ao topo'; fab.style.position='fixed';
+  fab.style.right='18px'; fab.style.bottom='18px'; fab.style.background='var(--primary)'; fab.style.color='#fff'; fab.style.border='none'; fab.style.borderRadius='999px';
+  fab.style.width='44px'; fab.style.height='44px'; fab.style.boxShadow='0 10px 24px rgba(0,0,0,.15)'; fab.onclick=()=>{const sc=document.querySelector('.contentScroll'); (sc?sc:window).scrollTo({top:0,behavior:'smooth'});};
+  document.body.appendChild(fab);
 </script>
 </body>
 </html>
