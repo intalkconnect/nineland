@@ -1,126 +1,159 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Exclusão de Dados – NineChat</title>
-<style>
-.nc-legal{ --nav-h:90px; --primary:#0066FF; --dark:#1A1F36; --gray:#6B7280; --border:#E5E7EB; --bg:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu',sans-serif; color:var(--dark); background:#fff; padding-top:var(--nav-h);}
-.nc-legal [id]{scroll-margin-top:calc(var(--nav-h) + 16px);}
-.nc-legal .wrap{margin:24px auto;padding:0 5%}
-.nc-legal .header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
-.nc-legal .hIcon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#EFF6FF;color:#1D4ED8;font-weight:800}
-.nc-legal .hTitle{margin:0;font-size:1.6rem}
-.nc-legal .hSub{color:var(--gray);font-size:.9rem}
-.nc-legal .grid{display:grid;grid-template-columns:260px 1fr;gap:24px;margin-top:16px}
-.nc-legal .toc{position:sticky;top:calc(var(--nav-h) + 16px);z-index:10}
-.nc-legal .tocTitle{font-weight:800;margin-bottom:10px}
-.nc-legal .tocList{display:flex;flex-direction:column;gap:8px}
-.nc-legal .tocList a{color:#111827;text-decoration:none;font-size:.95rem}
-.nc-legal .tocList a:hover{color:var(--primary)}
-.nc-legal .panel{border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.05);background:#fff}
-.nc-legal .content{padding:24px 22px}
-.nc-legal .content h2{font-size:1.1rem;margin:18px 0 8px}
-.nc-legal .content p,.nc-legal .content li{color:var(--gray)}
-.nc-legal .notice{border:1px solid var(--border);background:#F9FAFB;padding:12px;border-radius:12px;margin-bottom:16px;font-size:14px}
-.nc-legal .fab{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border:none;border-radius:50%;background:#0066FF;color:#fff;font-weight:800;cursor:pointer;z-index:11}
-.nc-legal .footer{margin:40px auto 20px;max-width:1100px;padding:0 5%;color:var(--gray);font-size:.9rem}
-.nc-legal .footer a{color:var(--primary);text-decoration:none}
-.nc-legal .footer a:hover{text-decoration:underline}
-@media(max-width:900px){.nc-legal .grid{grid-template-columns:1fr}.nc-legal .toc{position:static}}
-</style>
-<script>
-(function(){
-  function setOffset(){
-    var nav=document.querySelector('nav'); var h=nav?Math.ceil(nav.getBoundingClientRect().height):90;
-    document.querySelectorAll('.nc-legal').forEach(function(el){ el.style.setProperty('--nav-h',(h+6)+'px'); });
-  }
-  addEventListener('load',setOffset); addEventListener('resize',setOffset);
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Política de Uso da Plataforma — NineChat</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    :root{--primary:#0066FF;--primary-dark:#0052CC;--secondary:#00D9B8;--accent:#FF6B35;--dark:#1A1F36;--gray:#6B7280;--light-gray:#F3F4F6;--white:#FFF}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu',sans-serif;color:var(--dark);line-height:1.6;background:var(--white);overflow-x:hidden}
 
-  // Lê ?code=XYZ e mostra o aviso
-  addEventListener('DOMContentLoaded',function(){
-    var sp=new URLSearchParams(location.search);
-    var code=sp.get('code');
-    if(code){
-      var box=document.getElementById('code-box'); if(box){box.style.display='block';}
-      var el=document.getElementById('code-value'); if(el){el.textContent=code;}
-    }
-  });
-})();
-</script>
+    /* NAV (padrão do site) */
+    nav{position:fixed;top:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.1);transition:.3s}
+    nav.scrolled{background:rgba(10,17,40,.9);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+    .logo{height:36px;object-fit:contain}
+    .nav-links{display:flex;gap:32px;list-style:none}
+    .nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:15px;opacity:.9;transition:.3s}
+    .nav-links a:hover{opacity:1}
+    .cta-nav{background:#fff;color:var(--primary);padding:12px 32px;border-radius:50px;font-weight:600;border:none;cursor:pointer;font-size:15px;
+      box-shadow:0 4px 15px rgba(255,255,255,.3),0 10px 30px rgba(0,0,0,.4);transition:.3s}
+    .cta-nav:hover{transform:translateY(-2px) scale(1.03)}
+    @media (max-width:768px){.nav-links{display:none}}
+
+    .nav-spacer{height:96px}
+
+    /* LEGAL */
+    .legal-wrap{max-width:1100px;margin:0 auto;padding:24px 5% 80px}
+    .legal-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+    .legal-title{font-size:1.6rem;font-weight:800;letter-spacing:-.02em}
+    .legal-sub{color:var(--gray);font-size:.9rem}
+    .legal-grid{display:grid;grid-template-columns:260px 1fr;gap:32px;margin-top:22px}
+    .legal-toc{position:sticky;top:110px;align-self:start;border:1px solid #E5E7EB;border-radius:14px;background:#fff}
+    .legal-toc .t{font-weight:700;padding:14px 16px;border-bottom:1px solid #E5E7EB}
+    .legal-toc nav a{display:block;padding:10px 16px;font-size:.95rem;color:#1F2937;text-decoration:none;border-left:3px solid transparent}
+    .legal-toc nav a:hover{background:#F9FAFB;border-left-color:var(--primary)}
+    .legal-panel{background:#fff;border:1px solid #E5E7EB;border-radius:14px;padding:24px}
+    .legal-panel h2{font-size:1.15rem;margin:20px 0 8px}
+    .legal-panel p{margin:10px 0;color:#1F2937}
+    .legal-panel ul{margin:10px 0 10px 18px}
+    .legal-panel li{margin:6px 0}
+    .fab{position:fixed;right:18px;bottom:18px;background:var(--primary);color:#fff;border:none;border-radius:999px;padding:12px 14px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    h2[id]{scroll-margin-top:110px}
+
+    /* FOOTER */
+    footer{background:var(--dark);color:#fff;padding:60px 5% 40px;margin-top:60px}
+    .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:60px;margin-bottom:40px}
+    .footer-section a{color:rgba(255,255,255,.7);text-decoration:none;display:block;line-height:2}
+    .footer-section a:hover{color:#fff}
+
+    @media (max-width:980px){.legal-grid{grid-template-columns:1fr}.legal-toc{position:relative;top:auto}}
+  </style>
 </head>
 <body>
-  <!-- NAVBAR LEGAL -->
-<nav class="nav-legal" role="navigation" aria-label="Topo">
-  <div class="brand">
-    <a href="/"><img src="/image/logo-front.png" alt="NineChat"/></a>
-  </div>
+  <nav>
+    <div class="logo-container"><a href="/"><img src="/image/logo-front.png" alt="NineChat" class="logo"></a></div>
+    <ul class="nav-links">
+      <li><a href="/#casos">Casos de Uso</a></li><li><a href="/#integracoes">Integrações</a></li>
+      <li><a href="/#recursos">Plataforma</a></li><li><a href="/#agendar">Agendar Demo</a></li><li><a href="/#faq">FAQ</a></li>
+    </ul>
+    <button class="cta-nav" onclick="location.href='/'">Agendar Demonstração →</button>
+  </nav>
+  <div class="nav-spacer"></div>
 
-  <ul class="links">
-    <li><a href="/#casos">Casos de Uso</a></li>
-    <li><a href="/#integracoes">Integrações</a></li>
-    <li><a href="/#recursos">Plataforma</a></li>
-    <li><a href="/#agendar">Agendar Demo</a></li>
-    <li><a href="/#faq">FAQ</a></li>
-  </ul>
+  <main class="legal-wrap">
+    <header class="legal-header"><div class="legal-title">Política de Uso da Plataforma</div></header>
+    <div class="legal-sub">NineChat · Atualizado em 17/09/2024</div>
 
-  <button class="cta" onclick="location.href='/?to=agendar#agendar'">Agendar →</button>
-</nav>
+    <div class="legal-grid">
+      <aside class="legal-toc">
+        <div class="t">Neste documento</div>
+        <nav>
+          <a href="#intro">Introdução e Escopo</a>
+          <a href="#conta">Conta, Acesso e Credenciais</a>
+          <a href="#uso-aceitavel">Uso Aceitável (AUP)</a>
+          <a href="#canais">Canais e Serviços de Terceiros</a>
+          <a href="#conteudo">Conteúdo do Usuário e Moderação</a>
+          <a href="#apis">APIs, Automação e Limites Técnicos</a>
+          <a href="#compliance">Conformidade e Reporte de Abusos</a>
+          <a href="#atualizacoes">Atualizações desta Política</a>
+          <a href="#contato">Contato</a>
+        </nav>
+      </aside>
 
+      <section class="legal-panel">
+        <h2 id="intro">Introdução e Escopo</h2>
+        <p>Esta Política define regras de conduta e uso aceitável da plataforma <strong>NineChat</strong>. Ao utilizar o serviço, você concorda em seguir estas diretrizes para proteger usuários, canais integrados e o ecossistema.</p>
 
-<main class="nc-legal">
-  <div class="wrap">
-    <header class="header">
-      <div class="hIcon">🛡️</div>
-      <div>
-        <h1 class="hTitle">Exclusão de Dados</h1>
-        <div class="hSub">NineChat · Atualizado em 17/09/2024</div>
-      </div>
-    </header>
+        <h2 id="conta">Conta, Acesso e Credenciais</h2>
+        <ul>
+          <li>Proteja suas credenciais; não compartilhe senhas ou chaves de API.</li>
+          <li>Mantenha informações cadastrais corretas e atualizadas.</li>
+          <li>Notifique-nos imediatamente sobre acessos não autorizados ou incidentes de segurança.</li>
+        </ul>
 
-    <div class="grid">
-      <section class="panel">
-        <div class="content">
-          <div id="code-box" class="notice" style="display:none">
-            <strong>Código de confirmação:</strong> <span id="code-value"></span>
-            <div style="color:#6B7280;margin-top:6px">Guarde este código. Ele comprova que sua solicitação foi registrada.</div>
-          </div>
+        <h2 id="uso-aceitavel">Uso Aceitável (AUP)</h2>
+        <p>São proibidas, entre outras, as seguintes condutas:</p>
+        <ul>
+          <li>Envio de spam, conteúdo ilícito, assédio, discriminação, violação de direitos autorais ou de privacidade.</li>
+          <li>Coleta/uso de dados pessoais sem base legal e transparência.</li>
+          <li>Contornar políticas dos Canais (ex.: uso de números não autorizados; automações que violem termos).</li>
+          <li>Tentativas de exploração ou engenharia reversa da plataforma.</li>
+        </ul>
+        <p>O uso deve observar bases de contato válidas e mecanismos de opt-out quando aplicáveis. Você é responsável por templates e mensagens proativas exigidas pelos Canais.</p>
 
-          <h2 id="como-funciona">Como funciona a exclusão</h2>
-          <p>Você pode solicitar a exclusão dos seus dados pessoais relacionados ao uso da plataforma <strong>NineChat</strong>. Após recebermos a solicitação, iniciamos um processo interno que remove dados identificáveis de nossos sistemas ativos, respeitando obrigações legais e técnicas.</p>
+        <h2 id="canais">Canais e Serviços de Terceiros</h2>
+        <p>A plataforma integra Canais externos (ex.: WhatsApp, Telegram, Instagram, Facebook). O uso desses Canais está sujeito também aos termos e políticas dos respectivos provedores. Violações às regras dos Canais podem levar a bloqueios ou sanções impostas pelos próprios provedores.</p>
 
-          <h2 id="canais-meta">Facebook/Instagram (Meta)</h2>
-          <p>Se você acionou a exclusão pelo Facebook/Instagram, a Meta chama automaticamente nosso endpoint de exclusão e exibe um <em>código de confirmação</em> (mostrado acima quando disponível). Caso precise de suporte, entre em contato informando esse código.</p>
+        <h2 id="conteudo">Conteúdo do Usuário e Moderação</h2>
+        <ul>
+          <li>Você é responsável pelos conteúdos e fluxos enviados por meio da plataforma.</li>
+          <li>Podemos investigar e adotar medidas de moderação em casos de abuso, risco de segurança ou ordem legal.</li>
+          <li>Denúncias de abuso podem ser encaminhadas ao nosso canal de contato.</li>
+        </ul>
 
-          <h2 id="prazo">Prazos e backups</h2>
-          <ul>
-            <li>Processamos solicitações em até <strong>30 dias</strong>.</li>
-            <li>Backups podem reter dados por período limitado até expiração segura.</li>
-            <li>Logs necessários a cumprimento legal podem ter retenção maior.</li>
-          </ul>
+        <h2 id="apis">APIs, Automação e Limites Técnicos</h2>
+        <ul>
+          <li>Respeite a documentação, limites e quotas técnicas para estabilidade do serviço.</li>
+          <li>Não tente interferir em mecanismos de segurança, medição ou autenticação.</li>
+          <li>Automação deve obedecer às regras dos Canais e às leis aplicáveis (incluindo proteção de dados).</li>
+        </ul>
 
-          <h2 id="escopo">Escopo do que é excluído</h2>
-          <ul>
-            <li>Dados cadastrais e identificadores controlados por NineChat.</li>
-            <li>Conteúdos e metadados processados pela plataforma, quando aplicável.</li>
-            <li>Chaves e credenciais de acesso vinculadas à sua conta.</li>
-          </ul>
-          <p>Alguns dados poderão ser <em>anonimizados</em> para fins estatísticos e de segurança, sem permitir identificação de indivíduos.</p>
+        <h2 id="compliance">Conformidade e Reporte de Abusos</h2>
+        <ul>
+          <li>Mantenha conformidade com leis anticorrupção, proteção de dados e demais normas aplicáveis.</li>
+          <li>Reporte incidentes ou abusos para o nosso contato abaixo, descrevendo contexto e evidências.</li>
+        </ul>
 
-          <h2 id="contato">Contato do DPO</h2>
-          <p>Dúvidas ou acompanhamento de solicitações: <a href="mailto:suporte@ninechat.com.br">suporte@ninechat.com.br</a>. Consulte também: <a href="/legal-privacy.html">Política de Privacidade</a> e <a href="/legal-terms.html">Termos</a>.</p>
-        </div>
+        <h2 id="atualizacoes">Atualizações desta Política</h2>
+        <p>Podemos atualizar esta Política para refletir mudanças legais, técnicas ou de produto. Alterações relevantes serão comunicadas pelos canais oficiais e vigorarão a partir da data informada no topo.</p>
+
+        <h2 id="contato">Contato</h2>
+        <p>Dúvidas ou denúncias? Escreva para <a href="mailto:abuso@ninechat.com.br">abuso@ninechat.com.br</a>.</p>
       </section>
     </div>
-  </div>
+  </main>
 
-  <button class="fab" aria-label="Voltar ao topo" title="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
-
-  <footer class="footer">
-    © 2025 NineChat · <a href="/legal-privacy.html">Privacidade</a> · <a href="/legal-terms.html">Termos de Uso</a>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section"><h3>NineChat</h3><p>Plataforma omnichannel para empresas que querem crescer com chatbot, controle e escala.</p></div>
+      <div class="footer-section"><h3>Produto</h3>
+        <a href="/#casos">Casos de Uso</a><a href="/#integracoes">Integrações</a><a href="/#recursos">Plataforma</a><a href="/#agendar">Agendar Demo</a>
+      </div>
+      <div class="footer-section"><h3>Empresa</h3>
+        <a href="/legal/terms.html">Termos de Uso</a><a href="/legal/privacy.html">Política de Privacidade</a><a href="/legal/data-deletion.html">Exclusão de Dados</a>
+        <a href="#">Status</a><a href="#">API</a>
+      </div>
+      <div class="footer-section"><h3>Suporte</h3><a href="#">Central de Ajuda</a><a href="#">Documentação</a></div>
+    </div>
+    <div class="footer-bottom"><p>&copy; 2025 NineChat - Plataforma Omnichannel. Todos os direitos reservados.</p><p style="margin-top:10px;">Parceiro Oficial Meta Business Partner 🤝</p></div>
   </footer>
-</main>
 
+  <button class="fab" title="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <script>
+    const navEl=document.querySelector('nav');
+    addEventListener('scroll',()=>{window.scrollY>100?navEl.classList.add('scrolled'):navEl.classList.remove('scrolled')});
+  </script>
 </body>
 </html>
