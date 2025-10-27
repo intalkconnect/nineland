@@ -1,171 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Política de Privacidade – NineChat</title>
-<!-- Mesmo CSS de nav/footer e layout do arquivo anterior (para manter DRY você pode extrair para um .css global) -->
 <style>
-  :root{--primary:#0066FF;--primary-dark:#0052CC;--secondary:#00D9B8;--accent:#FF6B35;--dark:#1A1F36;--gray:#6B7280;--light-gray:#F3F4F6;--white:#FFFFFF;--border:#E5E7EB}
-  *{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Ubuntu,sans-serif;color:var(--dark);background:var(--white);line-height:1.6}
-  nav{position:fixed;top:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:linear-gradient(135deg,var(--primary),var(--primary-dark));backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.1);transition:all .3s}
-  nav.scrolled{background:rgba(10,17,40,.9);box-shadow:0 20px 40px rgba(0,0,0,.4)}
-  .logo{height:36px;object-fit:contain}.nav-links{display:flex;gap:32px;list-style:none}
-  .nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:opacity .3s;font-size:15px;opacity:.9}.nav-links a:hover{opacity:1}
-  .cta-nav{background:#fff;color:var(--primary);padding:12px 32px;border-radius:50px;font-weight:600;border:none;cursor:pointer;font-size:15px;transition:all .3s;box-shadow:0 4px 15px rgba(255,255,255,.3),0 10px 30px rgba(0,0,0,.4)}
-  .cta-nav:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 6px 25px rgba(255,255,255,.4),0 20px 40px rgba(0,0,0,.5)}
-  @media(max-width:768px){.nav-links{display:none}}
-  .wrap{max-width:1100px;margin:0 auto;padding:120px 24px 24px}
-  .header{display:flex;gap:12px;align-items:center;margin:12px 0 8px}
-  .hIcon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;font-weight:800}
-  .hTitle{margin:0;font-weight:900;letter-spacing:-.02em}
-  .hSub{color:var(--gray);display:flex;gap:10px;align-items:center;font-size:14px}
-  .hDot{opacity:.6}
-  .grid{display:grid;grid-template-columns:260px 1fr;gap:24px}
-  .toc{position:sticky;top:96px;height:fit-content}
-  .tocInner{border:1px solid var(--border);border-radius:14px;padding:16px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06)}
-  .tocTitle{font-weight:800;margin-bottom:8px}.tocList{display:flex;flex-direction:column;gap:8px}
-  .tocLink{color:var(--dark);text-decoration:none;font-size:.95rem}.tocLink:hover{color:var(--primary)}
-  .panel{border:1px solid var(--border);border-radius:14px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,.06)}
-  .contentScroll{max-height:calc(100dvh - 220px);overflow:auto;padding:20px}
-  .article h2{margin:24px 0 6px;font-size:1.15rem}.article p,.article li{color:#374151}
-  footer{background:var(--dark);color:#fff;padding:60px 5% 40px;margin-top:40px}
-  .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:60px;margin-bottom:40px}
-  .footer-section h3{font-size:1.1rem;margin-bottom:20px;font-weight:700}
-  .footer-section p,.footer-section a{color:rgba(255,255,255,.7);font-size:.9rem;line-height:2;text-decoration:none;display:block}
-  .footer-section a:hover{color:#fff}
-  .footer-bottom{text-align:center;padding-top:40px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:.8rem;line-height:1.4}
-  @media(max-width:900px){.grid{grid-template-columns:1fr}.contentScroll{max-height:unset}}
+:root{ --nav-h:76px; --primary:#0066FF; --dark:#1A1F36; --gray:#6B7280; --border:#E5E7EB; --bg:#fff; }
+body.legal-page{ padding-top:var(--nav-h); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu',sans-serif; color:var(--dark); background:#fff; margin:0 }
+[id]{ scroll-margin-top: calc(var(--nav-h) + 16px); }
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5%;
+background:linear-gradient(135deg,#0066FF,#0052CC); color:#fff; z-index:1000; box-shadow:0 2px 12px rgba(0,0,0,.12);}
+.nav-links{display:flex;gap:32px;list-style:none;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500;opacity:.9}
+.nav-links a:hover{opacity:1}
+.logo{height:36px}
+.cta-nav{background:#fff;color:#0066FF;border:none;border-radius:999px;padding:10px 20px;font-weight:700;cursor:pointer}
+.wrap{max-width:1100px;margin:24px auto;padding:0 5%}
+.header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.hIcon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#ECFDF5;color:#065F46;font-weight:800}
+.hTitle{margin:0;font-size:1.6rem}
+.hSub{color:var(--gray);font-size:.9rem}
+.grid{display:grid;grid-template-columns:260px 1fr;gap:24px;margin-top:16px}
+.toc{position:sticky;top:calc(var(--nav-h) + 16px)}
+.tocTitle{font-weight:800;margin-bottom:10px}
+.tocList{display:flex;flex-direction:column;gap:8px}
+.tocList a{color:#111827;text-decoration:none;font-size:.95rem}
+.tocList a:hover{color:var(--primary)}
+.panel{border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.05);background:#fff}
+.content{padding:24px 22px}
+.content h2{font-size:1.1rem;margin:18px 0 8px}
+.content p, .content li{color:var(--gray)}
+.fab{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;border:none;background:var(--primary);color:#fff;font-weight:800;cursor:pointer}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.toc{position:static}}
 </style>
 </head>
-<body>
-  <nav>
-    <div class="logo-container"><img src="/image/logo-front.png" alt="NineChat" class="logo"></div>
-    <ul class="nav-links">
-      <li><a href="/#casos">Casos de Uso</a></li><li><a href="/#setores">Setores</a></li><li><a href="/#integracoes">Integrações</a></li>
-      <li><a href="/#recursos">Plataforma</a></li><li><a href="/#faq">FAQ</a></li>
-    </ul>
-    <button class="cta-nav" onclick="location.href='/#'">Agendar Demonstração →</button>
-  </nav>
+<body class="legal-page">
 
-  <div class="wrap">
-    <header class="header">
-      <div class="hIcon">🛡️</div>
-      <div><h1 class="hTitle">Política de Privacidade</h1><div class="hSub"><span>NineChat</span><span class="hDot">·</span><span>Atualizado em 17/09/2024</span></div></div>
-    </header>
+<nav>
+  <img src="/image/logo-front.png" alt="NineChat" class="logo">
+  <ul class="nav-links">
+    <li><a href="/">Início</a></li>
+    <li><a href="/#casos">Casos de Uso</a></li>
+    <li><a href="/#integracoes">Integrações</a></li>
+    <li><a href="/#recursos">Plataforma</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul>
+  <button class="cta-nav" onclick="location.href='/#agendar'">Agendar →</button>
+</nav>
 
-    <div class="grid">
-      <aside class="toc">
-        <div class="tocInner">
-          <div class="tocTitle">Neste documento</div>
-          <nav class="tocList" aria-label="Índice">
-            <a class="tocLink" href="#escopo">Escopo e Papéis (LGPD)</a>
-            <a class="tocLink" href="#categorias">Categorias de Dados e Natureza</a>
-            <a class="tocLink" href="#fontes">Fontes de Coleta</a>
-            <a class="tocLink" href="#finalidades">Finalidades do Tratamento</a>
-            <a class="tocLink" href="#bases">Bases Legais</a>
-            <a class="tocLink" href="#compart">Compartilhamento e Suboperadores</a>
-            <a class="tocLink" href="#transfer">Transferências Internacionais</a>
-            <a class="tocLink" href="#seguranca">Segurança da Informação</a>
-            <a class="tocLink" href="#direitos">Direitos dos Titulares</a>
-            <a class="tocLink" href="#auditoria">Auditoria e Conformidade</a>
-            <a class="tocLink" href="#retencao">Retenção e Eliminação</a>
-            <a class="tocLink" href="#menores">Crianças e Adolescentes</a>
-            <a class="tocLink" href="#contato">Contato do Encarregado (DPO)</a>
-            <a class="tocLink" href="#mudancas">Mudanças nesta Política</a>
-          </nav>
-        </div>
-      </aside>
-
-      <section class="panel">
-        <div class="contentScroll">
-          <article class="article">
-            <h2 id="escopo">Escopo e Papéis (LGPD)</h2>
-            <p>Esta Política descreve o tratamento de dados pessoais no uso da plataforma NineChat. Em geral, <strong>o Cliente atua como Controlador</strong> e <strong>a NineChat atua como Operadora</strong>, tratando dados conforme instruções do Controlador.</p>
-
-            <h2 id="categorias">Categorias de Dados e Natureza</h2>
-            <p>Natureza: envio/recebimento de mensagens, roteamento, logs, armazenamento temporário, relatórios e suporte.</p>
-            <ul>
-              <li><strong>Identificação de usuários finais:</strong> nome, identificadores dos Canais (telefone/handle).</li>
-              <li><strong>Conteúdo de mensagens:</strong> quando aplicável e conforme o uso pelo Cliente.</li>
-              <li><strong>Metadados operacionais:</strong> datas/horas, status, indicadores de entrega e atendimento.</li>
-              <li><strong>Operadores do Cliente:</strong> dados de acesso, permissões e logs.</li>
-            </ul>
-
-            <h2 id="fontes">Fontes de Coleta</h2>
-            <ul>
-              <li>Informações fornecidas por usuários/administradores do Cliente.</li>
-              <li>Registros gerados pelo uso do sistema (telemetria e logs).</li>
-              <li>Integrações autorizadas com Canais e provedores (APIs de terceiros).</li>
-            </ul>
-
-            <h2 id="finalidades">Finalidades do Tratamento</h2>
-            <ul>
-              <li>Prover e operar funcionalidades contratadas.</li>
-              <li>Autenticar, manter sessão e personalizar experiência.</li>
-              <li>Segurança, prevenção a abusos e cumprimento legal.</li>
-              <li>Monitorar desempenho/estabilidade e evoluir o produto.</li>
-              <li>Atender solicitações de suporte.</li>
-            </ul>
-
-            <h2 id="bases">Bases Legais</h2>
-            <p>Execução de contrato, legítimo interesse (ex.: segurança e melhoria), obrigação legal/regulatória e, quando exigido, consentimento. Quando Operadora, a base legal é definida pelo Controlador.</p>
-
-            <h2 id="compart">Compartilhamento e Suboperadores</h2>
-            <p>Podemos envolver provedores de infraestrutura, e-mail, monitoramento e Canais, exigindo salvaguardas compatíveis. Como Operadora, o Controlador autoriza suboperadores necessários.</p>
-
-            <h2 id="transfer">Transferências Internacionais</h2>
-            <p>Dados podem ser processados fora do Brasil com salvaguardas adequadas segundo a LGPD e ANPD.</p>
-
-            <h2 id="seguranca">Segurança da Informação</h2>
-            <ul>
-              <li>Criptografia em trânsito, controle de acesso e segregação de ambientes.</li>
-              <li>Registros de auditoria, backups e mínimo privilégio.</li>
-              <li>Equipe sob confidencialidade e boas práticas.</li>
-            </ul>
-
-            <h2 id="direitos">Direitos dos Titulares</h2>
-            <p>A NineChat auxiliará o Controlador no atendimento de requisições (acesso, correção, eliminação, portabilidade, oposição), na medida técnica possível e dentro de prazos razoáveis.</p>
-
-            <h2 id="auditoria">Auditoria e Conformidade</h2>
-            <p>O Controlador pode realizar auditorias com aviso prévio, em horário comercial, sem acesso a segredos de negócio e sem causar interrupção indevida.</p>
-
-            <h2 id="retencao">Retenção e Eliminação</h2>
-            <ul>
-              <li>Ao término da relação, o Controlador pode solicitar devolução ou eliminação segura.</li>
-              <li>Logs podem ser retidos por prazos legais; dados anonimizados podem ser mantidos para estatística.</li>
-            </ul>
-
-            <h2 id="menores">Crianças e Adolescentes</h2>
-            <p>Tratamento envolvendo menores requer bases legais específicas e maior transparência.</p>
-
-            <h2 id="contato">Contato do Encarregado (DPO)</h2>
-            <p>Dúvidas, solicitações ou incidentes: <a href="mailto:privacidade@ninechat.com.br">privacidade@ninechat.com.br</a>.</p>
-
-            <h2 id="mudancas">Mudanças nesta Política</h2>
-            <p>Alterações relevantes serão comunicadas e vigorarão a partir da data indicada no topo.</p>
-          </article>
-        </div>
-      </section>
+<div class="wrap">
+  <header class="header">
+    <div class="hIcon">🛡️</div>
+    <div>
+      <h1 class="hTitle">Política de Privacidade</h1>
+      <div class="hSub">NineChat · Atualizado em 17/09/2024</div>
     </div>
+  </header>
+
+  <div class="grid">
+    <aside class="toc">
+      <div class="tocTitle">Neste documento</div>
+      <nav class="tocList">
+        <a href="#escopo">Escopo e Papéis (LGPD)</a>
+        <a href="#categorias">Categorias de Dados e Natureza</a>
+        <a href="#fontes">Fontes de Coleta</a>
+        <a href="#finalidades">Finalidades do Tratamento</a>
+        <a href="#bases">Bases Legais</a>
+        <a href="#compart">Compartilhamento e Suboperadores</a>
+        <a href="#transfer">Transferências Internacionais</a>
+        <a href="#seguranca">Segurança da Informação</a>
+        <a href="#direitos">Direitos dos Titulares</a>
+        <a href="#auditoria">Auditoria e Conformidade</a>
+        <a href="#retencao">Retenção e Eliminação</a>
+        <a href="#menores">Crianças e Adolescentes</a>
+        <a href="#contato">Contato do Encarregado (DPO)</a>
+        <a href="#mudancas">Mudanças nesta Política</a>
+      </nav>
+    </aside>
+
+    <section class="panel">
+      <div class="content">
+        <h2 id="escopo">Escopo e Papéis (LGPD)</h2>
+        <p>No uso da plataforma <strong>NineChat</strong>, em geral o <strong>Cliente é Controlador</strong> e a <strong>NineChat é Operadora</strong>, tratando dados conforme instruções documentadas do Controlador.</p>
+
+        <h2 id="categorias">Categorias de Dados e Natureza</h2>
+        <p>Natureza: mensagens, roteamento, logs, armazenamento temporário, relatórios e suporte.</p>
+        <ul>
+          <li>Identificação de usuários finais (nome, telefone/handle).</li>
+          <li>Conteúdo de mensagens (quando aplicável).</li>
+          <li>Metadados (datas/horas, status, entrega, atendimento).</li>
+          <li>Operadores do Cliente (acessos, permissões, logs).</li>
+        </ul>
+
+        <h2 id="fontes">Fontes de Coleta</h2>
+        <ul>
+          <li>Informações fornecidas por usuários/administradores.</li>
+          <li>Registros gerados pelo uso (telemetria, logs).</li>
+          <li>Integrações autorizadas com Canais e provedores.</li>
+        </ul>
+
+        <h2 id="finalidades">Finalidades do Tratamento</h2>
+        <ul>
+          <li>Prover funcionalidades contratadas.</li>
+          <li>Autenticação, sessão, autorização e personalização.</li>
+          <li>Segurança, prevenção a abusos e cumprimento legal.</li>
+          <li>Monitorar desempenho/estabilidade e evoluir o produto.</li>
+          <li>Suporte e comunicações operacionais.</li>
+        </ul>
+
+        <h2 id="bases">Bases Legais</h2>
+        <p>Execução de contrato, legítimo interesse, obrigação legal e, quando exigido, consentimento. Como Operadora, a base legal é definida pelo Controlador.</p>
+
+        <h2 id="compart">Compartilhamento e Suboperadores</h2>
+        <p>Podemos envolver provedores (infraestrutura, e-mail, monitoramento, Canais), exigindo salvaguardas compatíveis.</p>
+
+        <h2 id="transfer">Transferências Internacionais</h2>
+        <p>Dados podem ser processados fora do Brasil, com salvaguardas adequadas.</p>
+
+        <h2 id="seguranca">Segurança da Informação</h2>
+        <ul>
+          <li>Criptografia em trânsito, controle de acesso e segregação de ambientes.</li>
+          <li>Registros de auditoria e backups lógicos.</li>
+          <li>Equipe sob confidencialidade e boas práticas.</li>
+        </ul>
+
+        <h2 id="direitos">Direitos dos Titulares</h2>
+        <p>A NineChat auxiliará o Controlador, quando solicitado, no atendimento de requisições (acesso, correção, eliminação, etc.).</p>
+
+        <h2 id="auditoria">Auditoria e Conformidade</h2>
+        <p>Auditorias com aviso prévio, horário comercial e sem acesso a segredos de negócio.</p>
+
+        <h2 id="retencao">Retenção e Eliminação</h2>
+        <ul>
+          <li>Devolução/eliminação segura ao término da relação, quando solicitado.</li>
+          <li>Logs retidos por prazos legais; dados anonimizados para estatística.</li>
+        </ul>
+
+        <h2 id="menores">Crianças e Adolescentes</h2>
+        <p>Tratamento requer bases específicas e maior transparência. Coleta adequada é responsabilidade do Controlador.</p>
+
+        <h2 id="contato">Contato do Encarregado (DPO)</h2>
+        <p><a href="mailto:privacidade@ninechat.com.br">privacidade@ninechat.com.br</a></p>
+
+        <h2 id="mudancas">Mudanças nesta Política</h2>
+        <p>Atualizações poderão ocorrer; alterações relevantes serão comunicadas e terão vigência a partir da data no topo.</p>
+      </div>
+    </section>
   </div>
+</div>
 
-  <footer>
-    <div class="footer-content">
-      <div class="footer-section"><h3>NineChat</h3><p>Plataforma omnichannel para empresas que querem crescer com chatbot, controle e escala.</p></div>
-      <div class="footer-section"><h3>Produto</h3><a href="/#casos">Casos de Uso</a><a href="/#setores">Setores</a><a href="/#integracoes">Integrações</a><a href="/#recursos">Plataforma</a></div>
-      <div class="footer-section"><h3>Empresa</h3><a href="/#">Sobre Nós</a><a href="/#">Carreiras</a><a href="/#">Blog</a><a href="/#">Contato</a></div>
-      <div class="footer-section"><h3>Suporte</h3><a href="/#">Central de Ajuda</a><a href="/#">Documentação</a><a href="/#">Status</a><a href="/#">API</a></div>
-    </div>
-    <div class="footer-bottom"><p>&copy; 2025 NineChat - Plataforma Omnichannel. Todos os direitos reservados.</p><p style="margin-top:10px;">Parceiro Oficial Meta Business Partner 🤝</p></div>
-  </footer>
-
-<script>
-  const navEl=document.querySelector('nav'); window.addEventListener('scroll',()=>{window.scrollY>100?navEl.classList.add('scrolled'):navEl.classList.remove('scrolled');});
-  // FAB topo
-  const fab=document.createElement('button'); fab.className='hFab fab'; fab.textContent='↑'; fab.title='Voltar ao topo'; fab.style.position='fixed';
-  fab.style.right='18px'; fab.style.bottom='18px'; fab.style.background='var(--primary)'; fab.style.color='#fff'; fab.style.border='none'; fab.style.borderRadius='999px';
-  fab.style.width='44px'; fab.style.height='44px'; fab.style.boxShadow='0 10px 24px rgba(0,0,0,.15)'; fab.onclick=()=>{const sc=document.querySelector('.contentScroll'); (sc?sc:window).scrollTo({top:0,behavior:'smooth'});};
-  document.body.appendChild(fab);
-</script>
+<button class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 </body>
 </html>
