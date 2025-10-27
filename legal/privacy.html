@@ -5,16 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Política de Privacidade — NineChat</title>
   <style>
-    /* tokens & base */
     *{margin:0;padding:0;box-sizing:border-box}
     :root{--primary:#0066FF;--primary-dark:#0052CC;--secondary:#00D9B8;--dark:#1A1F36;--gray:#6B7280;--white:#FFF}
     body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu',sans-serif;color:var(--dark);line-height:1.6;background:var(--white)}
 
-    /* NAV (padrão do site) */
+    /* NAV */
     nav{position:fixed;top:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;
       background:linear-gradient(135deg,var(--primary),var(--primary-dark));backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.1);transition:.3s}
     nav.scrolled{background:rgba(10,17,40,.9);box-shadow:0 20px 40px rgba(0,0,0,.4)}
-    .logo{height:36px;object-fit:contain}
+    .logo{height:36px}
     .nav-links{display:flex;gap:32px;list-style:none}
     .nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:15px;opacity:.9;transition:.3s}
     .nav-links a:hover{opacity:1}
@@ -25,9 +24,9 @@
     .nav-spacer{height:96px}
 
     /* LEGAL */
-    .legal-wrap{margin:0 auto;padding:24px 5% 80px}
+    .legal-wrap{max-width:1100px;margin:0 auto;padding:24px 5% 80px}
     .legal-header{display:flex;align-items:center;gap:12px;margin-bottom:10px}
-    .legal-title{font-size:1.6rem;font-weight:800;letter-spacing:-.02em}
+    .legal-title{font-size:1.6rem;font-weight:800}
     .legal-sub{color:var(--gray);font-size:.9rem}
     .legal-grid{display:grid;grid-template-columns:260px 1fr;gap:32px;margin-top:22px}
     .legal-toc{position:sticky;top:110px;align-self:start;border:1px solid #E5E7EB;border-radius:14px;background:#fff}
@@ -47,43 +46,56 @@
     .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:60px;margin-bottom:40px}
     .footer-section a{color:rgba(255,255,255,.7);text-decoration:none;display:block;line-height:2}
     .footer-section a:hover{color:#fff}
-    @media (max-width:980px){.legal-grid{grid-template-columns:1fr} .legal-toc{position:relative;top:auto}}
+    @media (max-width:980px){.legal-grid{grid-template-columns:1fr}.legal-toc{position:relative;top:auto}}
   </style>
 </head>
 <body>
-  <!-- NAV -->
   <nav>
-    <div class="logo-container">
-      <a href="/"><img src="/image/logo-front.png" alt="NineChat" class="logo"></a>
-    </div>
+    <div class="logo-container"><a href="/"><img src="/image/logo-front.png" alt="NineChat" class="logo"></a></div>
     <ul class="nav-links">
-      <li><a href="/#casos">Casos de Uso</a></li>
-      <li><a href="/#integracoes">Integrações</a></li>
-      <li><a href="/#recursos">Plataforma</a></li>
-      <li><a href="/#agendar">Agendar Demo</a></li>
-      <li><a href="/#faq">FAQ</a></li>
+      <li><a href="/#casos">Casos de Uso</a></li><li><a href="/#integracoes">Integrações</a></li>
+      <li><a href="/#recursos">Plataforma</a></li><li><a href="/#agendar">Agendar Demo</a></li><li><a href="/#faq">FAQ</a></li>
     </ul>
     <button class="cta-nav" onclick="location.href='/'">Agendar Demonstração →</button>
   </nav>
-  <div class="nav-spacer" aria-hidden="true"></div>
+  <div class="nav-spacer"></div>
 
   <main class="legal-wrap">
     <header class="legal-header"><div class="legal-title">Política de Privacidade</div></header>
     <div class="legal-sub">NineChat · Atualizado em 17/09/2024</div>
 
     <div class="legal-grid">
+      <aside class="legal-toc">
+        <div class="t">Neste documento</div>
+        <nav>
+          <a href="#escopo">Escopo e Papéis (LGPD)</a>
+          <a href="#categorias">Categorias de Dados e Natureza</a>
+          <a href="#fontes">Fontes de Coleta</a>
+          <a href="#finalidades">Finalidades do Tratamento</a>
+          <a href="#bases">Bases Legais</a>
+          <a href="#compart">Compartilhamento e Suboperadores</a>
+          <a href="#transfer">Transferências Internacionais</a>
+          <a href="#seguranca">Segurança da Informação</a>
+          <a href="#direitos">Direitos dos Titulares</a>
+          <a href="#auditoria">Auditoria e Conformidade</a>
+          <a href="#retencao">Retenção e Eliminação</a>
+          <a href="#menores">Crianças e Adolescentes</a>
+          <a href="#contato">Contato do Encarregado (DPO)</a>
+          <a href="#mudancas">Mudanças nesta Política</a>
+        </nav>
+      </aside>
 
       <section class="legal-panel">
         <h2 id="escopo">Escopo e Papéis (LGPD)</h2>
-        <p>Esta Política descreve o tratamento de dados pessoais no uso da plataforma NineChat. Em geral, <strong>o Cliente atua como Controlador</strong> dos dados processados por meio da plataforma, e <strong>a NineChat atua como Operadora</strong>, tratando dados pessoais conforme instruções documentadas do Controlador e para execução das funcionalidades.</p>
+        <p>Esta Política descreve o tratamento de dados pessoais no uso da plataforma NineChat. Em geral, <strong>o Cliente atua como Controlador</strong> e <strong>a NineChat atua como Operadora</strong>, tratando dados conforme instruções do Controlador.</p>
 
         <h2 id="categorias">Categorias de Dados e Natureza</h2>
-        <p>Natureza do tratamento: envio/recebimento de mensagens, roteamento, registro de logs, armazenamento temporário, relatórios e suporte.</p>
+        <p>Natureza do tratamento: envio/recebimento de mensagens, roteamento, logs, armazenamento temporário, relatórios e suporte.</p>
         <ul>
           <li><strong>Identificação de usuários finais:</strong> nome, identificadores dos Canais (telefone/handle).</li>
-          <li><strong>Conteúdo de mensagens:</strong> quando aplicável e conforme o uso pelo Cliente.</li>
+          <li><strong>Conteúdo de mensagens:</strong> quando aplicável.</li>
           <li><strong>Metadados operacionais:</strong> datas/horas, status, indicadores de entrega e atendimento.</li>
-          <li><strong>Operadores do Cliente:</strong> dados cadastrais e de uso necessários à operação (acessos, permissões, logs).</li>
+          <li><strong>Operadores do Cliente:</strong> dados cadastrais/uso (acessos, permissões, logs).</li>
         </ul>
 
         <h2 id="fontes">Fontes de Coleta</h2>
@@ -95,91 +107,72 @@
 
         <h2 id="finalidades">Finalidades do Tratamento</h2>
         <ul>
-          <li>Prover e operar funcionalidades contratadas pelo Cliente.</li>
-          <li>Autenticar, manter sessão, autorizar e personalizar a experiência de uso.</li>
-          <li>Garantir segurança, prevenir abusos e cumprir requisitos legais.</li>
-          <li>Monitorar desempenho/estabilidade, depurar falhas e evoluir o produto.</li>
-          <li>Atender solicitações de suporte e comunicações operacionais.</li>
+          <li>Prover e operar funcionalidades contratadas.</li>
+          <li>Autenticar, manter sessão, autorizar e personalizar.</li>
+          <li>Segurança, prevenção de abusos e cumprimento legal.</li>
+          <li>Monitorar desempenho/estabilidade, depurar e evoluir produto.</li>
+          <li>Suporte e comunicações operacionais.</li>
         </ul>
 
         <h2 id="bases">Bases Legais</h2>
-        <p>O tratamento poderá se basear em execução de contrato, legítimo interesse (p. ex., segurança e melhoria de serviço), cumprimento de obrigação legal/regulatória e, quando exigido, consentimento. Quando atuarmos como Operadora, a definição da base legal cabe ao Controlador.</p>
+        <p>Execução de contrato, legítimo interesse, obrigação legal/regulatória e, quando exigido, consentimento. Como Operadora, a base é definida pelo Controlador.</p>
 
         <h2 id="compart">Compartilhamento e Suboperadores</h2>
-        <p>Podemos envolver provedores de infraestrutura, e-mail, monitoramento e integrações com Canais para viabilizar o serviço, exigindo salvaguardas de segurança e privacidade compatíveis. Quando atuarmos como Operadora, o Controlador autoriza o uso de suboperadores necessários ao funcionamento.</p>
+        <p>Provedores de infraestrutura, e-mail, monitoramento e integrações com Canais, com salvaguardas compatíveis. O Controlador autoriza suboperadores necessários.</p>
 
         <h2 id="transfer">Transferências Internacionais</h2>
-        <p>Dados podem ser processados fora do Brasil (ex.: nuvem e Canais), com salvaguardas adequadas segundo a LGPD e diretrizes da ANPD.</p>
+        <p>Dados podem ser processados fora do Brasil com salvaguardas adequadas (LGPD/ANPD).</p>
 
         <h2 id="seguranca">Segurança da Informação</h2>
         <ul>
-          <li>Criptografia em trânsito, controle de acesso por perfil e segregação de ambientes.</li>
-          <li>Registros de auditoria, backups lógicos e princípio do mínimo privilégio.</li>
-          <li>Equipe sob compromissos de confidencialidade e boas práticas de segurança.</li>
+          <li>Criptografia em trânsito, controle de acesso e segregação de ambientes.</li>
+          <li>Registros de auditoria, backups lógicos, mínimo privilégio.</li>
+          <li>Equipe sob confidencialidade e boas práticas.</li>
         </ul>
 
         <h2 id="direitos">Direitos dos Titulares</h2>
-        <p>A NineChat auxiliará o Controlador, quando solicitado, no atendimento de requisições de titulares (acesso, correção, eliminação, portabilidade, oposição), na medida técnica possível e dentro de prazos razoáveis. Validação de identidade e base legal é de responsabilidade do Controlador.</p>
+        <p>Auxiliamos o Controlador no atendimento a requisições (acesso, correção, eliminação, portabilidade, oposição) na medida técnica possível e dentro de prazos razoáveis. Validação de identidade/base legal é do Controlador.</p>
 
         <h2 id="auditoria">Auditoria e Conformidade</h2>
-        <p>O Controlador pode realizar auditorias relacionadas ao tratamento no escopo da plataforma, com aviso prévio razoável, em horário comercial, sem acesso a segredos de negócio e sem causar interrupção indevida, observando-se limites de periodicidade e proporcionalidade.</p>
+        <p>Auditorias com aviso prévio razoável, horário comercial, sem acesso a segredos de negócio e sem interrupção indevida, respeitando proporcionalidade/periodicidade.</p>
 
         <h2 id="retencao">Retenção e Eliminação</h2>
         <ul>
-          <li>Ao término da relação, o Controlador pode solicitar devolução de dados em formato interoperável ou eliminação segura.</li>
-          <li>Logs de auditoria podem ser retidos por prazos legais/legítimos; dados anonimizados podem ser mantidos para fins estatísticos.</li>
+          <li>Ao término da relação, devolução de dados (formato interoperável) ou eliminação segura.</li>
+          <li>Logs por prazos legais/legítimos; dados anonimizados para estatística.</li>
         </ul>
 
         <h2 id="menores">Crianças e Adolescentes</h2>
-        <p>O tratamento envolvendo menores requer bases legais específicas e maior transparência. A coleta adequada é de responsabilidade do Controlador.</p>
+        <p>Tratamento envolvendo menores requer bases específicas e maior transparência. Coleta adequada é do Controlador.</p>
 
         <h2 id="contato">Contato do Encarregado (DPO)</h2>
-        <p>Dúvidas, solicitações ou incidentes de privacidade: <a href="mailto:privacidade@ninechat.com.br">privacidade@ninechat.com.br</a>.</p>
+        <p>Dúvidas/solicitações: <a href="mailto:privacidade@ninechat.com.br">privacidade@ninechat.com.br</a>.</p>
 
         <h2 id="mudancas">Mudanças nesta Política</h2>
-        <p>Podemos atualizar esta Política de Privacidade. Alterações relevantes serão comunicadas e vigorarão a partir da data indicada no topo.</p>
+        <p>Atualizações poderão ocorrer; alterações relevantes serão comunicadas e passam a valer na data indicada no topo.</p>
       </section>
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer>
     <div class="footer-content">
-      <div class="footer-section">
-        <h3>NineChat</h3>
-        <p>Plataforma omnichannel para empresas que querem crescer com chatbot, controle e escala.</p>
+      <div class="footer-section"><h3>NineChat</h3><p>Plataforma omnichannel para empresas que querem crescer com chatbot, controle e escala.</p></div>
+      <div class="footer-section"><h3>Produto</h3>
+        <a href="/#casos">Casos de Uso</a><a href="/#integracoes">Integrações</a><a href="/#recursos">Plataforma</a><a href="/#agendar">Agendar Demo</a>
       </div>
-      <div class="footer-section">
-        <h3>Produto</h3>
-        <a href="/#casos">Casos de Uso</a>
-        <a href="/#integracoes">Integrações</a>
-        <a href="/#recursos">Plataforma</a>
-        <a href="/#agendar">Agendar Demo</a>
+      <div class="footer-section"><h3>Empresa</h3>
+        <a href="/legal/terms.html">Termos de Uso</a><a href="/legal/privacy.html">Política de Privacidade</a><a href="/legal/data-deletion.html">Exclusão de Dados</a>
+        <a href="#">Status</a><a href="#">API</a>
       </div>
-      <div class="footer-section">
-        <h3>Empresa</h3>
-        <a href="/legal/terms.html">Termos de Uso</a>
-        <a href="/legal/privacy.html">Política de Privacidade</a>
-        <a href="/legal/data-deletion.html">Exclusão de Dados</a>
-        <a href="#">Status</a>
-        <a href="#">API</a>
-      </div>
-      <div class="footer-section">
-        <h3>Suporte</h3>
-        <a href="#">Central de Ajuda</a>
-        <a href="#">Documentação</a>
-      </div>
+      <div class="footer-section"><h3>Suporte</h3><a href="#">Central de Ajuda</a><a href="#">Documentação</a></div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2025 NineChat - Plataforma Omnichannel. Todos os direitos reservados.</p>
-      <p style="margin-top:10px;">Parceiro Oficial Meta Business Partner 🤝</p>
-    </div>
+    <div class="footer-bottom"><p>&copy; 2025 NineChat - Plataforma Omnichannel. Todos os direitos reservados.</p><p style="margin-top:10px;">Parceiro Oficial Meta Business Partner 🤝</p></div>
   </footer>
 
   <button class="fab" title="Voltar ao topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
   <script>
     const navEl=document.querySelector('nav');
-    window.addEventListener('scroll',()=>{window.scrollY>100?navEl.classList.add('scrolled'):navEl.classList.remove('scrolled')});
+    addEventListener('scroll',()=>{window.scrollY>100?navEl.classList.add('scrolled'):navEl.classList.remove('scrolled')});
   </script>
 </body>
 </html>
