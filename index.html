@@ -6,154 +6,157 @@
   <title>NineChat - Plataforma Oficial de Atendimento Omnichannel</title>
 
   <style>
-    /* ====== Base ====== */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    /* ====== base / tokens ====== */
+    *{margin:0;padding:0;box-sizing:border-box}
     :root{
       --primary:#0066FF; --primary-dark:#0052CC; --secondary:#00D9B8; --accent:#FF6B35;
-      --dark:#1A1F36; --gray:#6B7280; --light-gray:#F3F4F6; --white:#FFFFFF;
-      --bg-gradient: radial-gradient(circle at 20% 20%, rgba(255,255,255,.15) 0%, rgba(0,0,0,0) 60%),
-                     radial-gradient(circle at 80% 60%, rgba(255,255,255,.08) 0%, rgba(0,0,0,0) 60%);
+      --dark:#1A1F36; --gray:#6B7280; --light-gray:#F3F4F6; --white:#FFF;
+      --bg-gradient:radial-gradient(circle at 20% 20%,rgba(255,255,255,.15) 0%,rgba(0,0,0,0) 60%),
+                    radial-gradient(circle at 80% 60%,rgba(255,255,255,.08) 0%,rgba(0,0,0,0) 60%);
     }
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu',sans-serif;color:var(--dark);line-height:1.6;background:var(--white);overflow-x:hidden;}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu',sans-serif;color:var(--dark);line-height:1.6;background:var(--white);overflow-x:hidden}
 
-    /* ====== Nav ====== */
-    nav{position:fixed;top:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;background:linear-gradient(135deg,var(--primary),var(--primary-dark));backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.1);transition:.3s;}
-    nav.scrolled{background:rgba(10,17,40,.9);box-shadow:0 20px 40px rgba(0,0,0,.4);}
-    .logo-container{display:flex;align-items:center;gap:12px;}
-    .logo{height:36px;object-fit:contain;}
-    .nav-links{display:flex;gap:32px;list-style:none;}
-    .nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:15px;opacity:.9;transition:opacity .3s;}
-    .nav-links a:hover{opacity:1;}
-    .cta-nav{background:#fff;color:var(--primary);padding:12px 32px;border-radius:50px;font-weight:600;border:none;cursor:pointer;font-size:15px;box-shadow:0 4px 15px rgba(255,255,255,.3),0 10px 30px rgba(0,0,0,.4);transition:.3s;}
-    .cta-nav:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 6px 25px rgba(255,255,255,.4),0 20px 40px rgba(0,0,0,.5);}
+    /* ====== NAV ====== */
+    nav{position:fixed;top:0;width:100%;padding:20px 5%;display:flex;justify-content:space-between;align-items:center;z-index:1000;
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));backdrop-filter:blur(10px);box-shadow:0 2px 20px rgba(0,0,0,.1);transition:.3s}
+    nav.scrolled{background:rgba(10,17,40,.9);box-shadow:0 20px 40px rgba(0,0,0,.4)}
+    .logo{height:36px;object-fit:contain}
+    .nav-links{display:flex;gap:32px;list-style:none}
+    .nav-links a{color:#fff;text-decoration:none;font-weight:500;font-size:15px;opacity:.9;transition:.3s}
+    .nav-links a:hover{opacity:1}
+    .cta-nav{background:#fff;color:var(--primary);padding:12px 32px;border-radius:50px;font-weight:600;border:none;cursor:pointer;font-size:15px;
+      box-shadow:0 4px 15px rgba(255,255,255,.3),0 10px 30px rgba(0,0,0,.4);transition:.3s}
+    .cta-nav:hover{transform:translateY(-2px) scale(1.03);box-shadow:0 6px 25px rgba(255,255,255,.4),0 20px 40px rgba(0,0,0,.5)}
 
-    /* ====== Hero ====== */
-    .hero{background:linear-gradient(135deg,#0066FF 0%,#00D9B8 100%);min-height:100vh;position:relative;overflow:hidden;}
-    .hero::before{content:'';position:absolute;inset:0;background:var(--bg-gradient);animation:glow 6s ease-in-out infinite;}
-    @keyframes glow{0%,100%{opacity:1;filter:blur(0)}50%{opacity:.8;filter:blur(10px)}}
-    .hero-content{position:relative;z-index:1;padding:160px 5% 100px;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center;}
-    .highlight-badge{display:inline-block;background:linear-gradient(135deg,var(--accent),#FF8C5A);color:#fff;padding:10px 28px;border-radius:50px;font-size:15px;font-weight:700;margin-bottom:24px;box-shadow:0 4px 15px rgba(255,107,53,.3);animation:pulse 2s ease-in-out infinite;}
-    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
-    .hero-text h1{font-size:3.2rem;color:#fff;margin-bottom:24px;line-height:1.1;font-weight:700;letter-spacing:-.04em;}
-    .hero-text p{font-size:1.2rem;color:rgba(255,255,255,.95);margin-bottom:32px;line-height:1.7;max-width:580px;}
-    .hero-benefits-inline{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:40px;}
-    .hero-benefit-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:40px;font-size:.8rem;font-weight:500;line-height:1.4;padding:10px 16px;backdrop-filter:blur(8px);}
-    .cta-buttons{display:flex;gap:16px;flex-wrap:wrap;}
-    .btn-primary{padding:18px 40px;border-radius:50px;font-size:1.05rem;font-weight:600;cursor:pointer;border:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#fff;color:var(--primary);box-shadow:0 8px 25px rgba(0,0,0,.15);transition:.3s;}
-    .btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 35px rgba(0,0,0,.25);}
-    .hero-trust-row{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:32px;color:rgba(255,255,255,.8);font-size:.9rem;}
-    .trust-bullet{display:flex;align-items:center;gap:8px;}
-    .trust-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#00ff85,#00D9B8);box-shadow:0 0 12px rgba(0,255,170,.8);}
+    /* ====== HERO ====== */
+    .hero{background:linear-gradient(135deg,#0066FF 0%,#00D9B8 100%);min-height:100vh;position:relative;overflow:hidden}
+    .hero::before{content:'';position:absolute;inset:0;background:var(--bg-gradient);animation:glowMove 6s ease-in-out infinite}
+    @keyframes glowMove{0%,100%{opacity:1;filter:blur(0)}50%{opacity:.8;filter:blur(10px)}}
+    .hero-content{position:relative;z-index:1;padding:160px 5% 100px;max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:center}
+    .highlight-badge{display:inline-block;background:linear-gradient(135deg,var(--accent),#FF8C5A);color:#fff;padding:10px 28px;border-radius:50px;font-size:15px;
+      font-weight:700;margin-bottom:24px;box-shadow:0 4px 15px rgba(255,107,53,.3);animation:pulse-badge 2s ease-in-out infinite}
+    @keyframes pulse-badge{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+    .hero-text h1{font-size:3.2rem;color:#fff;margin-bottom:24px;line-height:1.1;font-weight:700;letter-spacing:-.04em}
+    .hero-text p{font-size:1.2rem;color:rgba(255,255,255,.95);margin-bottom:32px;line-height:1.7;max-width:580px}
+    .hero-benefits-inline{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:40px}
+    .hero-benefit-pill{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:40px;
+      font-size:.8rem;font-weight:500;line-height:1.4;padding:10px 16px;backdrop-filter:blur(8px)}
+    .cta-buttons{display:flex;gap:16px;flex-wrap:wrap}
+    .btn-primary{padding:18px 40px;border-radius:50px;font-size:1.05rem;font-weight:600;cursor:pointer;border:none;display:inline-flex;align-items:center;justify-content:center;gap:10px;
+      background:#fff;color:var(--primary);box-shadow:0 8px 25px rgba(0,0,0,.15);transition:.3s}
+    .btn-primary:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 35px rgba(0,0,0,.25)}
+    .hero-trust-row{display:flex;flex-wrap:wrap;align-items:center;gap:24px;margin-top:32px;color:rgba(255,255,255,.8);font-size:.9rem}
+    .trust-bullet{display:flex;align-items:center;gap:8px}
+    .trust-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#00ff85,#00D9B8);box-shadow:0 0 12px rgba(0,255,170,.8)}
 
-    /* Hero mockup */
+    /* mockup hero img */
     .hero-mockup-wrapper{
       background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.12) 0%,rgba(0,0,0,0) 60%),
                  linear-gradient(160deg,rgba(0,102,255,.85) 0%,rgba(0,217,184,.5) 100%);
       border-radius:32px;padding:60px 40px 0;box-shadow:0 50px 120px rgba(0,0,0,.6),0 0 100px rgba(0,217,184,.3),inset 0 1px 0 rgba(255,255,255,.2);
-      border:1px solid rgba(255,255,255,.15);max-width:500px;width:100%;min-height:550px;display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden;animation:float 6s ease-in-out infinite;
-    }
-    .hero-mockup-wrapper::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);animation:rotate 20s linear infinite;}
+      border:1px solid rgba(255,255,255,.15);max-width:500px;width:100%;min-height:550px;display:flex;align-items:flex-end;justify-content:center;position:relative;overflow:hidden;
+      animation:float 6s ease-in-out infinite}
+    .hero-mockup-wrapper::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle,rgba(255,255,255,.1) 0%,transparent 70%);animation:rotate 20s linear infinite}
     @keyframes rotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
     @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
-    .hero-mockup{max-width:100%;width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5));border:0;box-shadow:none;position:relative;z-index:1;transform:translateY(20px);}
+    .hero-mockup{max-width:100%;width:100%;height:auto;filter:drop-shadow(0 30px 60px rgba(0,0,0,.5));border:0;box-shadow:none;position:relative;z-index:1;transform:translateY(20px)}
 
-    /* ====== Trust ====== */
-    .trust-section{background:#fff;padding:60px 5% 20px;text-align:center;border-bottom:1px solid #E5E7EB;}
-    .meta-partner-badge{display:inline-flex;align-items:center;gap:16px;background:#fff;backdrop-filter:blur(10px);padding:20px 40px;border-radius:60px;border:2px solid var(--primary);margin-bottom:24px;}
-    .meta-partner-badge img{height:240px;object-fit:contain;}
+    /* ====== TRUST ====== */
+    .trust-section{background:#fff;padding:60px 5% 20px;text-align:center;border-bottom:1px solid #E5E7EB}
+    .meta-partner-badge{display:inline-flex;align-items:center;gap:16px;background:#fff;backdrop-filter:blur(10px);padding:20px 40px;border-radius:60px;border:2px solid var(--primary);margin-bottom:24px}
+    .meta-partner-badge img{height:240px;object-fit:contain}
 
-    /* ====== Business value ====== */
-    .business-value{background:var(--light-gray);padding:100px 5%;}
-    .business-value-inner{max-width:1200px;margin:0 auto;}
-    .section-headline{text-align:center;max-width:800px;margin:0 auto 50px;}
-    .section-headline h2{font-size:2rem;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:16px;}
-    .section-headline p{color:var(--gray);font-size:1.05rem;line-height:1.6;}
-    .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;}
-    .benefit-card{background:#fff;border-radius:20px;border:1px solid #E5E7EB;box-shadow:0 10px 30px rgba(0,0,0,.05);padding:28px 28px 24px;transition:.3s;}
-    .benefit-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.08);border-color:var(--primary);}
-    .benefit-icon{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:600;margin-bottom:16px;}
-    .benefit-card h3{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:10px;}
-    .benefit-card p{color:var(--gray);font-size:.95rem;line-height:1.6;}
+    /* ====== BUSINESS VALUE ====== */
+    .business-value{background:var(--light-gray);padding:100px 5%}
+    .business-value-inner{max-width:1200px;margin:0 auto}
+    .section-headline{text-align:center;max-width:800px;margin:0 auto 50px}
+    .section-headline h2{font-size:2rem;font-weight:700;color:var(--dark);line-height:1.2;margin-bottom:16px}
+    .section-headline p{color:var(--gray);font-size:1.05rem}
+    .benefits-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+    .benefit-card{background:#fff;border-radius:20px;border:1px solid #E5E7EB;box-shadow:0 10px 30px rgba(0,0,0,.05);padding:28px 28px 24px;transition:.3s}
+    .benefit-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.08);border-color:var(--primary)}
+    .benefit-icon{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--primary),var(--secondary));color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.1rem;font-weight:600;margin-bottom:16px}
 
-    /* ====== Fluxos (sem imagens) ====== */
-    .conversations-section{padding:120px 5%;background:linear-gradient(to bottom,#fff,#F8FAFC);}
-    .conv-headline{text-align:center;max-width:800px;margin:0 auto 60px;}
-    .conv-headline h2{font-size:2rem;font-weight:700;color:var(--dark);margin-bottom:20px;}
-    .conv-headline p{font-size:1.05rem;color:var(--gray);line-height:1.6;}
-    .conversations-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;}
-    .conv-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.06);padding:24px 22px;transition:.3s;}
-    .conv-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(0,0,0,.1);}
-    .conv-card h3{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:8px;display:flex;gap:8px;align-items:center;}
-    .conv-card p{font-size:.95rem;color:var(--gray);}
-    .conv-chip{display:inline-block;margin-top:10px;background:rgba(0,102,255,.08);color:var(--primary);border:1px solid rgba(0,102,255,.2);border-radius:999px;font-size:.75rem;font-weight:700;padding:4px 10px;}
+    /* ====== CONVERSAS (sem imagens) ====== */
+    .conversations-section{padding:120px 5%;background:linear-gradient(to bottom,#fff,var(--light-gray))}
+    .conversations-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+    .conv-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(0,0,0,.06);transition:.3s}
+    .conv-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1);border-color:var(--primary)}
+    .conv-card h3{display:flex;align-items:center;gap:10px;font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:8px}
+    .conv-card p{font-size:.95rem;color:var(--gray)}
 
-    /* ====== Nichos ====== */
-    .nichos{padding:120px 5%;background:#fff;}
-    .nichos-header{text-align:center;max-width:800px;margin:0 auto 60px;}
-    .nichos-header h2{font-size:2rem;font-weight:700;color:var(--dark);margin-bottom:20px;}
-    .nichos-header p{color:var(--gray);font-size:1.05rem;line-height:1.6;}
-    .nichos-grid{max-width:1200px;margin:0 auto;display:grid;gap:24px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));}
-    .nicho-card{border-radius:16px;border:1px solid #E5E7EB;padding:24px 24px 20px;background:linear-gradient(135deg,#fff 0%,#f9fafb 100%);transition:.3s;box-shadow:0 8px 30px rgba(0,0,0,.04);}
-    .nicho-card:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.08);border-color:var(--primary);}
-    .nicho-card .tag{font-size:.75rem;font-weight:600;color:var(--primary);background:rgba(0,102,255,.07);border:1px solid rgba(0,102,255,.2);padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:12px;}
-    .nicho-card h3{font-size:1rem;font-weight:700;color:var(--dark);margin-bottom:10px;}
-    .nicho-card ul{color:var(--gray);font-size:.9rem;line-height:1.5;list-style:none;}
-    .nicho-card ul li{display:flex;gap:8px;margin-bottom:8px;}
-    .nicho-card ul li span.bullet{color:var(--secondary);font-weight:700;}
+    /* ====== INTEGRAÇÕES / FEATURES / STATS / FAQ ====== */
+    .integrations{background:var(--light-gray);padding:120px 5%}
+    .integrations-inner{max-width:1200px;margin:0 auto;background:#fff;border-radius:24px;padding:48px;border:1px solid #E5E7EB;box-shadow:0 20px 60px rgba(0,0,0,.07)}
+    .integrations-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px}
+    .integration-card{border-radius:16px;border:1px solid #E5E7EB;background:linear-gradient(135deg,#fff 0%,#f9fafb 100%);padding:24px;font-size:.9rem;color:var(--gray);line-height:1.5}
+    .integration-title{font-size:.95rem;font-weight:700;color:var(--dark)}
+    .features{padding:120px 5%;background:var(--light-gray)}
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;max-width:1200px;margin:0 auto}
+    .feature-card{padding:40px;border-radius:20px;background:#fff;border:1px solid #E5E7EB;box-shadow:0 10px 30px rgba(0,0,0,.05);transition:.3s}
+    .feature-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.08);border-color:var(--primary)}
+    .feature-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:16px;color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:24px;font-size:1.5rem}
+    .stats{background:linear-gradient(135deg,var(--dark),#2D3748);padding:100px 5%;color:#fff}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:60px;max-width:1200px;margin:0 auto;text-align:center}
+    .section-title-stats{text-align:center;color:#fff;font-size:1.8rem;font-weight:700;line-height:1.3;margin-bottom:60px}
+    .stat-card h2{font-size:3rem;margin-bottom:12px;background:linear-gradient(135deg,#fff,var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800;letter-spacing:-.05em}
+    .faq{background:#fff;padding:120px 5%;border-top:1px solid #E5E7EB;border-bottom:1px solid #E5E7EB}
+    .faq-inner{max-width:900px;margin:0 auto}
+    .faq h2{text-align:center;font-size:2rem;font-weight:700;color:var(--dark);margin-bottom:12px}
+    .faq p.sub{text-align:center;color:var(--gray);font-size:1rem;margin-bottom:40px}
+    .faq-item{background:var(--light-gray);border-radius:16px;padding:24px 28px;margin-bottom:16px;border:1px solid #E5E7EB;cursor:pointer;transition:.3s}
+    .faq-item.open{background:#fff;box-shadow:0 20px 50px rgba(0,0,0,.07)}
+    .faq-q{display:flex;justify-content:space-between;align-items:flex-start;font-weight:600;color:var(--dark);font-size:1rem;line-height:1.4}
+    .faq-a{color:var(--gray);font-size:.9rem;line-height:1.5;max-height:0;overflow:hidden;transition:max-height .3s ease}
+    .faq-item.open .faq-a{margin-top:12px;max-height:200px}
+    .faq-toggle{font-size:1.2rem;font-weight:600;color:var(--primary);margin-left:16px}
 
-    /* ====== Integrações ====== */
-    .integrations{background:var(--light-gray);padding:120px 5%;}
-    .integrations-inner{max-width:1200px;margin:0 auto;background:#fff;border-radius:24px;padding:48px;border:1px solid #E5E7EB;box-shadow:0 20px 60px rgba(0,0,0,.07);}
-    .integrations-header{display:flex;flex-wrap:wrap;align-items:flex-start;gap:24px;margin-bottom:32px;}
-    .integrations-header h2{font-size:2rem;font-weight:700;color:var(--dark);}
-    .integrations-header p{color:var(--gray);max-width:700px;font-size:1rem;line-height:1.6;}
-    .integrations-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px;}
-    .integration-card{border-radius:16px;border:1px solid #E5E7EB;background:linear-gradient(135deg,#fff 0%,#f9fafb 100%);padding:24px;font-size:.9rem;color:var(--gray);line-height:1.5;display:flex;flex-direction:column;gap:12px;}
-    .integration-title{font-size:.95rem;font-weight:700;color:var(--dark);}
+    /* ====== FORM (Agendar Demo) ====== */
+    .form-section{padding:120px 5%;background:#fff}
+    .form-wrap{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:32px}
+    .form-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
+    .form-card h3{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+    .form-card p.lead{color:var(--gray);margin-bottom:20px}
+    .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .form-grid .full{grid-column:1/-1}
+    label{display:block;font-size:.9rem;font-weight:600;margin-bottom:6px;color:#111827}
+    input[type="text"],input[type="email"],input[type="tel"],select,textarea{
+      width:100%;padding:14px 12px;border:1px solid #E5E7EB;border-radius:12px;background:#fff;font-size:.95rem;color:#111827;outline:none;transition:border .2s,box-shadow .2s}
+    input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 4px rgba(0,102,255,.12)}
+    .choices{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{display:inline-flex;align-items:center;gap:8px;border:1px solid #E5E7EB;border-radius:999px;padding:10px 14px;font-size:.9rem;
+      background:#fff;cursor:pointer;user-select:none}
+    .chip input{accent-color:var(--primary)}
+    .consent{display:flex;align-items:flex-start;gap:10px;font-size:.85rem;color:var(--gray)}
+    .submit-row{display:flex;gap:12px;align-items:center;margin-top:8px}
+    .btn-submit{background:var(--primary);color:#fff;border:none;border-radius:999px;padding:14px 22px;font-weight:700;cursor:pointer}
+    .btn-submit:hover{filter:brightness(1.05)}
+    .note{font-size:.8rem;color:var(--gray)}
+    .side-card{background:linear-gradient(135deg,#0066FF 0%,#00D9B8 100%);color:#fff;border-radius:20px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.12)}
+    .side-card h4{font-size:1.2rem;margin-bottom:10px}
+    .side-bullets{display:grid;gap:10px}
+    .side-item{display:flex;gap:10px;align-items:flex-start}
+    .side-item .dot{width:10px;height:10px;border-radius:50%;background:#00ffb3;box-shadow:0 0 10px rgba(0,255,179,.8);margin-top:7px}
 
-    /* ====== Features ====== */
-    .features{padding:120px 5%;background:var(--light-gray);}
-    .features-headline{max-width:800px;margin:0 auto 60px;text-align:center;}
-    .features-headline h2{font-size:2rem;line-height:1.2;font-weight:700;color:var(--dark);margin-bottom:20px;}
-    .features-headline p{font-size:1.05rem;color:var(--gray);line-height:1.6;}
-    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px;max-width:1200px;margin:0 auto;}
-    .feature-card{padding:40px;border-radius:20px;background:#fff;border:1px solid #E5E7EB;box-shadow:0 10px 30px rgba(0,0,0,.05);transition:.3s;}
-    .feature-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.08);border-color:var(--primary);}
-    .feature-icon{width:60px;height:60px;background:linear-gradient(135deg,var(--primary),var(--secondary));border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:24px;color:#fff;font-size:1.5rem;}
-    .feature-card h3{font-size:1.1rem;color:var(--dark);margin-bottom:12px;font-weight:700;}
-    .feature-card p{color:var(--gray);line-height:1.6;font-size:.95rem;}
-    .feature-metric{margin-top:16px;font-size:.8rem;font-weight:600;color:var(--primary);background:rgba(0,102,255,.07);border:1px solid rgba(0,102,255,.2);padding:6px 10px;border-radius:999px;display:inline-block;}
+    /* ====== CTA FINAL / FOOTER ====== */
+    .cta-section{padding:120px 5%;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);text-align:center;color:#fff}
+    footer{background:var(--dark);color:#fff;padding:60px 5% 40px}
+    .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:60px;margin-bottom:40px}
+    .footer-section a{color:rgba(255,255,255,.7);text-decoration:none;display:block;line-height:2}
+    .footer-section a:hover{color:#fff}
 
-    /* ====== Stats ====== */
-    .stats{background:linear-gradient(135deg,var(--dark),#2D3748);padding:100px 5%;color:#fff;}
-    .section-title-stats{text-align:center;font-size:1.8rem;font-weight:700;line-height:1.3;margin-bottom:60px;}
-    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:60px;max-width:1200px;margin:0 auto;text-align:center;}
-    .stat-card h2{font-size:3rem;margin-bottom:12px;background:linear-gradient(135deg,#fff,var(--secondary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:800;letter-spacing:-.05em;}
-    .stat-card p{font-size:1rem;opacity:.9;}
-
-    /* ====== Agendar (Freshdesk) ====== */
-    .cta-section{padding:120px 5%;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);color:#fff;}
-    .cta-inner{max-width:1000px;margin:0 auto;}
-    .cta-section h2{font-size:2rem;margin-bottom:12px;font-weight:700;line-height:1.2;text-align:center;}
-    .cta-section p{font-size:1.05rem;margin-bottom:28px;opacity:.95;line-height:1.5;text-align:center;}
-    .cta-card{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);border-radius:20px;padding:24px;box-shadow:0 20px 60px rgba(0,0,0,.25);}
-    .cta-legal{margin-top:14px;font-size:.8rem;opacity:.9;text-align:center;}
-
-    /* ====== Footer ====== */
-    footer{background:var(--dark);color:#fff;padding:60px 5% 40px;}
-    .footer-content{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:60px;margin-bottom:40px;}
-    .footer-section h3{font-size:1.1rem;margin-bottom:20px;font-weight:700;}
-    .footer-section a,.footer-section p{color:rgba(255,255,255,.7);font-size:.9rem;line-height:2;text-decoration:none;display:block;}
-    .footer-section a:hover{color:#fff;}
-    .footer-bottom{text-align:center;padding-top:40px;border-top:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.6);font-size:.8rem;}
-
-    /* ====== Responsive ====== */
-    @media (max-width:768px){
-      .hero-content{grid-template-columns:1fr;padding:140px 5% 80px;gap:50px;}
-      .hero-text h1{font-size:2rem;}
-      .hero-benefits-inline{grid-template-columns:1fr;}
-      .nav-links{display:none;}
-      .hero-mockup-wrapper{max-width:100%;min-height:450px;margin:0 auto;}
+    /* ====== RESPONSIVO ====== */
+    @media (max-width: 992px){
+      .form-wrap{grid-template-columns:1fr}
+    }
+    @media (max-width: 768px){
+      .hero-content{grid-template-columns:1fr;padding:140px 5% 80px;gap:50px}
+      .hero-text h1{font-size:2rem}
+      .hero-benefits-inline{grid-template-columns:1fr}
+      .nav-links{display:none}
+      .cta-buttons{flex-direction:column}
+      .hero-mockup-wrapper{max-width:100%;min-height:450px;margin:0 auto}
+      .form-grid{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -162,16 +165,16 @@
   <!-- NAV -->
   <nav>
     <div class="logo-container">
-      <img src="image/logo-front.png" alt="NineChat" class="logo" />
+      <img src="image/logo-front.png" alt="NineChat" class="logo">
     </div>
     <ul class="nav-links">
-      <li><a href="#fluxos">Fluxos</a></li>
-      <li><a href="#setores">Setores</a></li>
+      <li><a href="#casos">Casos de Uso</a></li>
       <li><a href="#integracoes">Integrações</a></li>
       <li><a href="#recursos">Plataforma</a></li>
+      <li><a href="#agendar">Agendar Demo</a></li>
       <li><a href="#faq">FAQ</a></li>
     </ul>
-    <button class="cta-nav" onclick="document.getElementById('agendar').scrollIntoView({behavior:'smooth'})">Agendar Demonstração →</button>
+    <button class="cta-nav" data-scroll="#agendar">Agendar Demonstração →</button>
   </nav>
 
   <!-- HERO -->
@@ -180,17 +183,16 @@
       <div class="hero-text">
         <div class="highlight-badge">🚀 ZERO Taxa de Setup • ZERO Taxa por Usuário</div>
         <h1>Aumente vendas e reduza custo com atendimento inteligente</h1>
-        <p>Plataforma oficial de atendimento e vendas no WhatsApp, Instagram, Telegram e Webchat.
-          <strong>Chatbot</strong>, métricas e governança — você paga só pelas conversas geradas, não por assento.</p>
+        <p>Plataforma oficial de atendimento e vendas no WhatsApp, Instagram, Telegram e Webchat. Chatbot, métricas e governança — você paga só pelas conversas geradas, não por assento.</p>
 
         <div class="hero-benefits-inline">
-          <div class="hero-benefit-pill"><span>⚡</span><span>Atendimento 24h sem aumentar time</span></div>
-          <div class="hero-benefit-pill"><span>📈</span><span>Conversão mais rápida</span></div>
-          <div class="hero-benefit-pill"><span>🔒</span><span>Estabilidade e segurança empresarial</span></div>
+          <div class="hero-benefit-pill"><span class="emoji">⚡</span><span>Atendimento 24h sem aumentar time</span></div>
+          <div class="hero-benefit-pill"><span class="emoji">📈</span><span>Conversão mais rápida</span></div>
+          <div class="hero-benefit-pill"><span class="emoji">🔒</span><span>Estabilidade e segurança empresarial</span></div>
         </div>
 
         <div class="cta-buttons">
-          <button class="btn-primary" onclick="document.getElementById('agendar').scrollIntoView({behavior:'smooth'})">Agendar Demonstração →</button>
+          <button class="btn-primary" data-scroll="#agendar">Agendar Demonstração →</button>
         </div>
 
         <div class="hero-trust-row">
@@ -201,7 +203,7 @@
       </div>
 
       <div class="hero-mockup-wrapper">
-        <img src="image/conversa.png" alt="Conversa de venda com chatbot no WhatsApp" class="hero-mockup"/>
+        <img src="image/conversa.png" alt="Conversa com chatbot de vendas" class="hero-mockup"/>
       </div>
     </div>
   </section>
@@ -218,114 +220,56 @@
     <div class="business-value-inner">
       <div class="section-headline">
         <h2>Por que empresas crescem mais rápido com o NineChat</h2>
-        <p><strong>Chatbot</strong> que vende, reduz custo e mantém governança. Foco em resultado de negócio, não só em “inbox bonito”.</p>
+        <p>Chatbot que vende, reduz custo e mantém governança. Foco em resultado de negócio, não só em “inbox bonito”.</p>
       </div>
 
       <div class="benefits-grid">
         <div class="benefit-card">
           <div class="benefit-icon">24h</div>
           <h3>Atendimento 24/7</h3>
-          <p>Status de pedido, boleto, reagendamento e dúvidas básicas — tudo com chatbot, em qualquer canal.</p>
+          <p>Status de pedido, boleto, reagendamento e dúvidas básicas — em qualquer canal.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">💸</div>
           <h3>Redução de custo</h3>
-          <p>Escala alto volume de conversa sem contratar mais operadores. A operação cresce sem inflar folha.</p>
+          <p>Escala alto volume de conversa sem contratar mais operadores.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">🔥</div>
           <h3>Lead qualificado</h3>
-          <p>Identifica intenção (“quero comprar agora”) e direciona o contato quente para o vendedor certo em segundos.</p>
+          <p>Identifica intenção e direciona o contato quente para o vendedor certo.</p>
         </div>
         <div class="benefit-card">
           <div class="benefit-icon">📊</div>
           <h3>Visão executiva</h3>
-          <p>KPIs prontos: volume, origem do lead, taxa de conversão e gargalos de atendimento.</p>
+          <p>KPIs prontos: volume, origem do lead, conversão e gargalos de atendimento.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FLUXOS (sem imagens) -->
-  <section class="conversations-section" id="fluxos">
-    <div class="conv-headline">
-      <h2>Fluxos de atendimento prontos para usar</h2>
-      <p>Seu <strong>chatbot</strong> atua do início ao fim da jornada e aciona humanos só quando é decisivo.</p>
+  <!-- CONVERSAS (sem imagens) -->
+  <section class="conversations-section" id="casos">
+    <div class="section-headline">
+      <h2>Chatbot que trabalha por você em cada etapa da jornada</h2>
+      <p>Vendas, suporte, cobrança e agenda rodando sozinhos. Seu time humano só entra no que fecha negócio.</p>
     </div>
-
     <div class="conversations-grid">
       <div class="conv-card">
         <h3>🛒 Venda imediata</h3>
-        <p>Detecta intenção de compra e apresenta opções com link de pagamento ou carrinho.</p>
-        <span class="conv-chip">WhatsApp • Instagram</span>
+        <p>Ofertas e links de pagamento em segundos quando o cliente demonstra intenção.</p>
       </div>
-
       <div class="conv-card">
-        <h3>📦 Rastreio de pedidos</h3>
-        <p>Consulta transportadora/ERP e responde status. Envia atualização proativa.</p>
-        <span class="conv-chip">ERP • Webhook</span>
+        <h3>📦 Suporte de pedido</h3>
+        <p>Rastreio de entrega e atualização proativa de status sem ocupar o time humano.</p>
       </div>
-
       <div class="conv-card">
-        <h3>💳 Cobrança gentil</h3>
-        <p>Dispara 2ª via/PIX com confirmação automática — sem fricção nem constrangimento.</p>
-        <span class="conv-chip">PIX • Boleto</span>
+        <h3>💸 Cobrança amigável</h3>
+        <p>Envio de 2ª via/PIX com confirmação automática e lembretes inteligentes.</p>
       </div>
-
       <div class="conv-card">
-        <h3>🗓️ Agendamento</h3>
-        <p>Agenda e remarca sozinho, manda lembrete e reduz no-show com lembretes inteligentes.</p>
-        <span class="conv-chip">Calendário • Lembretes</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- SETORES -->
-  <section class="nichos" id="setores">
-    <div class="nichos-header">
-      <h2>Soluções prontas para o seu setor</h2>
-      <p>Implementações validadas em operações de alto volume e alta urgência de resposta.</p>
-    </div>
-
-    <div class="nichos-grid">
-      <div class="nicho-card">
-        <div class="tag">Varejo / E-commerce</div>
-        <h3>Atendimento e pós-venda</h3>
-        <ul>
-          <li><span class="bullet">•</span><span>Rastreio automático</span></li>
-          <li><span class="bullet">•</span><span>Recuperação de carrinho</span></li>
-          <li><span class="bullet">•</span><span>Campanhas segmentadas</span></li>
-        </ul>
-      </div>
-
-      <div class="nicho-card">
-        <div class="tag">Educação / Cursos</div>
-        <h3>Captação e cobrança</h3>
-        <ul>
-          <li><span class="bullet">•</span><span>Lead atendido na hora</span></li>
-          <li><span class="bullet">•</span><span>Boleto / link de pagamento</span></li>
-          <li><span class="bullet">•</span><span>Nutrição até matrícula</span></li>
-        </ul>
-      </div>
-
-      <div class="nicho-card">
-        <div class="tag">Saúde / Clínicas</div>
-        <h3>Agenda cheia</h3>
-        <ul>
-          <li><span class="bullet">•</span><span>Agendamento automático</span></li>
-          <li><span class="bullet">•</span><span>Lembrete (reduz no-show)</span></li>
-          <li><span class="bullet">•</span><span>Pré-triagem rápida</span></li>
-        </ul>
-      </div>
-
-      <div class="nicho-card">
-        <div class="tag">Financeiro / Imobiliário</div>
-        <h3>Qualificação imediata</h3>
-        <ul>
-          <li><span class="bullet">•</span><span>Coleta perfil e interesse</span></li>
-          <li><span class="bullet">•</span><span>Entrega lead quente</span></li>
-          <li><span class="bullet">•</span><span>Follow-up automático</span></li>
-        </ul>
+        <h3>🏥 Agendamentos</h3>
+        <p>Agenda, remarca, envia lembrete e reduz no-show com confirmação no chat.</p>
       </div>
     </div>
   </section>
@@ -333,124 +277,182 @@
   <!-- INTEGRAÇÕES -->
   <section class="integrations" id="integracoes">
     <div class="integrations-inner">
-      <div class="integrations-header">
-        <div style="flex:1;min-width:240px"><h2>Integra com o que você já usa</h2></div>
-        <p>Nada de copiar e colar conversa no CRM. O NineChat envia lead qualificado, status de chamado e histórico direto para o seu stack.</p>
+      <div class="section-headline">
+        <h2>Integra com o que você já usa</h2>
+        <p>Nada de copiar e colar conversa no CRM. Mandamos lead qualificado, status e histórico direto para o seu stack.</p>
       </div>
 
       <div class="integrations-grid">
         <div class="integration-card">
           <div class="integration-title">CRM & Vendas</div>
           <div>Pipedrive, HubSpot, RD Station e CRMs internos via Webhook / API.</div>
-          <div><strong>Benefício:</strong> lead não fica preso no WhatsApp pessoal de ninguém.</div>
+          <div><strong>Benefício:</strong> lead não fica preso no WhatsApp pessoal.</div>
         </div>
-
         <div class="integration-card">
           <div class="integration-title">ERP / Faturamento</div>
-          <div>Consulta pedido, nota fiscal, boleto e status de pagamento direto pelo chat.</div>
-          <div><strong>Benefício:</strong> cai o volume de “meu pedido saiu?”.</div>
+          <div>Consulta pedido, NF, boleto e status de pagamento direto pelo chat.</div>
+          <div><strong>Benefício:</strong> queda no volume de “meu pedido saiu?”.</div>
         </div>
-
         <div class="integration-card">
           <div class="integration-title">Suporte & Ticket</div>
           <div>Zendesk, Freshdesk e sistemas próprios.</div>
-          <div><strong>Benefício:</strong> cada conversa já vira ticket com contexto completo.</div>
+          <div><strong>Benefício:</strong> cada conversa vira ticket com contexto.</div>
         </div>
-
         <div class="integration-card">
           <div class="integration-title">Chatbot / Webhook</div>
-          <div>Dispare eventos em tempo real para qualquer endpoint seguro.</div>
-          <div><strong>Benefício:</strong> fluxo realmente sob medida para o seu negócio.</div>
+          <div>Eventos em tempo real para qualquer endpoint seguro.</div>
+          <div><strong>Benefício:</strong> fluxo sob medida para o negócio.</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PLATAFORMA (features) -->
+  <!-- PLATAFORMA COMPLETA -->
   <section class="features" id="recursos">
-    <div class="features-headline">
+    <div class="section-headline">
       <h2>Plataforma completa de atendimento e vendas omnichannel</h2>
-      <p>Fila inteligente, SLAs cumpridos e visibilidade para diretoria — com chatbot na linha de frente.</p>
+      <p>Fila inteligente, SLAs cumpridos e visibilidade para diretoria.</p>
     </div>
 
     <div class="features-grid">
       <div class="feature-card">
         <div class="feature-icon">👁️</div>
         <h3>Controle total da operação</h3>
-        <p>Veja tudo ao vivo: filas, TMR, quem está sobrecarregado e quem está ocioso — antes do problema virar reclamação.</p>
+        <p>Filas, TMR, quem está sobrecarregado e quem está ocioso — tudo ao vivo.</p>
         <div class="feature-metric">↓ até 32% no TMR</div>
       </div>
-
       <div class="feature-card">
         <div class="feature-icon">🤖</div>
-        <h3>Chatbot que faz triagem real</h3>
-        <p>Coleta intenção, dados de contato e urgência e direciona direto para o humano certo. Sem empurrar cliente.</p>
-        <div class="feature-metric">↑ mais conversas de venda</div>
+        <h3>Chatbot que faz triagem</h3>
+        <p>Coleta intenção, dados e urgência e direciona ao humano certo.</p>
+        <div class="feature-metric">↑ mais vendas, menos repetição</div>
       </div>
-
       <div class="feature-card">
         <div class="feature-icon">📊</div>
         <h3>Relatórios para diretoria</h3>
-        <p>KPIs prontos: volume por canal, origem de lead, taxa de conversão e gargalos.</p>
-        <div class="feature-metric">Decisão com dados</div>
+        <p>Volume por canal, origem de lead, conversão e gargalos.</p>
+        <div class="feature-metric">Decisão com dado</div>
       </div>
-
       <div class="feature-card">
         <div class="feature-icon">👥</div>
         <h3>Gestão de equipe e SLA</h3>
-        <p>Distribui conversas de forma inteligente, acompanha performance individual e cumpre SLA sem microgestão.</p>
+        <p>Distribuição inteligente, performance individual e cumprimento de SLA.</p>
         <div class="feature-metric">Operação previsível</div>
       </div>
-
       <div class="feature-card">
         <div class="feature-icon">💬</div>
         <h3>Histórico unificado</h3>
-        <p>Todo o contexto do cliente em um só lugar, independente do canal. Busca avançada e exportação em PDF.</p>
+        <p>Todo o contexto do cliente num lugar só, independente do canal.</p>
         <div class="feature-metric">Zero “pode repetir?”</div>
       </div>
-
       <div class="feature-card">
         <div class="feature-icon">📢</div>
         <h3>Campanhas segmentadas</h3>
-        <p>Envie mensagens e acompanhe respostas dentro da própria plataforma.</p>
+        <p>Disparo em massa com resposta dentro da plataforma.</p>
         <div class="feature-metric">Follow-up sem planilha</div>
       </div>
     </div>
   </section>
 
+  <!-- FORM: AGENDAR DEMO -->
+  <section class="form-section" id="agendar">
+    <div class="section-headline" style="margin-bottom:30px;">
+      <h2>Agende uma demonstração</h2>
+      <p>Conte pra gente sobre sua operação. Em até 1 dia útil, retornamos com um plano sob medida.</p>
+    </div>
+
+    <div class="form-wrap">
+      <form class="form-card" action="https://exemplo.com/api/agendar-demo" method="POST">
+        <h3>Solicitar contato</h3>
+        <p class="lead">Preencha seus dados para criarmos um ticket comercial e, se desejar, já abrir oportunidade no CRM.</p>
+
+        <!-- Honeypot (anti-spam) -->
+        <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"/>
+
+        <div class="form-grid">
+          <div>
+            <label for="nome">Nome do solicitante *</label>
+            <input id="nome" name="nome" type="text" placeholder="Seu nome completo" required/>
+          </div>
+          <div>
+            <label for="empresa">Nome da empresa *</label>
+            <input id="empresa" name="empresa" type="text" placeholder="Razão social ou nome fantasia" required/>
+          </div>
+
+          <div>
+            <label for="email">E-mail do solicitante *</label>
+            <input id="email" name="email" type="email" placeholder="voce@empresa.com" required/>
+          </div>
+          <div>
+            <label for="telefone">Telefone/WhatsApp *</label>
+            <input id="telefone" name="telefone" type="tel" placeholder="(00) 00000-0000" required/>
+          </div>
+
+          <div>
+            <label for="tamanho">Quantidade de funcionários *</label>
+            <select id="tamanho" name="tamanho" required>
+              <option value="" disabled selected>Selecione…</option>
+              <option>1–10</option>
+              <option>11–50</option>
+              <option>51–200</option>
+              <option>201–1000</option>
+              <option>1000+</option>
+            </select>
+          </div>
+
+          <div class="full">
+            <label>Interesse de uso (selecione 1 ou mais) *</label>
+            <div class="choices">
+              <label class="chip"><input type="checkbox" name="interesse[]" value="Vendas" required/> Vendas</label>
+              <label class="chip"><input type="checkbox" name="interesse[]" value="FAQ"/> FAQ</label>
+              <label class="chip"><input type="checkbox" name="interesse[]" value="Suporte"/> Suporte</label>
+              <label class="chip"><input type="checkbox" name="interesse[]" value="IA"/> IA</label>
+              <label class="chip"><input type="checkbox" name="interesse[]" value="Cobrança"/> Cobrança</label>
+              <label class="chip"><input type="checkbox" name="interesse[]" value="Agendamentos"/> Agendamentos</label>
+              <label class="chip"><input type="checkbox" name="interesse[]" value="Marketing"/> Marketing</label>
+            </div>
+          </div>
+
+          <div class="full">
+            <label for="mensagem">Contexto (opcional)</label>
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="Ex.: Canal prioritário, integrações, metas de SLA…"></textarea>
+          </div>
+
+          <div class="full consent">
+            <input id="lgpd" type="checkbox" name="consentimento" required/>
+            <label for="lgpd">Estou de acordo com os <a href="#termos" style="color:var(--primary);text-decoration:underline">Termos de Uso</a> e a <a href="#privacidade" style="color:var(--primary);text-decoration:underline">Política de Privacidade</a>, e autorizo contato para fins comerciais.</label>
+          </div>
+
+          <div class="full submit-row">
+            <button type="submit" class="btn-submit">Enviar solicitação</button>
+            <span class="note">Responderemos em até 1 dia útil.</span>
+          </div>
+        </div>
+
+        <!-- Metadados úteis (opcional) -->
+        <input type="hidden" name="origem" value="Site - Agendar Demo"/>
+        <input type="hidden" name="canal" value="Web"/>
+      </form>
+
+      <aside class="side-card">
+        <h4>O que acontece depois?</h4>
+        <div class="side-bullets">
+          <div class="side-item"><div class="dot"></div><div>Seu pedido vira um <strong>ticket comercial</strong> imediatamente.</div></div>
+          <div class="side-item"><div class="dot"></div><div>Validamos cenário e sugerimos fluxo de <strong>chatbot</strong> com integrações.</div></div>
+          <div class="side-item"><div class="dot"></div><div>Se desejar, já criamos a <strong>oportunidade no CRM</strong> com seu time.</div></div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
   <!-- STATS -->
   <section class="stats">
-    <h2 class="section-title-stats">Números que importam pro seu CFO e pro Head de Vendas</h2>
+    <h2 class="section-title-stats">Números que importam pro seu CFO e pro seu Head de Vendas</h2>
     <div class="stats-grid">
       <div class="stat-card"><h2>99.5%</h2><p>Uptime Garantido</p></div>
       <div class="stat-card"><h2>5+</h2><p>Canais Integrados</p></div>
       <div class="stat-card"><h2>R$ 0</h2><p>Taxa de Setup</p></div>
       <div class="stat-card"><h2>R$ 0</h2><p>Taxa por Usuário</p></div>
-    </div>
-  </section>
-
-  <!-- AGENDAR DEMO (Freshdesk) -->
-  <section class="cta-section" id="agendar">
-    <div class="cta-inner">
-      <h2>Pronto para ver na prática?</h2>
-      <p>Preencha o formulário abaixo para <strong>Agendar uma Demonstração</strong>. Um especialista NineChat entrará em contato em breve.</p>
-      <div class="cta-card">
-        <!-- Freshdesk widget -->
-        <script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>
-        <style type="text/css" media="screen, projection">
-          @import url(https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.css);
-        </style>
-        <iframe title="Feedback Form" class="freshwidget-embedded-form" id="freshwidget-embedded-form"
-          src="https://ninechatcom.freshdesk.com/widgets/feedback_widget/new?&widgetType=embedded&formTitle=Agendar+Demo&submitTitle=Solicitar+Demo&submitThanks=Obrigado!+Recebemos+sua+solicita%C3%A7%C3%A3o.+Um+especialista+entrar%C3%A1+em+contato+em+breve+pelo+e-mail+informado.&searchArea=no"
-          scrolling="no" height="500px" width="100%" frameborder="0">
-        </iframe>
-      </div>
-      <div class="cta-legal">
-        Ao enviar, você concorda com nossa
-        <a href="#privacidade" style="color:#fff;text-decoration:underline">Política de Privacidade</a>,
-        <a href="#termos" style="color:#fff;text-decoration:underline">Termos de Uso</a>
-        e com o tratamento de dados conforme a <strong>LGPD</strong>.
-      </div>
     </div>
   </section>
 
@@ -461,25 +463,40 @@
       <p class="sub">Perguntas que todo diretor faz antes de aprovar 😉</p>
 
       <div class="faq-item">
-        <div class="faq-q"><span>Preciso trocar meu número de WhatsApp?</span><span class="faq-toggle">+</span></div>
+        <div class="faq-q">
+          <span>Preciso trocar meu número de WhatsApp?</span><span class="faq-toggle">+</span>
+        </div>
         <div class="faq-a">Na maioria dos casos não. Cuidamos da migração, mantemos histórico e evitamos queda do canal comercial.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q"><span>O chatbot substitui minha equipe humana?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">Não. Ele tira o repetitivo (rastreio, boleto, reagendamento, dúvidas básicas) e seu time foca no que gera valor e fechamento.</div>
+        <div class="faq-q">
+          <span>Isso substitui minha equipe humana?</span><span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Não. A ideia é tirar o repetitivo com <strong>chatbot</strong> e deixar seu time no que gera valor e fechamento.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q"><span>E se meu volume de mensagens explodir?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">Melhor ainda. Nosso modelo não cobra “por usuário logado”. Você escala atendimento sem multiplicar custo fixo por operador.</div>
+        <div class="faq-q">
+          <span>E se meu volume de mensagens explodir?</span><span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Melhor ainda. Nosso modelo não cobra “por usuário logado”. Você escala sem multiplicar custo fixo por operador.</div>
       </div>
 
       <div class="faq-item">
-        <div class="faq-q"><span>Integra com meu CRM/ERP?</span><span class="faq-toggle">+</span></div>
-        <div class="faq-a">Sim. Integrações nativas e via Webhook / API para enviar e receber dados em tempo real.</div>
+        <div class="faq-q">
+          <span>Integram com meu CRM/ERP?</span><span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">Sim. Integrações nativas e via Webhook/API para enviar informação em tempo real para o que você já usa.</div>
       </div>
     </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-section">
+    <h2>Pronto para rodar atendimento de outro nível?</h2>
+    <p>Mostramos, na prática, como reduzir custo operacional e acelerar conversão em menos de 30 dias.</p>
+    <button class="btn-primary" data-scroll="#agendar">Agendar Demonstração Gratuita →</button>
   </section>
 
   <!-- FOOTER -->
@@ -491,23 +508,22 @@
       </div>
       <div class="footer-section">
         <h3>Produto</h3>
-        <a href="#fluxos">Fluxos</a>
-        <a href="#setores">Setores</a>
+        <a href="#casos">Casos de Uso</a>
         <a href="#integracoes">Integrações</a>
         <a href="#recursos">Plataforma</a>
+        <a href="#agendar">Agendar Demo</a>
       </div>
       <div class="footer-section">
         <h3>Empresa</h3>
-        <a href="#">Sobre Nós</a>
-        <a href="#">Carreiras</a>
-        <a href="#">Blog</a>
-        <a href="#agendar">Contato</a>
-      </div>
-      <div class="footer-section" id="privacidade">
-        <h3>Legal</h3>
+        <a href="#termos">Termos de Uso</a>
         <a href="#privacidade">Política de Privacidade</a>
-        <a href="#termos" id="termos">Termos de Uso</a>
-        <a href="#lgpd">LGPD</a>
+        <a href="#">Status</a>
+        <a href="#">API</a>
+      </div>
+      <div class="footer-section">
+        <h3>Suporte</h3>
+        <a href="#">Central de Ajuda</a>
+        <a href="#">Documentação</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -517,20 +533,21 @@
   </footer>
 
   <script>
-    // Smooth scroll
-    document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.addEventListener('click',e=>{
-        const target=document.querySelector(a.getAttribute('href'));
-        if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth',block:'start'}); }
-      });
+    // Smooth scroll (links e botões com data-scroll)
+    function go(el){
+      const target = document.querySelector(el.getAttribute('data-scroll') || el.getAttribute('href'));
+      if(target){ target.scrollIntoView({behavior:'smooth', block:'start'}); }
+    }
+    document.querySelectorAll('[data-scroll], a[href^="#"]').forEach(el=>{
+      el.addEventListener('click', e=>{ e.preventDefault(); go(el); });
     });
 
     // Navbar scroll effect
-    const navEl=document.querySelector('nav');
-    window.addEventListener('scroll',()=>{ window.scrollY>100?navEl.classList.add('scrolled'):navEl.classList.remove('scrolled'); });
+    const navEl = document.querySelector('nav');
+    window.addEventListener('scroll', ()=>{ window.scrollY>100 ? navEl.classList.add('scrolled') : navEl.classList.remove('scrolled'); });
 
-    // Reveal animation
-    const observer=new IntersectionObserver((entries)=>{
+    // Animate in
+    const observer = new IntersectionObserver((entries)=>{
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.style.opacity='0';
@@ -543,12 +560,12 @@
           observer.unobserve(entry.target);
         }
       });
-    },{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-    document.querySelectorAll('.benefit-card,.conv-card,.nicho-card,.integration-card,.feature-card,.stat-card').forEach(el=>observer.observe(el));
+    },{threshold:.1, rootMargin:'0px 0px -50px 0px'});
+    document.querySelectorAll('.benefit-card,.conv-card,.integration-card,.feature-card,.stat-card').forEach(el=>observer.observe(el));
 
     // FAQ toggle
     document.querySelectorAll('.faq-item').forEach(item=>{
-      item.addEventListener('click',()=>item.classList.toggle('open'));
+      item.addEventListener('click', ()=>item.classList.toggle('open'));
     });
   </script>
 </body>
