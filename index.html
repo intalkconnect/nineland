@@ -113,7 +113,7 @@
 
     /* ====== FORM (Agendar Demo) ====== */
     .form-section{padding:120px 5%;background:#fff}
-    .form-wrap{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:32px}
+    .form-wrap{max-width:900px;margin:0 auto}
     .form-card{background:#fff;border:1px solid #E5E7EB;border-radius:20px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.06)}
     .form-card h3{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
     .form-card p.lead{color:var(--gray);margin-bottom:20px}
@@ -132,11 +132,6 @@
     .btn-submit{background:var(--primary);color:#fff;border:none;border-radius:999px;padding:14px 22px;font-weight:700;cursor:pointer}
     .btn-submit:hover{filter:brightness(1.05)}
     .note{font-size:.8rem;color:var(--gray)}
-    .side-card{background:linear-gradient(135deg,#0066FF 0%,#00D9B8 100%);color:#fff;border-radius:20px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,.12)}
-    .side-card h4{font-size:1.2rem;margin-bottom:10px}
-    .side-bullets{display:grid;gap:10px}
-    .side-item{display:flex;gap:10px;align-items:flex-start}
-    .side-item .dot{width:10px;height:10px;border-radius:50%;background:#00ffb3;box-shadow:0 0 10px rgba(0,255,179,.8);margin-top:7px}
 
     /* ====== CTA FINAL / FOOTER ====== */
     .cta-section{padding:120px 5%;background:linear-gradient(135deg,var(--primary) 0%,var(--secondary) 100%);text-align:center;color:#fff}
@@ -146,9 +141,6 @@
     .footer-section a:hover{color:#fff}
 
     /* ====== RESPONSIVO ====== */
-    @media (max-width: 992px){
-      .form-wrap{grid-template-columns:1fr}
-    }
     @media (max-width: 768px){
       .hero-content{grid-template-columns:1fr;padding:140px 5% 80px;gap:50px}
       .hero-text h1{font-size:2rem}
@@ -410,6 +402,9 @@
               <label class="chip"><input type="checkbox" name="interesse[]" value="Cobrança"/> Cobrança</label>
               <label class="chip"><input type="checkbox" name="interesse[]" value="Agendamentos"/> Agendamentos</label>
               <label class="chip"><input type="checkbox" name="interesse[]" value="Marketing"/> Marketing</label>
+              <label class="chip"><input type="checkbox" name="interesse[]" value="Provedor de Internet"/> Provedor de Internet</label>
+              <label class="chip"><input type="checkbox" name="interesse[]" value="Clínicas"/> Clínicas</label>
+              <label class="chip"><input type="checkbox" name="interesse[]" value="Outros"/> Outros</label>
             </div>
           </div>
 
@@ -433,15 +428,6 @@
         <input type="hidden" name="origem" value="Site - Agendar Demo"/>
         <input type="hidden" name="canal" value="Web"/>
       </form>
-
-      <aside class="side-card">
-        <h4>O que acontece depois?</h4>
-        <div class="side-bullets">
-          <div class="side-item"><div class="dot"></div><div>Seu pedido vira um <strong>ticket comercial</strong> imediatamente.</div></div>
-          <div class="side-item"><div class="dot"></div><div>Validamos cenário e sugerimos fluxo de <strong>chatbot</strong> com integrações.</div></div>
-          <div class="side-item"><div class="dot"></div><div>Se desejar, já criamos a <strong>oportunidade no CRM</strong> com seu time.</div></div>
-        </div>
-      </aside>
     </div>
   </section>
 
