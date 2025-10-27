@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="facebook-domain-verification" content="atga4be72k1s1u3vbrwyude95ytl7i" />
-  <title>NineChat - Plataforma Oficial de Atendimento Omnichannel</title>
+  <title>NineChat - Plataa Oficial de Atendimento Omnichannel</title>
 
   <style>
     /* ====== base / tokens ====== */
@@ -434,6 +434,7 @@
         <!-- Metadados úteis (opcional) -->
         <input type="hidden" name="origem" value="Site - Agendar Demo"/>
         <input type="hidden" name="canal" value="Web"/>
+        <div id="form-status" aria-live="polite" style="margin-top:12px;"></div>
       </form>
     </div>
   </section>
@@ -497,13 +498,13 @@
     <div class="footer-content">
       <div class="footer-section">
         <h3>NineChat</h3>
-        <p>Plataforma omnichannel para empresas que querem crescer com chatbot, controle e escala.</p>
+        <p>Plataa omnichannel para empresas que querem crescer com chatbot, controle e escala.</p>
       </div>
       <div class="footer-section">
         <h3>Produto</h3>
         <a href="#casos">Casos de Uso</a>
         <a href="#integracoes">Integrações</a>
-        <a href="#recursos">Plataforma</a>
+        <a href="#recursos">Plataa</a>
         <a href="#agendar">Agendar Demo</a>
       </div>
       <div class="footer-section">
@@ -521,7 +522,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 NineChat - Plataforma Omnichannel. Todos os direitos reservados.</p>
+      <p>&copy; 2025 NineChat - Plataa Omnichannel. Todos os direitos reservados.</p>
       <p style="margin-top:10px;">Parceiro Oficial Meta Business Partner 🤝</p>
     </div>
   </footer>
@@ -545,11 +546,11 @@
       entries.forEach(entry=>{
         if(entry.isIntersecting){
           entry.target.style.opacity='0';
-          entry.target.style.transform='translateY(20px)';
+          entry.target.style.trans='translateY(20px)';
           setTimeout(()=>{
             entry.target.style.transition='all .6s ease';
             entry.target.style.opacity='1';
-            entry.target.style.transform='translateY(0)';
+            entry.target.style.trans='translateY(0)';
           },100);
           observer.unobserve(entry.target);
         }
@@ -561,6 +562,75 @@
     document.querySelectorAll('.faq-item').forEach(item=>{
       item.addEventListener('click', ()=>item.classList.toggle('open'));
     });
+
+    (function () {
+    const form = document.querySelector('form.form-card');
+    const statusBox = document.getElementById('form-status');
+    const submitBtn = form.querySelector('.btn-submit');
+
+    function setStatus(type, msg) {
+      statusBox.innerHTML = '';
+      const el = document.createElement('div');
+      el.role = 'status';
+      el.style.padding = '12px 16px';
+      el.style.borderRadius = '12px';
+      el.style.marginTop = '8px';
+      el.style.fontSize = '.95rem';
+      el.style.border = '1px solid';
+      if (type === 'ok') {
+        el.style.background = '#ECFDF5';
+        el.style.color = '#065F46';
+        el.style.borderColor = '#A7F3D0';
+      } else {
+        el.style.background = '#FEF2F2';
+        el.style.color = '#991B1B';
+        el.style.borderColor = '#FECACA';
+      }
+      el.textContent = msg;
+      statusBox.appendChild(el);
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // bloqueia duplo clique
+      submitBtn.disabled = true;
+      const originalText = submitBtn.textContent;
+      submitBtn.textContent = 'Enviando…';
+
+      try {
+        // monta body x-www-form-urlencoded (igual ao submit nativo)
+        const fd = new FormData(form);
+        const body = new URLSearchParams();
+        for (const [k, v] of fd.entries()) body.append(k, v);
+
+        const resp = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+          body
+        });
+
+        if (resp.status === 204 || (resp.ok && resp.headers.get('content-length') === '0')) {
+          // sucesso (sua API retorna 204)
+          setStatus('ok', 'Solicitação enviada com sucesso! Em breve um especialista entrará em contato.');
+          form.reset();
+        } else if (resp.ok) {
+          // caso sua API devolva JSON/201 em algum momento
+          setStatus('ok', 'Solicitação enviada com sucesso! Em breve um especialista entrará em contato.');
+          form.reset();
+        } else {
+          let details = '';
+          try { details = (await resp.json()).details || ''; } catch (_) {}
+          setStatus('err', 'Não foi possível enviar agora. Tente novamente em instantes.' + (details ? ` (${JSON.stringify(details)})` : ''));
+        }
+      } catch (err) {
+        setStatus('err', 'Falha de rede. Verifique sua conexão e tente novamente.');
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }
+    });
+  })();
   </script>
 </body>
 </html>
