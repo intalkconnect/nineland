@@ -1,149 +1,138 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-  <title>Política de Uso da Plataforma • NineChat</title>
-  <link rel="icon" href="/image/favicon.png">
-  <style>
-    :root{
-      /* ajuste a altura conforme sua nav real */
-      --nav-h: 76px;
-      --primary:#0066FF; --primary-dark:#0052CC; --dark:#1A1F36; --gray:#6B7280; --light:#F9FAFB; --border:#E5E7EB; --white:#fff;
-    }
-    *{box-sizing:border-box;margin:0;padding:0}
-    body.legal-page{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu',sans-serif;color:var(--dark);background:var(--white);line-height:1.6;padding-top:var(--nav-h)}
-    /* NAV (igual ao site) */
-    nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:0 5%;
-      background:linear-gradient(135deg,var(--primary),var(--primary-dark));box-shadow:0 2px 12px rgba(0,0,0,.12)}
-    .logo{height:36px}
-    .nav-links{display:flex;gap:32px;list-style:none}
-    .nav-links a{color:#fff;text-decoration:none;opacity:.9;font-weight:500}
-    .nav-links a:hover{opacity:1}
-    .cta-nav{background:#fff;color:var(--primary);border:none;border-radius:999px;padding:10px 20px;font-weight:700;cursor:pointer}
-    /* LAYOUT LEGAL */
-    .wrap{max-width:1100px;margin:24px auto;padding:0 5%}
-    .header{display:flex;gap:12px;align-items:center;margin:12px 0 16px}
-    .hIcon{background:#eef4ff;border:1px solid #dbe7ff;color:var(--primary);width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:700}
-    .hTitle{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;color:#0f172a}
-    .hSub{color:var(--gray);font-size:.9rem}
-    .grid{display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:start}
-    .toc{position:sticky;top:calc(var(--nav-h) + 16px)}
-    .tocInner{border:1px solid var(--border);border-radius:14px;padding:14px;background:#fff}
-    .tocTitle{font-weight:700;font-size:.9rem;margin-bottom:10px;color:#111827}
-    .tocList{display:flex;flex-direction:column;gap:8px}
-    .tocLink{color:#0f172a;text-decoration:none;font-size:.92rem}
-    .tocLink:hover{color:var(--primary)}
-    .panel{border:1px solid var(--border);border-radius:14px;background:#fff}
-    .contentScroll{padding:22px;max-height:none}
-    .article h2{font-size:1.15rem;margin:18px 0 8px}
-    .article p, .article ul{color:#374151;font-size:.98rem}
-    .article ul{padding-left:20px}
-    /* âncoras não ficarem escondidas sob a nav fixa */
-    [id]{scroll-margin-top:calc(var(--nav-h) + 16px)}
-    /* FAB topo */
-    .fab{position:fixed;right:18px;bottom:18px;background:var(--primary);color:#fff;border:none;width:40px;height:40px;border-radius:999px;
-      font-weight:800;cursor:pointer;box-shadow:0 10px 20px rgba(0,0,0,.15)}
-    @media (max-width: 900px){ .grid{grid-template-columns:1fr} .toc{position:relative;top:auto} }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Uso da Plataforma – NineChat</title>
+<style>
+/* ===== FIX NAV / PAGE LAYOUT ===== */
+:root{ --nav-h: 76px; --primary:#0066FF; --dark:#1A1F36; --gray:#6B7280; --border:#E5E7EB; --bg:#fff; }
+body.legal-page{ padding-top: var(--nav-h); font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu',sans-serif; color:var(--dark); background:var(--bg); margin:0 }
+[id]{ scroll-margin-top: calc(var(--nav-h) + 16px); }
+/* ===== NAV (mesmo estilo do site) ===== */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 5%;
+background:linear-gradient(135deg,#0066FF,#0052CC); color:#fff; z-index:1000; box-shadow:0 2px 12px rgba(0,0,0,.12);}
+.nav-links{display:flex;gap:32px;list-style:none;margin:0;padding:0}
+.nav-links a{color:#fff;text-decoration:none;font-weight:500;opacity:.9}
+.nav-links a:hover{opacity:1}
+.logo{height:36px}
+.cta-nav{background:#fff;color:#0066FF;border:none;border-radius:999px;padding:10px 20px;font-weight:700;cursor:pointer}
+/* ===== LEGAL LAYOUT ===== */
+.wrap{max-width:1100px;margin:24px auto;padding:0 5%}
+.header{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.hIcon{display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:#EEF2FF;color:#1E3A8A;font-weight:800}
+.hTitle{margin:0;font-size:1.6rem}
+.hSub{color:var(--gray);font-size:.9rem}
+.grid{display:grid;grid-template-columns:260px 1fr;gap:24px;margin-top:16px}
+.toc{position:sticky;top:calc(var(--nav-h) + 16px)}
+.tocTitle{font-weight:800;margin-bottom:10px}
+.tocList{display:flex;flex-direction:column;gap:8px}
+.tocList a{color:#111827;text-decoration:none;font-size:.95rem}
+.tocList a:hover{color:var(--primary)}
+.panel{border:1px solid var(--border);border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.05);background:#fff}
+.content{padding:24px 22px}
+.content h2{font-size:1.1rem;margin:18px 0 8px}
+.content p, .content li{color:var(--gray)}
+.fab{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;border:none;background:var(--primary);color:#fff;font-weight:800;cursor:pointer}
+@media(max-width:900px){.grid{grid-template-columns:1fr}.toc{position:static}}
+</style>
 </head>
 <body class="legal-page">
 
-  <nav>
-    <img class="logo" src="/image/logo-front.png" alt="NineChat">
-    <ul class="nav-links">
-      <li><a href="/#casos">Casos de Uso</a></li>
-      <li><a href="/#integracoes">Integrações</a></li>
-      <li><a href="/#recursos">Plataforma</a></li>
-      <li><a href="/#agendar">Agendar</a></li>
-      <li><a href="/#faq">FAQ</a></li>
-    </ul>
-    <button class="cta-nav" onclick="location.href='/'">Voltar ao site</button>
-  </nav>
+<!-- NAV (igual do site) -->
+<nav>
+  <img src="/image/logo-front.png" alt="NineChat" class="logo">
+  <ul class="nav-links">
+    <li><a href="/">Início</a></li>
+    <li><a href="/#casos">Casos de Uso</a></li>
+    <li><a href="/#integracoes">Integrações</a></li>
+    <li><a href="/#recursos">Plataforma</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+  </ul>
+  <button class="cta-nav" onclick="location.href='/#agendar'">Agendar →</button>
+</nav>
 
-  <main class="wrap">
-    <header class="header">
-      <div class="hIcon">📄</div>
-      <div>
-        <div class="hTitle">Política de Uso da Plataforma</div>
-        <div class="hSub">NineChat · Atualizado em 17/09/2024</div>
-      </div>
-    </header>
-
-    <div class="grid">
-      <aside class="toc">
-        <div class="tocInner">
-          <div class="tocTitle">Neste documento</div>
-          <nav class="tocList">
-            <a class="tocLink" href="#intro">Introdução e Escopo</a>
-            <a class="tocLink" href="#conta">Conta, Acesso e Credenciais</a>
-            <a class="tocLink" href="#uso-aceitavel">Uso Aceitável (AUP)</a>
-            <a class="tocLink" href="#canais">Canais e Serviços de Terceiros</a>
-            <a class="tocLink" href="#conteudo">Conteúdo e Moderação</a>
-            <a class="tocLink" href="#apis">APIs, Chatbot e Limites</a>
-            <a class="tocLink" href="#compliance">Conformidade e Abusos</a>
-            <a class="tocLink" href="#atualizacoes">Atualizações</a>
-            <a class="tocLink" href="#contato">Contato</a>
-          </nav>
-        </div>
-      </aside>
-
-      <section class="panel">
-        <div class="contentScroll">
-          <article class="article">
-            <section id="intro">
-              <h2>Introdução e Escopo</h2>
-              <p>Esta Política define regras de conduta e uso aceitável da plataforma <strong>NineChat</strong>. Ao utilizar o serviço, você concorda em seguir estas diretrizes para proteger usuários, canais integrados e o ecossistema.</p>
-            </section>
-
-            <h2 id="conta">Conta, Acesso e Credenciais</h2>
-            <ul>
-              <li>Proteja suas credenciais; não compartilhe senhas ou chaves de API.</li>
-              <li>Mantenha dados cadastrais corretos e atualizados.</li>
-              <li>Notifique-nos imediatamente sobre acessos não autorizados ou incidentes de segurança.</li>
-            </ul>
-
-            <h2 id="uso-aceitavel">Uso Aceitável (AUP)</h2>
-            <ul>
-              <li>Proibidos: spam, ilícitos, assédio, discriminação, violação de direitos.</li>
-              <li>Não colete/ use dados pessoais sem base legal e transparência.</li>
-              <li>Não contorne políticas dos Canais (números não autorizados; automações que violem termos).</li>
-              <li>Não tente explorar ou reverter engenharia da plataforma.</li>
-            </ul>
-            <p>Use bases de contato válidas e ofereça opt-out quando aplicável.</p>
-
-            <h2 id="canais">Canais e Serviços de Terceiros</h2>
-            <p>A integração com WhatsApp, Instagram, Telegram, Facebook e outros está sujeita também aos termos desses provedores.</p>
-
-            <h2 id="conteudo">Conteúdo do Usuário e Moderação</h2>
-            <ul>
-              <li>Você é responsável pelos conteúdos e fluxos enviados.</li>
-              <li>Podemos moderar em casos de abuso, risco de segurança ou ordem legal.</li>
-            </ul>
-
-            <h2 id="apis">APIs, Chatbot e Limites Técnicos</h2>
-            <ul>
-              <li>Respeite documentação, limites e quotas.</li>
-              <li>Automação deve cumprir leis e políticas dos Canais.</li>
-            </ul>
-
-            <h2 id="compliance">Conformidade e Reporte de Abusos</h2>
-            <ul>
-              <li>Cumpra leis de proteção de dados e anticorrupção.</li>
-              <li>Reporte incidentes para <a href="mailto:abuso@ninechat.com.br">abuso@ninechat.com.br</a>.</li>
-            </ul>
-
-            <h2 id="atualizacoes">Atualizações desta Política</h2>
-            <p>Podemos atualizar este documento. Mudanças relevantes serão comunicadas.</p>
-
-            <h2 id="contato">Contato</h2>
-            <p>Dúvidas: <a href="mailto:abuso@ninechat.com.br">abuso@ninechat.com.br</a>.</p>
-          </article>
-        </div>
-      </section>
+<div class="wrap">
+  <header class="header">
+    <div class="hIcon">📄</div>
+    <div>
+      <h1 class="hTitle">Política de Uso da Plataforma</h1>
+      <div class="hSub">NineChat · Atualizado em 17/09/2024</div>
     </div>
-  </main>
+  </header>
 
-  <button class="fab" title="Topo" aria-label="Topo" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+  <div class="grid">
+    <aside class="toc">
+      <div class="tocTitle">Neste documento</div>
+      <nav class="tocList">
+        <a href="#intro">Introdução e Escopo</a>
+        <a href="#conta">Conta, Acesso e Credenciais</a>
+        <a href="#uso-aceitavel">Uso Aceitável (AUP)</a>
+        <a href="#canais">Canais e Serviços de Terceiros</a>
+        <a href="#conteudo">Conteúdo do Usuário e Moderação</a>
+        <a href="#apis">APIs, Chatbot e Limites Técnicos</a>
+        <a href="#compliance">Conformidade e Reporte de Abusos</a>
+        <a href="#atualizacoes">Atualizações desta Política</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </aside>
+
+    <section class="panel">
+      <div class="content">
+        <section id="intro">
+          <h2>Introdução e Escopo</h2>
+          <p>Esta Política define regras de conduta e uso aceitável da plataforma <strong>NineChat</strong>. Ao utilizar o serviço, você concorda em seguir estas diretrizes para proteger usuários, canais integrados e o ecossistema.</p>
+        </section>
+
+        <h2 id="conta">Conta, Acesso e Credenciais</h2>
+        <ul>
+          <li>Proteja suas credenciais; não compartilhe senhas ou chaves de API.</li>
+          <li>Mantenha dados cadastrais corretos e atualizados.</li>
+          <li>Notifique-nos imediatamente sobre acessos não autorizados ou incidentes de segurança.</li>
+        </ul>
+
+        <h2 id="uso-aceitavel">Uso Aceitável (AUP)</h2>
+        <p>São proibidas, entre outras, as seguintes condutas:</p>
+        <ul>
+          <li>Spam, conteúdo ilícito, assédio, discriminação ou violação de direitos.</li>
+          <li>Coletar/usar dados pessoais sem base legal e transparência.</li>
+          <li>Contornar políticas dos Canais (ex.: números não autorizados; chatbots que violem termos).</li>
+          <li>Tentar explorar ou reverter engenharia da plataforma.</li>
+        </ul>
+        <p>O uso deve observar bases de contato válidas e mecanismos de opt-out quando aplicáveis.</p>
+
+        <h2 id="canais">Canais e Serviços de Terceiros</h2>
+        <p>A plataforma integra Canais externos (WhatsApp, Telegram, Instagram, Facebook). O uso desses Canais está sujeito também aos termos e políticas dos respectivos provedores.</p>
+
+        <h2 id="conteudo">Conteúdo do Usuário e Moderação</h2>
+        <ul>
+          <li>Você é responsável pelos conteúdos e fluxos enviados por meio da plataforma.</li>
+          <li>Podemos investigar e adotar medidas em casos de abuso, risco de segurança ou ordem legal.</li>
+        </ul>
+
+        <h2 id="apis">APIs, Chatbot e Limites Técnicos</h2>
+        <ul>
+          <li>Respeite documentação, limites e quotas técnicas.</li>
+          <li>Não interfira em mecanismos de segurança, medição ou autenticação.</li>
+          <li>Chatbots devem obedecer às regras dos Canais e às leis aplicáveis.</li>
+        </ul>
+
+        <h2 id="compliance">Conformidade e Reporte de Abusos</h2>
+        <ul>
+          <li>Mantenha conformidade com leis anticorrupção, proteção de dados e demais normas.</li>
+          <li>Reporte incidentes para <a href="mailto:abuso@ninechat.com.br">abuso@ninechat.com.br</a>.</li>
+        </ul>
+
+        <h2 id="atualizacoes">Atualizações desta Política</h2>
+        <p>Podemos atualizar esta Política. Mudanças relevantes serão comunicadas e vigorarão a partir da data informada no topo.</p>
+
+        <h2 id="contato">Contato</h2>
+        <p>Dúvidas? <a href="mailto:abuso@ninechat.com.br">abuso@ninechat.com.br</a></p>
+      </div>
+    </section>
+  </div>
+</div>
+
+<button class="fab" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 </body>
 </html>
